@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>B2 Reading Comprehension — Red Card Final</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pitch: #1B5E3F;
+    --pitch-dark: #123F2A;
+    --pitch-line: #2E7D52;
+    --cream: #F6F4EC;
+    --card-tint: #EDF1E9;
+    --ink: #142B22;
+    --gold: #D4A62A;
+    --gold-dark: #A97F16;
+    --red: #C0392B;
+    --red-tint: #FBEAE7;
+    --green-tint: #E4F3E9;
+    --grey: #5B6660;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    padding-bottom: 4rem;
+  }
+  .wrap{
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.4rem;
+  }
+
+  /* ===== Scoreboard header ===== */
+  .scoreboard{
+    background: linear-gradient(180deg, var(--pitch) 0%, var(--pitch-dark) 100%);
+    color: #fff;
+    padding: 2.6rem 0 2.2rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid var(--gold);
+  }
+  .scoreboard::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 40px, transparent 40px 80px);
+    pointer-events:none;
+  }
+  .kicker{
+    font-family:'Roboto Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    color: var(--gold);
+    text-transform:uppercase;
+    margin:0 0 0.6rem;
+  }
+  .scoreboard h1{
+    font-family:'Oswald', sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-size:2.1rem;
+    line-height:1.15;
+    margin:0 0 0.55rem;
+  }
+  .scoreboard .sub{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    color:#DCEAE0;
+    font-size:1.02rem;
+    margin:0;
+    max-width:56ch;
+  }
+  .score-chip{
+    position:absolute;
+    top:2rem; right:1.4rem;
+    background: var(--pitch-dark);
+    border:2px solid var(--gold);
+    border-radius:8px;
+    padding:0.5rem 0.9rem;
+    font-family:'Roboto Mono', monospace;
+    text-align:center;
+    min-width:88px;
+  }
+  .score-chip .label{ font-size:0.6rem; letter-spacing:0.15em; color:var(--gold); display:block;}
+  .score-chip .val{ font-size:1.35rem; font-weight:700; color:#fff; }
+
+  /* ===== Context / article card ===== */
+  .ticket{
+    background:#fff;
+    border:1px solid #DDE3D8;
+    border-left: 6px solid var(--gold);
+    border-radius: 10px;
+    margin: -1.6rem 0 2.2rem;
+    padding: 1.3rem 1.5rem;
+    box-shadow: 0 10px 24px rgba(18,63,42,0.08);
+    position:relative;
+    z-index:2;
+  }
+  .ticket h2{
+    font-family:'Oswald', sans-serif;
+    font-size:0.98rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color: var(--pitch);
+    margin: 0 0 0.5rem;
+  }
+  .ticket p{ margin:0 0 0.9rem; line-height:1.55; color:#26362e; font-size:0.98rem; }
+  .ticket a.readlink{
+    display:inline-flex;
+    align-items:center;
+    gap:0.5rem;
+    background: var(--pitch);
+    color:#fff;
+    text-decoration:none;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:0.65rem 1.1rem;
+    border-radius:7px;
+    transition: background 0.15s ease;
+  }
+  .ticket a.readlink:hover{ background: var(--pitch-dark); }
+  .ticket .meta{
+    font-family:'Roboto Mono', monospace;
+    font-size:0.72rem;
+    color: var(--grey);
+    margin-top:0.9rem;
+  }
+
+  .instructions{
+    font-size:0.95rem;
+    color:#3c4a42;
+    line-height:1.6;
+    margin: 0 0 1.8rem;
+    padding: 0.85rem 1.1rem;
+    background: var(--card-tint);
+    border-radius: 8px;
+  }
+  .instructions b{ color: var(--pitch); }
+
+  /* ===== Questions ===== */
+  .question{
+    background:#fff;
+    border:1px solid #E1E6DB;
+    border-radius: 10px;
+    padding: 1.35rem 1.4rem 1.25rem;
+    margin-bottom: 1.1rem;
+    transition: box-shadow 0.2s ease;
+  }
+  .qnum{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:1.9rem; height:1.9rem;
+    background: var(--pitch);
+    color:#fff;
+    font-family:'Oswald', sans-serif;
+    font-weight:600;
+    font-size:0.95rem;
+    border-radius:50%;
+    margin-right:0.65rem;
+    flex-shrink:0;
+  }
+  .qtitle{
+    display:flex;
+    align-items:flex-start;
+    font-family:'Source Serif 4', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    line-height:1.4;
+    margin-bottom:0.9rem;
+    color: var(--ink);
+  }
+  .options{ list-style:none; margin:0; padding:0; }
+  .options li{ margin-bottom:0.55rem; }
+  .options label{
+    display:flex;
+    align-items:flex-start;
+    gap:0.65rem;
+    padding:0.55rem 0.75rem;
+    border:1.5px solid #E4E8DE;
+    border-radius:7px;
+    cursor:pointer;
+    font-size:0.96rem;
+    line-height:1.45;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .options label:hover{ border-color: var(--pitch-line); background: #FAFBF7; }
+  .options input[type="radio"]{
+    accent-color: var(--pitch);
+    margin-top:0.2rem;
+    flex-shrink:0;
+  }
+  .options .letter{ font-weight:700; color: var(--pitch); }
+
+  .options label.correct{
+    border-color: var(--pitch);
+    background: var(--green-tint);
+  }
+  .options label.incorrect{
+    border-color: var(--red);
+    background: var(--red-tint);
+  }
+  .options input:disabled ~ * { cursor:default; }
+
+  .explanation{
+    display:none;
+    margin-top:0.9rem;
+    padding:0.75rem 0.9rem;
+    border-radius:7px;
+    background: var(--card-tint);
+    font-size:0.9rem;
+    line-height:1.55;
+    color:#33443a;
+    border-left: 4px solid var(--pitch);
+  }
+  .explanation.show{ display:block; }
+  .explanation b{ color: var(--pitch-dark); }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    font-family:'Roboto Mono', monospace;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.06em;
+    padding:0.18rem 0.5rem;
+    border-radius:5px;
+    margin-left:0.6rem;
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+  .badge.ok{ background: var(--pitch); color:#fff; }
+  .badge.no{ background: var(--red); color:#fff; }
+
+  /* ===== Action / results ===== */
+  .actions{
+    display:flex;
+    gap:0.8rem;
+    margin-top:1.6rem;
+    flex-wrap:wrap;
+  }
+  button.whistle{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-weight:600;
+    font-size:0.95rem;
+    background: var(--gold);
+    color: var(--pitch-dark);
+    border:none;
+    padding:0.85rem 1.6rem;
+    border-radius:8px;
+    cursor:pointer;
+    transition: transform 0.12s ease, background 0.15s ease;
+  }
+  button.whistle:hover{ background:#E0B845; transform: translateY(-1px); }
+  button.whistle:disabled{ opacity:0.5; cursor:not-allowed; transform:none; }
+  button.reset{
+    font-family:'Oswald', sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    font-weight:600;
+    font-size:0.95rem;
+    background: transparent;
+    color: var(--pitch);
+    border:1.5px solid var(--pitch);
+    padding:0.85rem 1.4rem;
+    border-radius:8px;
+    cursor:pointer;
+  }
+  button.reset:hover{ background: var(--card-tint); }
+
+  .result-banner{
+    display:none;
+    margin-top:1.6rem;
+    padding:1.3rem 1.5rem;
+    border-radius:10px;
+    text-align:center;
+    font-family:'Oswald', sans-serif;
+  }
+  .result-banner.show{ display:block; }
+  .result-banner .rscore{
+    font-size:2.2rem;
+    font-weight:700;
+    letter-spacing:0.02em;
+  }
+  .result-banner .rline{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:0.98rem;
+    margin-top:0.35rem;
+  }
+  .result-banner.great{ background: var(--green-tint); color: var(--pitch-dark); }
+  .result-banner.ok-result{ background: #FDF3DE; color:#7A5A0E; }
+  .result-banner.retry{ background: var(--red-tint); color:#7A241A; }
+
+  footer{
+    text-align:center;
+    font-family:'Roboto Mono', monospace;
+    font-size:0.7rem;
+    color: var(--grey);
+    margin-top:2.4rem;
+    letter-spacing:0.04em;
+  }
+
+  @media (max-width:600px){
+    .score-chip{ position:static; display:inline-block; margin-top:1rem; }
+    .scoreboard{ padding-bottom: 2.8rem; }
+    .scoreboard h1{ font-size:1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="scoreboard">
+  <div class="wrap">
+    <p class="kicker">B2 First &middot; Reading Comprehension</p>
+    <h1>Red Card in the Final</h1>
+    <p class="sub">A multiple-choice exercise based on a World Cup final match report.</p>
+  </div>
+  <div class="score-chip" id="scoreChip">
+    <span class="label">Score</span>
+    <span class="val" id="scoreVal">0 / 6</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="ticket">
+    <h2>Before you start</h2>
+    <p>Argentina lost the 2026 World Cup final 1&ndash;0 to Spain after extra time. Chelsea midfielder Enzo Fern&aacute;ndez was sent off in stoppage time for a second bookable offence &mdash; only the sixth player ever dismissed in a World Cup final. In this opinion piece for <i>The Telegraph</i>, football writer Oliver Brown argues that the red card was a fitting end to a tournament in which Fern&aacute;ndez repeatedly behaved badly on and off the pitch.</p>
+    <a class="readlink" href="https://www.telegraph.co.uk/football/2026/07/20/enzo-fernandezs-red-card-was-a-just-ending-for-a-brat/" target="_blank" rel="noopener">Read the full article &rarr;</a>
+    <p class="meta">Oliver Brown &middot; The Telegraph &middot; 20 July 2026</p>
+  </div>
+
+  <p class="instructions"><b>Instructions:</b> Read the article at the link above carefully. Then answer questions 1&ndash;6 below. For each question, choose the answer (A, B, C or D) which you think fits best according to the text. Click <b>"Check Answers"</b> at the end to see your score and explanations.</p>
+
+  <form id="quizForm">
+    <div id="questionsContainer"></div>
+
+    <div class="actions">
+      <button type="button" class="whistle" id="checkBtn">Check Answers</button>
+      <button type="button" class="reset" id="resetBtn">Reset</button>
+    </div>
+
+    <div class="result-banner" id="resultBanner">
+      <div class="rscore" id="resultScore"></div>
+      <div class="rline" id="resultLine"></div>
+    </div>
+  </form>
+
+  <footer>MADE FOR B2 ENGLISH PRACTICE &middot; SOURCE ARTICLE &copy; THE TELEGRAPH</footer>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "What does the writer suggest about Fern\u00e1ndez's reaction when the referee showed him the red card?",
+    options: [
+      "He immediately accepted the decision without any complaint.",
+      "He reacted as if he were innocent, despite his obvious foul on Cubars\u00ed.",
+      "He walked off the pitch in tears, apologising to his teammates.",
+      "He calmly asked the referee to review the decision on video."
+    ],
+    correct: 1,
+    explain: "The writer describes Fern\u00e1ndez turning \u201Cin a heartbeat into the scolded choirboy\u201D and asking \u201CMe?\u201D, even though the foul that caused his sending-off was clear and violent."
+  },
+  {
+    q: "According to the article, what was significant about Fern\u00e1ndez's dismissal in historical terms?",
+    options: [
+      "He was only the third player ever sent off in a World Cup final.",
+      "He was the first Argentine ever sent off in a World Cup final.",
+      "He became the sixth player sent off in a World Cup final, and the third Argentine.",
+      "He was sent off for a violent act directed at the referee himself."
+    ],
+    correct: 2,
+    explain: "The article states he became only the sixth player sent off in a World Cup final, and the third Argentine to suffer that fate."
+  },
+  {
+    q: "How does the writer feel about Fern\u00e1ndez's behaviour throughout the tournament, based on the tone of the article?",
+    options: [
+      "Sympathetic, suggesting referees were unfairly harsh on him.",
+      "Neutral, simply listing events without forming a judgement.",
+      "Highly critical, portraying him as arrogant and repeatedly ill-disciplined.",
+      "Admiring, praising his combative, uncompromising style of play."
+    ],
+    correct: 2,
+    explain: "The writer's language throughout \u2014 calling him a \u201Cbrat\u201D, \u201Csnarling malcontent\u201D and the tournament's \u201Cmost dislikeable player\u201D \u2014 makes the critical tone unmistakable."
+  },
+  {
+    q: "What does the article say about Argentina's overall approach in the final itself?",
+    options: [
+      "They dominated possession but lacked a clinical finisher.",
+      "They played defensively and cynically, without registering a single shot on target.",
+      "They matched Spain's attacking quality for most of the match.",
+      "They were unlucky to lose despite creating several clear chances."
+    ],
+    correct: 1,
+    explain: "The writer notes Argentina failed to manage a single shot on target across the match, resorting instead to cynical, disruptive tackling."
+  },
+  {
+    q: "Which earlier incident does the writer mention as evidence of a pattern of poor conduct by Fern\u00e1ndez?",
+    options: [
+      "A doping ban that kept him out of a previous tournament.",
+      "A 2024 controversy after he shared a video of an offensive chant online.",
+      "A sending-off in a previous World Cup for fighting a teammate.",
+      "A public argument with his own coach after being substituted."
+    ],
+    correct: 1,
+    explain: "The article recalls a 2024 controversy in which Fern\u00e1ndez broadcast a video of himself and teammates singing a discriminatory chant."
+  },
+  {
+    q: "What does the writer suggest about Lionel Messi's role in this particular final?",
+    options: [
+      "He was the standout performer once again, inspiring a fightback.",
+      "He was largely a peripheral figure, unable to influence the game as before.",
+      "He refused to take part in the post-match ceremony out of frustration.",
+      "He publicly blamed Fern\u00e1ndez for the team's defeat afterwards."
+    ],
+    correct: 1,
+    explain: "The writer contrasts Messi's decisive role in an earlier final with this one, describing him as largely a bystander, visibly emotional but unable to change the outcome."
+  }
+];
+
+const letters = ["A", "B", "C", "D"];
+const container = document.getElementById("questionsContainer");
+
+questions.forEach((item, qi) => {
+  const qDiv = document.createElement("div");
+  qDiv.className = "question";
+
+  const titleDiv = document.createElement("div");
+  titleDiv.className = "qtitle";
+  titleDiv.innerHTML = `<span class="qnum">${qi + 1}</span><span>${item.q}</span>`;
+  qDiv.appendChild(titleDiv);
+
+  const ul = document.createElement("ul");
+  ul.className = "options";
+  item.options.forEach((opt, oi) => {
+    const li = document.createElement("li");
+    const label = document.createElement("label");
+    label.setAttribute("data-qi", qi);
+    label.setAttribute("data-oi", oi);
+    label.innerHTML = `<input type="radio" name="q${qi}" value="${oi}">
+      <span><span class="letter">${letters[oi]})</span> ${opt}</span>`;
+    li.appendChild(label);
+    ul.appendChild(li);
+  });
+  qDiv.appendChild(ul);
+
+  const expDiv = document.createElement("div");
+  expDiv.className = "explanation";
+  expDiv.id = `exp${qi}`;
+  expDiv.innerHTML = `<b>Correct answer: ${letters[item.correct]}.</b> ${item.explain}`;
+  qDiv.appendChild(expDiv);
+
+  container.appendChild(qDiv);
+});
+
+const scoreVal = document.getElementById("scoreVal");
+const checkBtn = document.getElementById("checkBtn");
+const resetBtn = document.getElementById("resetBtn");
+const resultBanner = document.getElementById("resultBanner");
+const resultScore = document.getElementById("resultScore");
+const resultLine = document.getElementById("resultLine");
+
+checkBtn.addEventListener("click", () => {
+  let score = 0;
+  let allAnswered = true;
+
+  questions.forEach((item, qi) => {
+    const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+    if (!selected) { allAnswered = false; return; }
+    const oi = parseInt(selected.value, 10);
+    if (oi === item.correct) score++;
+
+    document.querySelectorAll(`label[data-qi="${qi}"]`).forEach(label => {
+      const labOi = parseInt(label.getAttribute("data-oi"), 10);
+      const input = label.querySelector("input");
+      input.disabled = true;
+      if (labOi === item.correct) label.classList.add("correct");
+      else if (labOi === oi) label.classList.add("incorrect");
+    });
+
+    document.getElementById(`exp${qi}`).classList.add("show");
+  });
+
+  if (!allAnswered) {
+    alert("Please answer all 6 questions before checking.");
+    // undo any disabling done so far this pass is fine since loop already applied only to answered ones
+    return;
+  }
+
+  scoreVal.textContent = `${score} / 6`;
+  checkBtn.disabled = true;
+
+  resultBanner.classList.remove("great", "ok-result", "retry");
+  let cls, line;
+  if (score >= 5) { cls = "great"; line = "Excellent reading! You caught the writer's tone and the key details."; }
+  else if (score >= 3) { cls = "ok-result"; line = "Good effort — re-read the article and check the explanations below."; }
+  else { cls = "retry"; line = "Worth another read — look closely at the writer's opinion and key facts."; }
+  resultBanner.classList.add("show", cls);
+  resultScore.textContent = `${score} / 6`;
+  resultLine.textContent = line;
+  resultBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+});
+
+resetBtn.addEventListener("click", () => {
+  document.getElementById("quizForm").reset();
+  document.querySelectorAll(".options input").forEach(i => i.disabled = false);
+  document.querySelectorAll(".options label").forEach(l => l.classList.remove("correct", "incorrect"));
+  document.querySelectorAll(".explanation").forEach(e => e.classList.remove("show"));
+  resultBanner.classList.remove("show", "great", "ok-result", "retry");
+  checkBtn.disabled = false;
+  scoreVal.textContent = "0 / 6";
+});
+</script>
+
+</body>
+</html>
