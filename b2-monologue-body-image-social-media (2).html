@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B2+ Monologue — Body Image, Social Media & Wellbeing</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5c5c5c;
+    --accent: #2e6b5e;
+    --accent-light: #e8f0ee;
+    --coral: #c45d4a;
+    --coral-light: #fbeae7;
+    --blue: #3b6fa0;
+    --blue-light: #e6eef5;
+    --gold: #b08c3e;
+    --gold-light: #faf3e0;
+    --border: #e0ddd6;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 1rem;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 2.5rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--accent);
+  }
+
+  .header .level-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.9rem;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+
+  .header p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  /* CONTEXT BOX */
+  .context-box {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 2rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.88rem;
+  }
+
+  .context-box strong { color: var(--accent); }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 0;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab-panel { display: none; padding-top: 1.5rem; }
+  .tab-panel.active { display: block; }
+
+  /* CARDS */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .card h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .card h3 .icon {
+    font-size: 1.1rem;
+  }
+
+  /* FIXED SENTENCES */
+  .sentence-block {
+    background: var(--gold-light);
+    border: 1px solid #e6d9b3;
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+  }
+
+  .sentence-block .label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .sentence-block p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .sentence-block .blank {
+    display: inline-block;
+    border-bottom: 2px dashed var(--coral);
+    min-width: 120px;
+    color: var(--coral);
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    padding: 0 0.2rem;
+    margin: 0 0.15rem;
+  }
+
+  /* VOCAB GRID */
+  .vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .vocab-item {
+    background: var(--blue-light);
+    border-radius: 6px;
+    padding: 0.8rem 1rem;
+  }
+
+  .vocab-item .word {
+    font-weight: 700;
+    font-size: 0.88rem;
+    color: var(--blue);
+  }
+
+  .vocab-item .pos {
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .vocab-item .def {
+    font-size: 0.8rem;
+    color: var(--text);
+    margin-top: 0.25rem;
+  }
+
+  /* STRUCTURES TABLE */
+  .structures-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .structures-table th {
+    text-align: left;
+    background: var(--accent-light);
+    padding: 0.6rem 0.8rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .structures-table td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+
+  .structures-table tr:last-child td { border-bottom: none; }
+
+  .structures-table .structure-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* EXAMPLE MONOLOGUE */
+  .monologue-box {
+    background: linear-gradient(135deg, #f0f7f5 0%, #faf8f3 100%);
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.6rem;
+  }
+
+  .monologue-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
+  }
+
+  .monologue-box p {
+    font-size: 0.9rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.75;
+  }
+
+  .monologue-box .highlight {
+    background: rgba(46,107,94,0.1);
+    padding: 0.05rem 0.3rem;
+    border-radius: 3px;
+    font-weight: 500;
+  }
+
+  .monologue-box .connector {
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* TIP BOX */
+  .tip-box {
+    background: var(--coral-light);
+    border-left: 4px solid var(--coral);
+    padding: 1rem 1.2rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .tip-box strong { color: var(--coral); }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    padding: 0;
+  }
+
+  .checklist li {
+    padding: 0.5rem 0;
+    padding-left: 1.6rem;
+    position: relative;
+    font-size: 0.88rem;
+  }
+
+  .checklist li::before {
+    content: "☐";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 600px) {
+    .vocab-grid { grid-template-columns: 1fr; }
+    .structures-table { font-size: 0.8rem; }
+    .tab-btn { font-size: 0.75rem; padding: 0.6rem 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <span class="level-tag">B2+ Speaking — Monologue</span>
+    <h1>Body Image, Social Stereotypes <br>& Wellbeing in the Age of Social Media</h1>
+    <p>Fixed sentences, key vocabulary, useful structures, and a full model monologue to tackle this topic confidently.</p>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="context-box">
+    <strong>🎬 Inspiration:</strong> A viral video shows model Sara Sampaio (ex-Victoria's Secret Angel) proving that "the perfect body only exists on Instagram" — everything is about angles, lighting, and retouching. These videos highlight how social media creates unrealistic standards that affect everyone's mental health and self-image.
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'sentences')">Fixed Sentences</button>
+    <button class="tab-btn" onclick="openTab(event, 'vocab')">Key Vocabulary</button>
+    <button class="tab-btn" onclick="openTab(event, 'structures')">Useful Structures</button>
+    <button class="tab-btn" onclick="openTab(event, 'example')">Model Monologue</button>
+    <button class="tab-btn" onclick="openTab(event, 'checklist')">Self-Check</button>
+  </div>
+
+  <!-- ===================== TAB 1: FIXED SENTENCES ===================== -->
+  <div id="sentences" class="tab-panel active">
+    <h2 class="section-title">Ready-to-Use Sentence Frames</h2>
+    <p style="font-size:0.88rem; color:var(--muted); margin-bottom:1.2rem;">Fill in the <span class="blank" style="min-width:auto;">gaps</span> with your own ideas. These frames give you instant B2+ structure.</p>
+
+    <div class="card">
+      <h3><span class="icon">🎤</span> Opening — Introducing the topic</h3>
+
+      <div class="sentence-block">
+        <div class="label">Frame 1 — State the issue</div>
+        <p>Nowadays, there is growing concern about <span class="blank">the impact of social media on body image</span>, particularly among <span class="blank">young people / teenagers</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 2 — Connect to everyday life</div>
+        <p>It is becoming increasingly common to see <span class="blank">heavily edited photos / unrealistic beauty standards</span> on platforms such as <span class="blank">Instagram and TikTok</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 3 — Personal hook</div>
+        <p>I recently came across a video in which <span class="blank">a well-known model proved that perfect photos are just about angles and lighting</span>, and it really made me think about <span class="blank">how easily we are deceived by social media</span>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">💡</span> Developing the argument</h3>
+
+      <div class="sentence-block">
+        <div class="label">Frame 4 — Cause & effect</div>
+        <p>One of the main reasons why <span class="blank">so many people feel insecure about their appearance</span> is that <span class="blank">social media only shows an idealised version of reality</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 5 — Adding a second point</div>
+        <p>What is more, <span class="blank">society tends to judge people based on their looks</span>, which can lead to <span class="blank">low self-esteem and even mental health problems</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 6 — Contrast / concession</div>
+        <p>Although some people argue that <span class="blank">social media can be a positive space for self-expression</span>, I believe that, in most cases, it <span class="blank">puts enormous pressure on people to look a certain way</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 7 — Example</div>
+        <p>A clear example of this is <span class="blank">the fact that even professional models admit that their photos are not real</span>. This proves that <span class="blank">what we see online is often far from the truth</span>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🎯</span> Giving your opinion / Solutions</h3>
+
+      <div class="sentence-block">
+        <div class="label">Frame 8 — Opinion</div>
+        <p>From my point of view, it is essential that <span class="blank">we raise awareness about the dangers of comparing ourselves to unrealistic images</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 9 — Suggestion</div>
+        <p>I firmly believe that <span class="blank">schools and families</span> should play a more active role in <span class="blank">teaching young people to think critically about the content they consume online</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 10 — Personal reflection</div>
+        <p>Personally, I think the most important thing is to <span class="blank">accept ourselves the way we are</span> rather than <span class="blank">trying to meet impossible standards set by others</span>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🏁</span> Closing</h3>
+
+      <div class="sentence-block">
+        <div class="label">Frame 11 — Wrap up</div>
+        <p>All in all, I would say that <span class="blank">social media has a significant impact on how people perceive themselves</span>, and we need to be more <span class="blank">critical of what we see online</span>.</p>
+      </div>
+
+      <div class="sentence-block">
+        <div class="label">Frame 12 — Final thought</div>
+        <p>Ultimately, true wellbeing comes from <span class="blank">self-acceptance and healthy relationships</span>, not from <span class="blank">how many likes a photo gets</span>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== TAB 2: KEY VOCABULARY ===================== -->
+  <div id="vocab" class="tab-panel">
+    <h2 class="section-title">Key Vocabulary for This Topic</h2>
+
+    <div class="card">
+      <h3><span class="icon">📱</span> Social Media & Image</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="word">unrealistic standards</span> <span class="pos">n. pl.</span>
+          <div class="def">Impossible ideals of beauty or success that nobody can truly achieve.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to edit / retouch (a photo)</span> <span class="pos">v.</span>
+          <div class="def">To alter an image digitally to make it look better.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">body image</span> <span class="pos">n.</span>
+          <div class="def">How a person sees and feels about their own body.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to go viral</span> <span class="pos">v. phr.</span>
+          <div class="def">To spread rapidly online, reaching millions.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">filtered reality</span> <span class="pos">n.</span>
+          <div class="def">A version of life shown through beauty or camera filters.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">influencer culture</span> <span class="pos">n.</span>
+          <div class="def">The social phenomenon of people following online personalities.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to curate (a feed)</span> <span class="pos">v.</span>
+          <div class="def">To carefully select what to post, showing only the best moments.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">the highlight reel</span> <span class="pos">n.</span>
+          <div class="def">Only the best parts of someone's life shown on social media.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🧠</span> Wellbeing & Mental Health</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="word">self-esteem</span> <span class="pos">n.</span>
+          <div class="def">How much you value yourself; your sense of self-worth.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">peer pressure</span> <span class="pos">n.</span>
+          <div class="def">The influence from people your age to behave in a certain way.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to feel insecure about</span> <span class="pos">v. phr.</span>
+          <div class="def">To lack confidence regarding something (appearance, ability…).</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">self-acceptance</span> <span class="pos">n.</span>
+          <div class="def">Being happy with who you are, including your imperfections.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">mental health awareness</span> <span class="pos">n.</span>
+          <div class="def">The effort to educate people about psychological wellbeing.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to compare yourself to</span> <span class="pos">v. phr.</span>
+          <div class="def">To look at others and feel worse or better about yourself.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">⚖️</span> Society & Stereotypes</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item">
+          <span class="word">beauty standards</span> <span class="pos">n. pl.</span>
+          <div class="def">The socially accepted ideas of what looks attractive.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to be judged on</span> <span class="pos">v. phr.</span>
+          <div class="def">To be evaluated based on something (looks, weight, etc.).</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">societal pressure</span> <span class="pos">n.</span>
+          <div class="def">The expectations that society places on individuals.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to conform to</span> <span class="pos">v. phr.</span>
+          <div class="def">To behave or look the way society expects you to.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to challenge stereotypes</span> <span class="pos">v. phr.</span>
+          <div class="def">To question and fight fixed, oversimplified ideas about people.</div>
+        </div>
+        <div class="vocab-item">
+          <span class="word">to raise awareness</span> <span class="pos">v. phr.</span>
+          <div class="def">To make people more conscious of an issue or problem.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <strong>💡 B2+ tip:</strong> Don't just use simple adjectives. Upgrade your language: instead of saying "bad," say <em>harmful, damaging, detrimental</em>. Instead of "good," try <em>beneficial, positive, rewarding</em>. Examiners notice this range!
+    </div>
+  </div>
+
+  <!-- ===================== TAB 3: USEFUL STRUCTURES ===================== -->
+  <div id="structures" class="tab-panel">
+    <h2 class="section-title">Useful Grammar & Discourse Structures</h2>
+
+    <div class="card">
+      <h3><span class="icon">🔗</span> Connectors & Discourse Markers</h3>
+      <table class="structures-table">
+        <thead>
+          <tr><th>Function</th><th>Structure</th><th>Example</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adding</td>
+            <td class="structure-code">What is more, … / Furthermore, … / On top of that, …</td>
+            <td>What is more, <em>many teenagers develop anxiety from constant comparison.</em></td>
+          </tr>
+          <tr>
+            <td>Contrasting</td>
+            <td class="structure-code">Although … / Despite the fact that … / However, …</td>
+            <td>Although <em>filters can be fun</em>, they <em>distort how we see ourselves.</em></td>
+          </tr>
+          <tr>
+            <td>Cause & effect</td>
+            <td class="structure-code">This leads to … / As a result, … / …, which means that …</td>
+            <td>People are exposed to edited images daily, which means that <em>they start believing perfection is normal.</em></td>
+          </tr>
+          <tr>
+            <td>Giving examples</td>
+            <td class="structure-code">A clear example of this is … / For instance, … / Take the case of …</td>
+            <td>Take the case of <em>models who openly show that their photos are heavily edited.</em></td>
+          </tr>
+          <tr>
+            <td>Opinion</td>
+            <td class="structure-code">From my point of view, … / I firmly believe that … / As far as I am concerned, …</td>
+            <td>As far as I am concerned, <em>schools should teach digital literacy.</em></td>
+          </tr>
+          <tr>
+            <td>Concluding</td>
+            <td class="structure-code">All in all, … / To sum up, … / Ultimately, …</td>
+            <td>Ultimately, <em>true wellbeing has nothing to do with looking perfect.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">🏗️</span> B2+ Grammar to Show Off</h3>
+      <table class="structures-table">
+        <thead>
+          <tr><th>Structure</th><th>Pattern</th><th>Example in Context</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Passive reporting</td>
+            <td class="structure-code">It is widely believed / known / said that …</td>
+            <td>It is widely known that <em>social media affects body image.</em></td>
+          </tr>
+          <tr>
+            <td>Cleft sentence</td>
+            <td class="structure-code">What concerns me the most is …</td>
+            <td>What concerns me the most is <em>how young children are exposed to these images.</em></td>
+          </tr>
+          <tr>
+            <td>Conditional 2nd</td>
+            <td class="structure-code">If + past simple, … would …</td>
+            <td>If people stopped <em>editing every single photo</em>, we would have <em>a much healthier view of ourselves.</em></td>
+          </tr>
+          <tr>
+            <td>Relative clause</td>
+            <td class="structure-code">…, which proves / suggests / shows that …</td>
+            <td>Even models admit their images are fake, which proves that <em>perfection does not exist.</em></td>
+          </tr>
+          <tr>
+            <td>Wish / If only</td>
+            <td class="structure-code">I wish people would … / If only society stopped …</td>
+            <td>I wish people would <em>stop judging others based on their appearance.</em></td>
+          </tr>
+          <tr>
+            <td>Emphasis with inversion</td>
+            <td class="structure-code">Not only … but also …</td>
+            <td>Not only does social media <em>promote unrealistic standards</em>, but it also <em>damages people's self-esteem.</em></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tip-box">
+      <strong>🎯 Exam strategy:</strong> You don't need all of these in one monologue. Pick 3–4 structures and use them naturally. One cleft sentence + one conditional + a couple of good connectors is enough to sound B2+.
+    </div>
+  </div>
+
+  <!-- ===================== TAB 4: MODEL MONOLOGUE ===================== -->
+  <div id="example" class="tab-panel">
+    <h2 class="section-title">Model Monologue — How to Tackle This Topic</h2>
+
+    <div class="monologue-box">
+      <h3>📝 "Body Image & Social Media Pressure"</h3>
+
+      <p>
+        <span class="connector">Nowadays,</span> there is growing concern about the impact of social media on our wellbeing, <span class="highlight">particularly</span> when it comes to body image and beauty standards. Every day, we are bombarded with <span class="highlight">carefully curated</span> images that show an <span class="highlight">idealised version of reality</span> — perfect skin, perfect bodies, perfect lives. But how real is any of that?
+      </p>
+
+      <p>
+        I recently came across a video of a well-known model who showed how the same body can look completely different depending on the angle, the lighting, and the pose. <span class="highlight">What struck me the most</span> was that even she admitted that the "perfect body" <span class="highlight">simply does not exist</span>. It is nothing more than a combination of filters and retouching.
+      </p>
+
+      <p>
+        <span class="connector">What is more,</span> this problem goes beyond body image. Society tends to <span class="highlight">put people in boxes</span> — you should look a certain way, dress a certain way, even think a certain way. Social media has made this worse because <span class="highlight">anyone who does not conform to</span> these standards is often criticised or even bullied. <span class="connector">As a result,</span> many people, especially teenagers, end up <span class="highlight">feeling insecure</span> about who they are.
+      </p>
+
+      <p>
+        <span class="connector">Although</span> some people argue that social media can be a positive space for self-expression and connecting with others, I believe that, <span class="highlight">in most cases</span>, the pressure to look perfect <span class="highlight">outweighs</span> the benefits. <span class="connector">Not only does</span> constant comparison <span class="highlight">damage self-esteem</span>, <span class="connector">but it also</span> creates a culture where appearance matters more than who you really are.
+      </p>
+
+      <p>
+        <span class="connector">From my point of view,</span> the most important thing we can do is <span class="highlight">raise awareness</span>. Schools should teach young people to <span class="highlight">think critically</span> about the content they see online, and families should have open conversations about self-acceptance. <span class="connector">If</span> we all stopped comparing ourselves to <span class="highlight">filtered versions of other people</span>, we would probably feel much happier and healthier.
+      </p>
+
+      <p>
+        <span class="connector">To sum up,</span> I firmly believe that <span class="highlight">true wellbeing</span> comes from accepting ourselves the way we are, rather than trying to meet impossible standards set by society and social media. <span class="connector">Ultimately,</span> what makes us valuable is not how we look in a photo, but <span class="highlight">who we are as people</span>.
+      </p>
+    </div>
+
+    <div class="tip-box" style="margin-top: 1.2rem;">
+      <strong>📊 Why this works at B2+:</strong> It uses cleft sentences (<em>What struck me the most…</em>), inversion (<em>Not only does…</em>), a second conditional (<em>If we all stopped…</em>), varied connectors, and topic-specific vocabulary. It has a clear introduction → development → opinion → conclusion structure. It stays personal without being informal.
+    </div>
+  </div>
+
+  <!-- ===================== TAB 5: SELF-CHECK ===================== -->
+  <div id="checklist" class="tab-panel">
+    <h2 class="section-title">Self-Check Before Your Monologue</h2>
+
+    <div class="card">
+      <h3><span class="icon">✅</span> Content & Structure</h3>
+      <ul class="checklist">
+        <li>Did I introduce the topic clearly in my opening?</li>
+        <li>Did I give at least two developed points (not just list them)?</li>
+        <li>Did I include a specific example to support my ideas?</li>
+        <li>Did I express my personal opinion clearly?</li>
+        <li>Did I suggest a solution or reflect on what could change?</li>
+        <li>Did I conclude with a final thought that rounds off the monologue?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">✅</span> Language Quality</h3>
+      <ul class="checklist">
+        <li>Did I use at least 3 different connectors (not just "and", "but", "so")?</li>
+        <li>Did I include at least one B2+ grammar structure (cleft, inversion, passive reporting, conditional)?</li>
+        <li>Did I use topic-specific vocabulary (not just basic words)?</li>
+        <li>Did I avoid repeating the same word more than twice?</li>
+        <li>Did I vary my sentence length (some short, some complex)?</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3><span class="icon">✅</span> Delivery (Speaking)</h3>
+      <ul class="checklist">
+        <li>Did I speak fluently without too many long pauses?</li>
+        <li>Did I use natural fillers when needed (well, I mean, actually)?</li>
+        <li>Did I vary my intonation to keep the listener engaged?</li>
+        <li>Did I keep to the time limit (approx. 3–4 minutes)?</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  B2+ Speaking Preparation — Body Image, Social Media & Wellbeing<br>
+  Prepared for Cambridge B2 First exam practice
+</div>
+
+<script>
+  function openTab(evt, tabId) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
