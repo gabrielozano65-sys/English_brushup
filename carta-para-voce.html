@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para você</title>
+<style>
+  :root{
+    --bg:#1F2430;
+    --bg-2:#171B24;
+    --paper:#F4EFE1;
+    --paper-2:#ECE5D2;
+    --ink:#2B2A28;
+    --ink-soft:#5B5548;
+    --plum:#7A3B4E;
+    --plum-dark:#5E2C3B;
+    --gold:#B98B2E;
+    --sage:#6E7F5C;
+    --font-serif:'Iowan Old Style','Palatino Linotype','Book Antiqua',Georgia,serif;
+    --font-sans:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:radial-gradient(ellipse at 50% -10%, #2A3140 0%, var(--bg) 55%, var(--bg-2) 100%);
+    min-height:100vh;
+    font-family:var(--font-sans);
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+    padding:32px 16px 90px;
+  }
+  .stage{
+    width:100%;
+    max-width:640px;
+  }
+  .paper{
+    background:var(--paper);
+    border-radius:2px;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55), 0 2px 0 rgba(255,255,255,0.04) inset;
+    padding:48px 40px 56px;
+    position:relative;
+    min-height:420px;
+  }
+  @media (max-width:480px){
+    .paper{padding:36px 22px 48px;}
+  }
+
+  /* ---- flourish divider ---- */
+  .flourish{display:block;margin:18px 0 26px;width:56px;height:20px;opacity:0.85;}
+
+  /* ---- screens ---- */
+  .screen{display:none;flex-direction:column;}
+  .screen.active{display:flex;animation:fadeIn .5s ease;}
+  @media (prefers-reduced-motion: reduce){
+    .screen.active{animation:none;}
+  }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  h1,h2{
+    font-family:var(--font-serif);
+    font-weight:600;
+    line-height:1.15;
+    margin:0;
+    color:var(--ink);
+  }
+  h1{font-size:2rem;}
+  h2{font-size:1.5rem;}
+  p{
+    font-size:1.02rem;
+    line-height:1.65;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+    max-width:66ch;
+  }
+  .lead{color:var(--ink); font-size:1.08rem;}
+
+  /* ---- cover ---- */
+  .cover{align-items:center; text-align:center; justify-content:center; min-height:480px;}
+  .envelope{width:220px; margin:0 auto 30px; position:relative;}
+  .envelope svg{width:100%; display:block;}
+  .envelope-flap{transform-origin:100px 40px; transition:transform .75s cubic-bezier(.6,0,.3,1);}
+  .envelope.open .envelope-flap{transform:rotateX(160deg);}
+  .envelope.open{transition:opacity .5s ease .4s; }
+  .envelope.open{opacity:0;}
+  @media (prefers-reduced-motion: reduce){
+    .envelope-flap{transition:none;}
+    .envelope.open{transition:none; opacity:0;}
+  }
+  .btn-open{margin-top:6px;}
+
+  /* ---- buttons ---- */
+  .btn{
+    font-family:var(--font-sans);
+    font-size:0.95rem;
+    font-weight:600;
+    letter-spacing:.2px;
+    padding:13px 26px;
+    border-radius:3px;
+    border:none;
+    cursor:pointer;
+    background:var(--plum);
+    color:#F6ECE0;
+    transition:background .2s ease, transform .15s ease;
+  }
+  .btn:hover{background:var(--plum-dark);}
+  .btn:active{transform:scale(.97);}
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink-soft);
+    border:1px solid #C9BFA4;
+  }
+  .btn-ghost:hover{background:rgba(0,0,0,0.04); color:var(--ink);}
+  .btn:focus-visible, .pill:focus-visible, .btn-ghost:focus-visible{
+    outline:2px solid var(--gold); outline-offset:2px;
+  }
+
+  /* ---- reflection textareas ---- */
+  .field{margin-top:10px;}
+  textarea{
+    width:100%;
+    min-height:130px;
+    resize:vertical;
+    font-family:var(--font-serif);
+    font-size:1.05rem;
+    line-height:1.6;
+    color:var(--ink);
+    background:transparent;
+    border:none;
+    border-bottom:1px solid #C9BFA4;
+    padding:8px 2px 12px;
+  }
+  textarea::placeholder{color:#A79E86; font-style:italic;}
+  textarea:focus{outline:none; border-bottom-color:var(--plum);}
+
+  /* ---- quiz ---- */
+  .quiz-item{margin-bottom:30px;}
+  .quiz-item__text{font-size:1.02rem; color:var(--ink); line-height:1.5; margin-bottom:12px; max-width:60ch;}
+  .quiz-item__scale{display:flex; gap:10px;}
+  .pill{
+    width:40px; height:40px;
+    border-radius:50%;
+    border:1px solid #C9BFA4;
+    background:var(--paper-2);
+    color:var(--ink-soft);
+    font-family:var(--font-sans);
+    font-size:.95rem;
+    cursor:pointer;
+    transition:all .15s ease;
+  }
+  .pill:hover{border-color:var(--plum);}
+  .pill.selected{background:var(--plum); border-color:var(--plum); color:#F6ECE0;}
+  .quiz-item__labels{display:flex; justify-content:space-between; margin-top:6px; max-width:230px;}
+  .quiz-item__labels span{font-size:.78rem; color:#8B8270; font-style:italic;}
+
+  /* ---- nav bar ---- */
+  .navbar{
+    position:fixed; left:0; right:0; bottom:0;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 20px;
+    background:rgba(23,27,36,0.92);
+    backdrop-filter:blur(6px);
+  }
+  .navbar__page{color:#A79E86; font-size:.8rem; font-style:italic; font-family:var(--font-serif);}
+  .navbar .btn, .navbar .btn-ghost{padding:10px 20px; font-size:.88rem;}
+  .nav-spacer{flex:1;}
+
+  /* ---- results ---- */
+  .result-strengths{display:grid; gap:18px; margin:8px 0 28px;}
+  .strength-card{
+    display:flex; gap:16px; align-items:flex-start;
+    padding:16px 0; border-top:1px solid #DDD4BC;
+  }
+  .strength-card:first-of-type{border-top:none; padding-top:0;}
+  .strength-card__icon{
+    flex:0 0 auto; width:34px; height:34px; color:var(--gold);
+  }
+  .strength-card__icon svg{width:100%; height:100%;}
+  .strength-card h3{font-family:var(--font-serif); font-size:1.15rem; margin:0 0 4px; color:var(--ink);}
+  .strength-card p{margin:0; font-size:.95rem;}
+
+  .clipping{
+    background:var(--paper-2);
+    border-left:3px solid var(--sage);
+    padding:14px 18px;
+    margin:0 0 10px;
+    font-family:var(--font-serif);
+    font-style:italic;
+    color:var(--ink);
+    font-size:.98rem;
+    line-height:1.55;
+    white-space:pre-wrap;
+  }
+  .clipping.empty{display:none;}
+  .reflection-block{margin-bottom:26px;}
+  .reflection-block__note{font-size:.92rem; color:var(--ink-soft); margin-top:2px;}
+
+  .closing{
+    margin-top:34px; padding-top:26px; border-top:1px solid #DDD4BC;
+  }
+  .signature{font-family:var(--font-serif); font-style:italic; font-size:1.05rem; margin-top:18px; color:var(--ink);}
+
+  .results-actions{display:flex; gap:12px; margin-top:30px; flex-wrap:wrap;}
+
+  @media print{
+    body{background:#fff; padding:0;}
+    .navbar, .results-actions{display:none !important;}
+    .paper{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="paper">
+
+    <!-- SCREEN 0: cover -->
+    <section class="screen active cover" data-screen="0">
+      <div class="envelope" id="envelope">
+        <svg viewBox="0 0 200 130" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="20" width="192" height="106" rx="2" fill="#ECE5D2" stroke="#B98B2E" stroke-width="1.5"/>
+          <path d="M4 20 L100 85 L196 20" fill="none" stroke="#B98B2E" stroke-width="1.5"/>
+          <g class="envelope-flap">
+            <path d="M4 20 L100 78 L196 20 Z" fill="#F4EFE1" stroke="#B98B2E" stroke-width="1.5"/>
+          </g>
+          <circle cx="100" cy="60" r="9" fill="#7A3B4E"/>
+        </svg>
+      </div>
+      <h1>Para você</h1>
+      <svg class="flourish" viewBox="0 0 56 20" fill="none" stroke="#6E7F5C" stroke-width="1.4" style="margin-left:auto;margin-right:auto;">
+        <path d="M2 14 C 14 2, 20 18, 28 8 C 36 -2, 42 16, 54 6"/>
+      </svg>
+      <p>Abra quando tiver um tempinho tranquilo, sem pressa.</p>
+      <button class="btn btn-open" id="btnOpen">Abrir minha carta</button>
+    </section>
+
+    <!-- SCREEN 1: intro -->
+    <section class="screen" data-screen="1">
+      <h2>Antes de começar</h2>
+      <svg class="flourish" viewBox="0 0 56 20" fill="none" stroke="#6E7F5C" stroke-width="1.4"><path d="M2 14 C 14 2, 20 18, 28 8 C 36 -2, 42 16, 54 6"/></svg>
+      <p class="lead">Isso não é um teste nem uma prova. Não existem respostas certas ou erradas.</p>
+      <p>É só um espaço para pensar com calma em algumas coisas que talvez você nunca tenha parado para olhar de frente. Vá no seu tempo. Ninguém além de você vai ler o que você escrever aqui, a menos que queira compartilhar.</p>
+    </section>
+
+    <!-- SCREENS 2-6: reflections -->
+    <section class="screen" data-screen="2">
+      <h2>Me conta de uma vez em que alguém te agradeceu por algo que você fez.</h2>
+      <p>O que aconteceu exatamente?</p>
+      <div class="field">
+        <textarea id="r1" placeholder="Não precisa ser algo grande. Às vezes são os detalhes pequenos que mais ficam na memória..."></textarea>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="3">
+      <h2>O que as pessoas que te conhecem bem dizem que você faz sem perceber, quase sem esforço?</h2>
+      <div class="field">
+        <textarea id="r2" placeholder="Isso que para você é normal, para outra pessoa pode ser exatamente o que ela precisava."></textarea>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="4">
+      <h2>Pense em um momento em que alguém estava passando por algo difícil e você estava ali.</h2>
+      <p>O que você fez?</p>
+      <div class="field">
+        <textarea id="r3" placeholder="Não precisa ter resolvido tudo. Às vezes basta estar presente."></textarea>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="5">
+      <h2>Se você descrevesse sua amiga ou amigo ideal, quais 5 qualidades essa pessoa teria?</h2>
+      <div class="field">
+        <textarea id="r4" placeholder="Escreva a lista como vier à cabeça, sem pensar demais."></textarea>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="6">
+      <h2>Conte algo que você tenha feito e que te deixe um pouquinho orgulhosa, mesmo que seja pequeno.</h2>
+      <div class="field">
+        <textarea id="r5" placeholder="Pode ser de ontem ou de anos atrás. O que quer que venha à sua cabeça agora."></textarea>
+      </div>
+    </section>
+
+    <!-- SCREEN 7: transition -->
+    <section class="screen" data-screen="7">
+      <h2>Uma segunda parte, mais rápida</h2>
+      <svg class="flourish" viewBox="0 0 56 20" fill="none" stroke="#6E7F5C" stroke-width="1.4"><path d="M2 14 C 14 2, 20 18, 28 8 C 36 -2, 42 16, 54 6"/></svg>
+      <p>Agora vêm algumas frases curtas. Você só precisa marcar o quanto elas se parecem com você, de 1 a 5. Vá com o que sentir primeiro, sem pensar demais.</p>
+    </section>
+
+    <!-- SCREENS 8-11: quiz -->
+    <section class="screen" data-screen="8">
+      <h2 style="font-size:1.15rem; margin-bottom:20px; color:var(--ink-soft); font-style:italic; font-family:var(--font-serif);">De 1 a 5, o quanto cada frase te representa?</h2>
+
+      <div class="quiz-item" data-item="k1">
+        <p class="quiz-item__text">Quando alguém próximo está passando por um momento difícil, costumo ser uma das primeiras a perceber.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="k2">
+        <p class="quiz-item__text">Acho fácil me colocar no lugar da outra pessoa.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="cr1">
+        <p class="quiz-item__text">Quando algo não sai como planejado, me ocorrem formas diferentes de resolver.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="cr2">
+        <p class="quiz-item__text">Gosto de encontrar jeitos novos de fazer as coisas, mesmo que não seja o habitual.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="9">
+      <div class="quiz-item" data-item="v1">
+        <p class="quiz-item__text">Quando algo me parece injusto, eu falo, mesmo que seja difícil.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="v2">
+        <p class="quiz-item__text">Já fiz coisas que me davam medo porque sabia que eram importantes para mim.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="p1">
+        <p class="quiz-item__text">Quando algo é difícil para mim, continuo tentando em vez de desistir na primeira.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="p2">
+        <p class="quiz-item__text">Termino as coisas que começo, mesmo que demorem para dar resultado.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="10">
+      <div class="quiz-item" data-item="cu1">
+        <p class="quiz-item__text">Gosto de aprender coisas novas mesmo que não tenham uma utilidade imediata.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="cu2">
+        <p class="quiz-item__text">Faço perguntas para entender de verdade, não só para ficar bem na conversa.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="h1">
+        <p class="quiz-item__text">Sei encontrar o lado leve mesmo em um momento ruim.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="h2">
+        <p class="quiz-item__text">Tenho facilidade para fazer rir ou animar as pessoas que estão perto de mim.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+    </section>
+
+    <section class="screen" data-screen="11">
+      <div class="quiz-item" data-item="e1">
+        <p class="quiz-item__text">Eu me preocupo para que ninguém fique de fora quando estou em um grupo.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="e2">
+        <p class="quiz-item__text">Trato as pessoas com a mesma consideração, sem fazer distinções.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="g1">
+        <p class="quiz-item__text">Costumo notar as coisas boas do dia, mesmo que sejam pequenas.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+      <div class="quiz-item" data-item="g2">
+        <p class="quiz-item__text">Lembro de agradecer a quem me ajuda, mesmo que seja algo simples.</p>
+        <div class="quiz-item__scale"></div>
+        <div class="quiz-item__labels"><span>Nada a ver comigo</span><span>Isso sou eu</span></div>
+      </div>
+    </section>
+
+    <!-- SCREEN 12: results -->
+    <section class="screen" data-screen="12">
+      <h2>Isso é o que eu vejo no que você contou</h2>
+      <svg class="flourish" viewBox="0 0 56 20" fill="none" stroke="#6E7F5C" stroke-width="1.4"><path d="M2 14 C 14 2, 20 18, 28 8 C 36 -2, 42 16, 54 6"/></svg>
+
+      <div id="resultStrengths" class="result-strengths"></div>
+
+      <div id="resultReflections"></div>
+
+      <div class="closing">
+        <p>Isso que você escreveu e marcou não é um resumo completo de quem você é, mas é um bom lembrete: você tem muito a oferecer, mesmo que às vezes seja difícil ver isso ou colocar em palavras. Da próxima vez que alguém te perguntar o que você oferece, você já tem por onde começar.</p>
+        <p class="signature">Com carinho,<br>— Gabri</p>
+      </div>
+
+      <div class="results-actions">
+        <button class="btn-ghost btn" id="btnRestart">Reler desde o início</button>
+        <button class="btn" id="btnPrint">Salvar / imprimir</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<div class="navbar" id="navbar">
+  <button class="btn-ghost btn" id="btnPrev">Voltar</button>
+  <div class="nav-spacer"></div>
+  <span class="navbar__page" id="navPage"></span>
+  <div class="nav-spacer"></div>
+  <button class="btn" id="btnNext">Continuar</button>
+</div>
+
+<script>
+(function(){
+  var screens = Array.prototype.slice.call(document.querySelectorAll('.screen'));
+  var total = screens.length; // 13 screens, index 0..12
+  var current = 0;
+  var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var state = {
+    reflections:{r1:'',r2:'',r3:'',r4:'',r5:''},
+    quiz:{}
+  };
+
+  var categories = [
+    {label:'Gentileza', items:['k1','k2'],
+      desc:'Você percebe quando alguém precisa e age sem que peçam.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20 C4 14 2 9 5.5 6.2 8 4 11 5 12 7 13 5 16 4 18.5 6.2 22 9 20 14 12 20Z"/></svg>'},
+    {label:'Criatividade', items:['cr1','cr2'],
+      desc:'Você vê possibilidades e soluções onde os outros só veem um problema.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L14 9 L21 12 L14 15 L12 22 L10 15 L3 12 L10 9 Z"/></svg>'},
+    {label:'Coragem', items:['v1','v2'],
+      desc:'Você diz o que pensa e faz o que é certo, mesmo quando é desconfortável.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2 L20 5.5 V11 C20 17 16.5 20.5 12 22 C7.5 20.5 4 17 4 11 V5.5 Z"/></svg>'},
+    {label:'Perseverança', items:['p1','p2'],
+      desc:'Você segue em frente quando as coisas se complicam, sem desistir.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 19 L9 8 L13 14 L16 10 L22 19 Z"/></svg>'},
+    {label:'Curiosidade', items:['cu1','cu2'],
+      desc:'Você pergunta, explora e quer entender o porquê das coisas.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 L21 21"/></svg>'},
+    {label:'Senso de humor', items:['h1','h2'],
+      desc:'Você sabe aliviar um momento ruim e fazer sorrir quem está por perto.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M8 13.5 C9.2 15.5 14.8 15.5 16 13.5"/><path d="M9 9.5 h.01 M15 9.5 h.01"/></svg>'},
+    {label:'Senso de equipe e justiça', items:['e1','e2'],
+      desc:'Você cuida para que todo mundo se sinta incluído e tratado com igualdade.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 V21 M6 6 L2 13 A4 4 0 0 0 10 13 Z M18 6 L14 13 A4 4 0 0 0 22 13 Z M12 3 L6 6 M12 3 L18 6"/></svg>'},
+    {label:'Gratidão', items:['g1','g2'],
+      desc:'Você percebe e valoriza o que é bom, mesmo nos dias complicados.',
+      icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5 V5.5 M12 18.5 V21.5 M4.2 4.2 L6.3 6.3 M17.7 17.7 L19.8 19.8 M2.5 12 H5.5 M18.5 12 H21.5 M4.2 19.8 L6.3 17.7 M17.7 6.3 L19.8 4.2"/></svg>'}
+  ];
+
+  // build pill scales
+  document.querySelectorAll('.quiz-item__scale').forEach(function(scale){
+    for(var v=1; v<=5; v++){
+      var btn = document.createElement('button');
+      btn.type='button';
+      btn.className='pill';
+      btn.dataset.value=v;
+      btn.textContent=v;
+      scale.appendChild(btn);
+    }
+  });
+
+  document.querySelectorAll('.quiz-item').forEach(function(item){
+    var itemId = item.dataset.item;
+    item.querySelectorAll('.pill').forEach(function(pill){
+      pill.addEventListener('click', function(){
+        state.quiz[itemId] = parseInt(this.dataset.value,10);
+        item.querySelectorAll('.pill').forEach(function(p){p.classList.remove('selected');});
+        this.classList.add('selected');
+      });
+    });
+  });
+
+  ['r1','r2','r3','r4','r5'].forEach(function(id){
+    var el = document.getElementById(id);
+    el.addEventListener('input', function(){ state.reflections[id]=this.value; });
+  });
+
+  function showScreen(i){
+    screens.forEach(function(s){s.classList.remove('active');});
+    screens[i].classList.add('active');
+    current = i;
+    window.scrollTo(0,0);
+
+    var navbar = document.getElementById('navbar');
+    var navPage = document.getElementById('navPage');
+    var btnPrev = document.getElementById('btnPrev');
+    var btnNext = document.getElementById('btnNext');
+
+    if(i === 0 || i === total-1){
+      navbar.style.display='none';
+    } else {
+      navbar.style.display='flex';
+      btnPrev.style.visibility = (i<=1) ? 'hidden' : 'visible';
+      navPage.textContent = 'Página ' + i + ' de ' + (total-2);
+      btnNext.textContent = (i === total-2) ? 'Ver minha carta' : 'Continuar';
+    }
+
+    if(i === total-1){ renderResults(); }
+  }
+
+  document.getElementById('btnOpen').addEventListener('click', function(){
+    var env = document.getElementById('envelope');
+    env.classList.add('open');
+    setTimeout(function(){ showScreen(1); }, reducedMotion ? 50 : 750);
+  });
+
+  document.getElementById('btnPrev').addEventListener('click', function(){
+    if(current>1) showScreen(current-1);
+  });
+  document.getElementById('btnNext').addEventListener('click', function(){
+    if(current < total-1) showScreen(current+1);
+  });
+  document.getElementById('btnRestart').addEventListener('click', function(){
+    showScreen(1);
+  });
+  document.getElementById('btnPrint').addEventListener('click', function(){
+    window.print();
+  });
+
+  function avg(items){
+    var sum=0, n=0;
+    items.forEach(function(k){
+      var v = state.quiz[k];
+      sum += (typeof v === 'number') ? v : 3;
+      n++;
+    });
+    return sum/n;
+  }
+
+  function renderResults(){
+    var scored = categories.map(function(c){
+      return {label:c.label, desc:c.desc, icon:c.icon, score:avg(c.items)};
+    });
+    scored.sort(function(a,b){ return b.score - a.score; });
+    var top = scored.slice(0,3);
+
+    var strengthsHtml = top.map(function(c){
+      return '<div class="strength-card">' +
+        '<div class="strength-card__icon">'+c.icon+'</div>' +
+        '<div><h3>'+c.label+'</h3><p>'+c.desc+'</p></div>' +
+      '</div>';
+    }).join('');
+    document.getElementById('resultStrengths').innerHTML = strengthsHtml;
+
+    var refs = [
+      {key:'r1', note:'Alguém ter parado para te dizer isso não é coincidência: você fez algo que valeu a pena.'},
+      {key:'r2', note:'Isso que você faz "sem perceber" costuma ser exatamente o que as pessoas ao seu redor mais valorizam.'},
+      {key:'r3', note:'Estar presente no momento difícil de alguém é um dos maiores presentes que existem. E você fez isso.'},
+      {key:'r4', note:'Olhe essa lista com calma. Quantas dessas qualidades também aparecem no que você contou sobre você mesma ali em cima?'},
+      {key:'r5', note:'Guarde isso. Num dia cinza, volte e leia de novo.'}
+    ];
+
+    var refsHtml = refs.map(function(r){
+      var text = (state.reflections[r.key]||'').trim();
+      if(!text) return '';
+      return '<div class="reflection-block">' +
+        '<div class="clipping">'+ escapeHtml(text) +'</div>' +
+        '<p class="reflection-block__note">'+ r.note +'</p>' +
+      '</div>';
+    }).join('');
+    document.getElementById('resultReflections').innerHTML = refsHtml;
+  }
+
+  function escapeHtml(str){
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  showScreen(0);
+})();
+</script>
+</body>
+</html>
