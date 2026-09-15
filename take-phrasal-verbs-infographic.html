@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phrasal Verbs with TAKE — B2 Infographic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5;
+    --ink:#20263A;
+    --muted:#5C6470;
+    --navy:#1B2A4A;
+    --navy-2:#2A3C63;
+    --card-bg:#FFFFFF;
+    --border:#E7E4DA;
+
+    --gold:#B8860B;      --gold-l:#FBF1DD;
+    --rose:#B3255E;      --rose-l:#FBE6EE;
+    --indigo:#5B4B8A;    --indigo-l:#EDE9F6;
+    --teal:#1F8A70;      --teal-l:#E1F3EE;
+    --denim:#2E6B9E;     --denim-l:#E6EFF6;
+    --terracotta:#C1552C;--terracotta-l:#FBEAE1;
+    --sky:#1298C4;       --sky-l:#E4F4FA;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+  }
+
+  /* ============ HEADER ============ */
+  header{
+    background: var(--navy);
+    background-image: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%);
+    padding: 3rem 2rem 2.4rem;
+    text-align:center;
+  }
+  .eyebrow{
+    color:#E8B84B;
+    font-size:0.78rem;
+    font-weight:700;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    margin-bottom:0.9rem;
+  }
+  header h1{
+    font-family:'DM Serif Display', serif;
+    color:#FFFFFF;
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    margin: 0 0 0.6rem;
+    line-height:1.15;
+  }
+  header h1 .take{ color:#E8B84B; }
+  header p.sub{
+    color:#C7D0E2;
+    font-size:1.02rem;
+    max-width:620px;
+    margin: 0 auto;
+  }
+
+  /* quick index strip */
+  .index-strip{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0.6rem;
+    max-width:900px;
+    margin: 1.8rem auto 0;
+  }
+  .index-chip{
+    display:flex;
+    align-items:center;
+    gap:0.4rem;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    color:#EDEFF5;
+    text-decoration:none;
+    padding:0.4rem 0.85rem 0.4rem 0.5rem;
+    border-radius:999px;
+    font-size:0.82rem;
+    font-weight:500;
+  }
+  .index-chip .dot{
+    width:0.55rem; height:0.55rem; border-radius:50%;
+    flex-shrink:0;
+  }
+
+  /* ============ MAIN ============ */
+  main{
+    max-width:1180px;
+    margin: 0 auto;
+    padding: 2.6rem 2rem 1rem;
+  }
+  .cards{
+    column-count:2;
+    column-gap:1.8rem;
+  }
+  @media (max-width:760px){
+    .cards{ column-count:1; }
+  }
+  .card{
+    break-inside: avoid;
+    background: var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:1.5rem 1.6rem 1.6rem;
+    margin-bottom:1.8rem;
+  }
+  .card-top{
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+    margin-bottom:0.9rem;
+  }
+  .icon-badge{
+    width:52px; height:52px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .icon-badge svg{ width:26px; height:26px; display:block; }
+  .card h2{
+    font-family:'DM Serif Display', serif;
+    font-size:1.55rem;
+    margin:0;
+    font-weight:400;
+  }
+
+  .senses{
+    list-style:none;
+    margin:0 0 1rem;
+    padding:0;
+  }
+  .senses li{
+    position:relative;
+    padding-left:1.6rem;
+    margin-bottom:0.6rem;
+    font-size:0.95rem;
+    color:var(--ink);
+  }
+  .senses li .num{
+    position:absolute;
+    left:0; top:0.05rem;
+    width:1.15rem; height:1.15rem;
+    border-radius:50%;
+    font-size:0.68rem;
+    font-weight:700;
+    color:#FFFFFF;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .senses.single{ margin-bottom:1.1rem; }
+  .senses.single li{ padding-left:0; }
+
+  .example{
+    border-radius:8px;
+    padding:0.85rem 1rem;
+    font-size:0.9rem;
+    font-style:italic;
+    color:var(--muted);
+  }
+  .example strong{
+    font-style:normal;
+    font-weight:700;
+  }
+  .example p{ margin:0 0 0.4rem; }
+  .example p:last-child{ margin-bottom:0; }
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:0.82rem;
+    padding: 1rem 0 2.4rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Vocabulary Infographic</div>
+  <h1><span class="take">TAKE</span> — Seven Essential Phrasal Verbs</h1>
+  <p class="sub">Meanings, definitions and example sentences to master the most common phrasal verbs built on <em>take</em>.</p>
+
+  <div class="index-strip">
+    <a class="index-chip" href="#take-on"><span class="dot" style="background:#E8B84B"></span>take on</a>
+    <a class="index-chip" href="#take-to"><span class="dot" style="background:#EA84AE"></span>take to</a>
+    <a class="index-chip" href="#take-over"><span class="dot" style="background:#B0A0E0"></span>take over</a>
+    <a class="index-chip" href="#take-up"><span class="dot" style="background:#5FCBA9"></span>take up</a>
+    <a class="index-chip" href="#take-in"><span class="dot" style="background:#82B4DD"></span>take in</a>
+    <a class="index-chip" href="#take-aside"><span class="dot" style="background:#E29365"></span>take aside</a>
+    <a class="index-chip" href="#take-off"><span class="dot" style="background:#5FC3E4"></span>take off</a>
+  </div>
+</header>
+
+<main>
+  <div class="cards">
+
+    <div class="card" id="take-on">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--gold)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="4" width="14" height="17" rx="2"/>
+            <rect x="9" y="2" width="6" height="4" rx="1" fill="white" stroke="none"/>
+            <polyline points="8.5 13 11 15.5 16 9.5"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--gold)">on</span></h2>
+      </div>
+      <ol class="senses">
+        <li><span class="num" style="background:var(--gold)">1</span>to accept a new responsibility, job or task</li>
+        <li><span class="num" style="background:var(--gold)">2</span>to hire or employ someone</li>
+        <li><span class="num" style="background:var(--gold)">3</span>to compete against an opponent</li>
+      </ol>
+      <div class="example" style="background:var(--gold-l)">
+        <p>She decided to <strong>take on</strong> extra responsibilities at work.</p>
+        <p>The company is <strong>taking on</strong> ten new engineers this year.</p>
+        <p>Our team will <strong>take on</strong> the reigning champions next week.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-to">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--rose)">
+          <svg viewBox="0 0 24 24" fill="white">
+            <path d="M12,21.35 L10.55,20.03 C5.4,15.36 2,12.28 2,8.5 C2,5.42 4.42,3 7.5,3 C9.24,3 10.91,3.81 12,5.09 C13.09,3.81 14.76,3 16.5,3 C19.58,3 22,5.42 22,8.5 C22,12.28 18.6,15.36 13.45,20.04 Z"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--rose)">to</span></h2>
+      </div>
+      <ul class="senses single">
+        <li>to start liking someone or something quickly, or to begin a new habit almost naturally</li>
+      </ul>
+      <div class="example" style="background:var(--rose-l)">
+        <p>He <strong>took to</strong> jogging every morning almost immediately.</p>
+        <p>She <strong>took to</strong> her new classmates straight away.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-over">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--indigo)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="3" x2="5" y2="21"/>
+            <path d="M5 4 H18 L14.5 7.5 L18 11 H5 Z" fill="white" stroke="none"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--indigo)">over</span></h2>
+      </div>
+      <ul class="senses single">
+        <li>to gain control of something — a company, a country, a task — from someone else</li>
+      </ul>
+      <div class="example" style="background:var(--indigo-l)">
+        <p>The startup was <strong>taken over</strong> by a much larger competitor last year.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-up">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--teal)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
+            <line x1="12" y1="21" x2="12" y2="12"/>
+            <path d="M12 14 C8 14 6 11 6 8 C9 8 12 10 12 14 Z" fill="white" stroke="none"/>
+            <path d="M12 12 C16 12 18 9 18 6 C15 6 12 8 12 12 Z" fill="white" stroke="none"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--teal)">up</span></h2>
+      </div>
+      <ol class="senses">
+        <li><span class="num" style="background:var(--teal)">1</span>to start a new hobby or activity</li>
+        <li><span class="num" style="background:var(--teal)">2</span>to occupy space or time</li>
+      </ol>
+      <div class="example" style="background:var(--teal-l)">
+        <p>She <strong>took up</strong> painting during the summer holidays.</p>
+        <p>That old sofa <strong>takes up</strong> far too much space.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-in">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--denim)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 6.5 C10 5 7 4.5 3.5 5 V18 C7 17.5 10 18 12 19.5 C14 18 17 17.5 20.5 18 V5 C17 4.5 14 5 12 6.5 Z"/>
+            <line x1="12" y1="6.5" x2="12" y2="19.5"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--denim)">in</span></h2>
+      </div>
+      <ol class="senses">
+        <li><span class="num" style="background:var(--denim)">1</span>to understand or absorb information</li>
+        <li><span class="num" style="background:var(--denim)">2</span>to deceive someone</li>
+        <li><span class="num" style="background:var(--denim)">3</span>to give shelter to someone</li>
+      </ol>
+      <div class="example" style="background:var(--denim-l)">
+        <p>It was hard to <strong>take in</strong> all the news at once.</p>
+        <p>I was completely <strong>taken in</strong> by his story.</p>
+        <p>The family <strong>took in</strong> two refugees during the crisis.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-aside">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--terracotta)">
+          <svg viewBox="0 0 24 24" fill="white">
+            <path d="M2 5 C2 3.9 2.9 3 4 3 H13 C14.1 3 15 3.9 15 5 V10 C15 11.1 14.1 12 13 12 H6 L3 14.5 V12 H4 C2.9 12 2 11.1 2 10 Z" opacity="0.55"/>
+            <path d="M9 12 C9 10.9 9.9 10 11 10 H20 C21.1 10 22 10.9 22 12 V16 C22 17.1 21.1 18 20 18 H13 L10 20.5 V18 H11 C9.9 18 9 17.1 9 16 Z"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--terracotta)">aside</span></h2>
+      </div>
+      <ul class="senses single">
+        <li>to speak to someone privately, away from other people</li>
+      </ul>
+      <div class="example" style="background:var(--terracotta-l)">
+        <p>The teacher <strong>took him aside</strong> to discuss his behaviour.</p>
+      </div>
+    </div>
+
+    <div class="card" id="take-off">
+      <div class="card-top">
+        <div class="icon-badge" style="background:var(--sky)">
+          <svg viewBox="0 0 24 24" fill="white">
+            <path d="M2 21 L23 12 L2 3 V10 L17 12 L2 14 Z"/>
+          </svg>
+        </div>
+        <h2>Take <span style="color:var(--sky)">off</span></h2>
+      </div>
+      <ol class="senses">
+        <li><span class="num" style="background:var(--sky)">1</span>for a plane to leave the ground</li>
+        <li><span class="num" style="background:var(--sky)">2</span>to become suddenly successful or popular</li>
+        <li><span class="num" style="background:var(--sky)">3</span>to remove clothing</li>
+      </ol>
+      <div class="example" style="background:var(--sky-l)">
+        <p>The plane <strong>took off</strong> twenty minutes late.</p>
+        <p>Her career really <strong>took off</strong> after that award.</p>
+        <p>He <strong>took off</strong> his jacket as soon as he got home.</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>B2 English &middot; Phrasal verbs with TAKE</footer>
+
+</body>
+</html>
