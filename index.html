@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos de inglés · B2</title>
+<style>
+  :root{
+    --bg:#F6F5F1;
+    --surface:#FFFFFF;
+    --ink:#1E2A38;
+    --ink-soft:#52606D;
+    --teal:#0F766E;
+    --indigo:#5B4B8A;
+    --border:#E3E0D6;
+    --font-serif:'Iowan Old Style','Palatino Linotype','Book Antiqua',Georgia,serif;
+    --font-sans:'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    font-family:var(--font-sans);
+    color:var(--ink);
+  }
+  .wrap{
+    max-width:840px;
+    margin:0 auto;
+    padding:56px 24px 80px;
+  }
+  header{
+    margin-bottom:48px;
+  }
+  header .eyebrow{
+    font-size:.8rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-family:var(--font-serif);
+    font-size:2.1rem;
+    margin:0 0 10px;
+    line-height:1.2;
+  }
+  header p{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    max-width:56ch;
+    line-height:1.55;
+    margin:0;
+  }
+
+  section.category{margin-bottom:40px;}
+  section.category h2{
+    font-family:var(--font-serif);
+    font-size:1.25rem;
+    margin:0 0 4px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  section.category h2 .tag{
+    font-family:var(--font-sans);
+    font-size:.7rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--indigo);
+    padding:3px 9px;
+    border-radius:20px;
+  }
+  section.category .divider{
+    height:1px; background:var(--border); margin:14px 0 20px;
+  }
+
+  .card-grid{display:grid; gap:14px;}
+  a.card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:18px 20px;
+    text-decoration:none;
+    color:inherit;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  a.card:hover{border-color:var(--teal); transform:translateX(2px);}
+  a.card:focus-visible{outline:2px solid var(--teal); outline-offset:2px;}
+  .card-text h3{
+    font-family:var(--font-sans);
+    font-size:1.03rem;
+    font-weight:600;
+    margin:0 0 4px;
+    color:var(--ink);
+  }
+  .card-text p{
+    margin:0;
+    font-size:.9rem;
+    color:var(--ink-soft);
+    line-height:1.4;
+  }
+  .card-arrow{
+    flex:0 0 auto;
+    width:20px; height:20px;
+    color:var(--teal);
+  }
+  .card-arrow svg{width:100%; height:100%;}
+
+  footer{
+    margin-top:50px;
+    padding-top:24px;
+    border-top:1px solid var(--border);
+    font-size:.85rem;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Preparación Cambridge First</div>
+    <h1>Recursos de inglés · B2</h1>
+    <p>Selecciona un material para empezar. Cada enlace se abre en una pestaña nueva.</p>
+  </header>
+
+  <section class="category">
+    <h2>Speaking <span class="tag">Habla</span></h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <a class="card" href="b2-monologue-body-image-social-media.html" target="_blank" rel="noopener">
+        <div class="card-text">
+          <h3>Monólogo B2 — Imagen corporal y redes sociales</h3>
+          <p>Modelo de monólogo (Speaking Part 2) con vocabulario y estructura de apoyo.</p>
+        </div>
+        <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2>Reading <span class="tag">Lectura</span></h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <a class="card" href="reading-comprehension-redcard.html" target="_blank" rel="noopener">
+        <div class="card-text">
+          <h3>Reading Comprehension — Red Card</h3>
+          <p>Texto y preguntas de comprensión lectora estilo First (B2).</p>
+        </div>
+        <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2>Use of English <span class="tag">Gramática</span></h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <a class="card" href="use-of-english-b2-practice.html" target="_blank" rel="noopener">
+        <div class="card-text">
+          <h3>Use of English — Práctica B2</h3>
+          <p>Ejercicios de word formation, key word transformations y más.</p>
+        </div>
+        <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <section class="category">
+    <h2>Vocabulario <span class="tag">Léxico</span></h2>
+    <div class="divider"></div>
+    <div class="card-grid">
+      <a class="card" href="take-phrasal-verbs-infographic.html" target="_blank" rel="noopener">
+        <div class="card-text">
+          <h3>Phrasal verbs con "take" — Infografía</h3>
+          <p>Infografía visual con los phrasal verbs más comunes formados con take.</p>
+        </div>
+        <span class="card-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    English_brushup · Material de preparación B2
+  </footer>
+
+</div>
+</body>
+</html>
