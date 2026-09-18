@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparisons & "AS" Expressions — B2 Grammar Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B;  --gold-l:#FBF1DD;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+    --teal:#1F8A70;  --teal-l:#E1F3EE;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; }
+  .wrap{ max-width:900px; margin:0 auto; padding:0 1.5rem 3rem; }
+
+  header{
+    background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%);
+    padding: 2.8rem 1.5rem 2.2rem; text-align:center; margin-bottom: 2.2rem;
+  }
+  .eyebrow{ color:#E8B84B; font-size:0.76rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.7rem; }
+  header h1{ font-family:'DM Serif Display',serif; color:#fff; font-size:clamp(1.9rem,4.5vw,2.6rem); margin:0 0 0.5rem; }
+  header p{ color:#C7D0E2; font-size:1rem; max-width:560px; margin:0 auto; }
+
+  h2.section-title{
+    font-family:'DM Serif Display', serif;
+    font-size:1.55rem; font-weight:400; color:var(--navy);
+    margin: 2.4rem 0 0.3rem;
+    padding-bottom:0.5rem;
+    border-bottom:2px solid var(--border);
+  }
+  .section-note{ color:var(--muted); font-size:0.92rem; margin: 0 0 1.1rem; }
+
+  h3.sub{ font-size:1.05rem; font-weight:700; color:var(--ink); margin:1.4rem 0 0.5rem; }
+
+  table.grammar{ width:100%; border-collapse:collapse; font-size:0.92rem; margin-bottom:0.8rem; }
+  table.grammar th{ text-align:left; background:var(--gold-l); color:var(--gold); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em; padding:0.55rem 0.7rem; }
+  table.grammar td{ padding:0.55rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.grammar tr:last-child td{ border-bottom:none; }
+  code.frm{ font-family:'JetBrains Mono',monospace; font-size:0.82rem; color:var(--navy); background:#EEF1F6; padding:0.1rem 0.35rem; border-radius:4px; }
+
+  .rule-box{ background:#fff; border:1px solid var(--border); border-left:4px solid var(--accent, var(--navy)); border-radius:0 8px 8px 0; padding:0.9rem 1.1rem; margin-bottom:0.9rem; font-size:0.94rem; }
+  .rule-box .lbl{ font-weight:700; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:0.3rem; display:block; }
+  .rule-box .ex{ display:block; margin-top:0.35rem; font-style:italic; color:var(--muted); }
+  .rule-box .ex b{ font-style:normal; color:var(--ink); }
+
+  .warn{ background:var(--coral-l); border-left:4px solid var(--coral); border-radius:0 8px 8px 0; padding:0.75rem 1rem; font-size:0.88rem; margin:1rem 0; }
+  .warn b{ color:var(--coral); }
+
+  table.expr{ width:100%; border-collapse:collapse; font-size:0.9rem; }
+  table.expr th{ text-align:left; background:var(--denim-l); color:var(--denim); font-size:0.72rem; text-transform:uppercase; padding:0.55rem 0.7rem; }
+  table.expr td{ padding:0.6rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.expr tr:last-child td{ border-bottom:none; }
+  table.expr td.expr-term{ font-weight:700; color:var(--denim); white-space:nowrap; }
+
+  .exam-card{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.3rem; margin-bottom:1rem; }
+  .exam-card .part-tag{ display:inline-block; background:var(--navy); color:#fff; font-size:0.72rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:5px; margin-bottom:0.5rem; }
+  .exam-card .q{ font-size:0.94rem; margin:0.5rem 0; }
+  .exam-card .opts{ font-size:0.88rem; color:var(--muted); margin:0.3rem 0; }
+  .exam-card .ans{ font-size:0.88rem; color:var(--teal); font-weight:600; margin-top:0.4rem; }
+
+  /* practice / self-check */
+  .practice-block{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.2rem 1.4rem; margin-bottom:1.2rem; }
+  ol.practice-list{ padding-left:1.3rem; margin:0; }
+  ol.practice-list li{ margin-bottom:0.9rem; font-size:0.95rem; }
+  ol.practice-list li .kw{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--gold); font-size:0.85rem; }
+  .gap-wrap{ display:inline-flex; align-items:center; gap:4px; margin:0 2px; }
+  input.gap{ font-family:'Inter',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ink); width:170px; padding:3px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; }
+  input.gap.correct{ border-bottom-color:var(--teal); color:var(--teal); }
+  input.gap.incorrect{ border-bottom-color:var(--coral); color:var(--coral); }
+  .mark{ font-size:0.82rem; font-weight:700; white-space:nowrap; }
+  .mark-correct{ color:var(--teal); }
+  .mark-incorrect{ color:var(--coral); }
+
+  .controls-row{ display:flex; align-items:center; gap:10px; margin-top:0.6rem; flex-wrap:wrap; }
+  button{ font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; border-radius:8px; cursor:pointer; padding:8px 16px; border:none; }
+  .btn-check{ background:var(--navy); color:#fff; }
+  .btn-reset{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .stamp{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; padding:3px 12px; border:2px solid var(--muted); border-radius:999px; color:var(--muted); opacity:0; transition:opacity .2s; }
+  .stamp.show{ opacity:1; }
+  .stamp.good{ color:var(--teal); border-color:var(--teal); }
+  .stamp.mid{ color:var(--gold); border-color:var(--gold); }
+  .stamp.low{ color:var(--coral); border-color:var(--coral); }
+
+  footer{ text-align:center; color:var(--muted); font-size:0.8rem; padding:1.5rem 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Grammar Guide</div>
+  <h1>Comparisons &amp; "AS" Expressions</h1>
+  <p>How comparatives, superlatives and <em>as...as</em> structures work — and exactly how Cambridge tests them in the Use of English paper.</p>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== SECTION 1 ===== -->
+  <h2 class="section-title">1. Comparative &amp; Superlative Forms</h2>
+  <p class="section-note">A quick review before we build on it with <em>as...as</em>.</p>
+
+  <table class="grammar">
+    <tr><th>Adjective type</th><th>Comparative</th><th>Superlative</th></tr>
+    <tr><td>Short (1 syllable)</td><td><code class="frm">tall → taller</code></td><td><code class="frm">the tallest</code></td></tr>
+    <tr><td>Ending in <i>-e</i></td><td><code class="frm">large → larger</code></td><td><code class="frm">the largest</code></td></tr>
+    <tr><td>Consonant + <i>-y</i></td><td><code class="frm">happy → happier</code></td><td><code class="frm">the happiest</code></td></tr>
+    <tr><td>1 syllable, C-V-C (double letter)</td><td><code class="frm">big → bigger</code></td><td><code class="frm">the biggest</code></td></tr>
+    <tr><td>Long (2+ syllables)</td><td><code class="frm">expensive → more expensive</code></td><td><code class="frm">the most expensive</code></td></tr>
+    <tr><td>Irregular</td><td><code class="frm">good → better</code> &middot; <code class="frm">bad → worse</code> &middot; <code class="frm">far → further</code></td><td><code class="frm">the best / the worst / the furthest</code></td></tr>
+  </table>
+
+  <h3 class="sub">Modifying comparatives</h3>
+  <div class="rule-box" style="--accent:var(--navy)">
+    <span class="lbl" style="color:var(--navy)">Big gap</span>
+    <code class="frm">much / a lot / far</code> + comparative
+    <span class="ex">This flat is <b>far more expensive</b> than the last one.</span>
+  </div>
+  <div class="rule-box" style="--accent:var(--navy)">
+    <span class="lbl" style="color:var(--navy)">Small gap</span>
+    <code class="frm">a bit / slightly / a little</code> + comparative
+    <span class="ex">Today it's <b>a bit colder</b> than yesterday.</span>
+  </div>
+  <div class="warn"><b>Common error:</b> never use <code class="frm">very</code> before a comparative — "very bigger" is always wrong.</div>
+
+  <h3 class="sub">Trends &amp; parallel increases</h3>
+  <div class="rule-box" style="--accent:var(--navy)">
+    <span class="lbl" style="color:var(--navy)">Repeated comparative</span>
+    comparative + <code class="frm">and</code> + comparative
+    <span class="ex">The traffic got <b>worse and worse</b> as rush hour approached.</span>
+  </div>
+  <div class="rule-box" style="--accent:var(--navy)">
+    <span class="lbl" style="color:var(--navy)">Double comparative</span>
+    <code class="frm">the</code> + comparative..., <code class="frm">the</code> + comparative...
+    <span class="ex"><b>The more</b> you practise, <b>the more confident</b> you'll feel.</span>
+  </div>
+
+  <!-- ===== SECTION 2 ===== -->
+  <h2 class="section-title">2. Equality — AS...AS</h2>
+  <p class="section-note">This is where most B2 students lose marks, so it's worth learning the patterns precisely.</p>
+
+  <div class="rule-box" style="--accent:var(--teal)">
+    <span class="lbl" style="color:var(--teal)">Equal</span>
+    <code class="frm">as + adjective + as</code>
+    <span class="ex">She's <b>as tall as</b> her brother. (same height)</span>
+  </div>
+  <div class="rule-box" style="--accent:var(--teal)">
+    <span class="lbl" style="color:var(--teal)">Not equal</span>
+    <code class="frm">not as/so + adjective + as</code>
+    <span class="ex">This film isn't <b>as good as</b> the first one. (the first one is better)</span>
+  </div>
+  <div class="warn"><b>Note:</b> <code class="frm">so...as</code> only appears in negative sentences. <code class="frm">as...as</code> works in both positive and negative.</div>
+  <div class="rule-box" style="--accent:var(--teal)">
+    <span class="lbl" style="color:var(--teal)">Multiples</span>
+    number + <code class="frm">times as + adjective + as</code>
+    <span class="ex">This flat is <b>twice as big as</b> mine.</span>
+  </div>
+  <div class="rule-box" style="--accent:var(--teal)">
+    <span class="lbl" style="color:var(--teal)">Maximum degree</span>
+    <code class="frm">as + adjective + as possible</code>
+    <span class="ex">Try to arrive <b>as early as possible</b>.</span>
+  </div>
+  <div class="rule-box" style="--accent:var(--teal)">
+    <span class="lbl" style="color:var(--teal)">Identical</span>
+    <code class="frm">the same (+ noun) + as</code>
+    <span class="ex">My phone is <b>the same brand as</b> yours.</span>
+  </div>
+
+  <!-- ===== SECTION 3 ===== -->
+  <h2 class="section-title">3. Other Key "AS" Expressions</h2>
+  <p class="section-note">Beyond as...as, "as" carries several other meanings that come up constantly at B2.</p>
+
+  <table class="expr">
+    <tr><th>Expression</th><th>Meaning</th><th>Example</th></tr>
+    <tr><td class="expr-term">as soon as</td><td>immediately after</td><td>Call me <b>as soon as</b> you land.</td></tr>
+    <tr><td class="expr-term">as long as</td><td>provided that (condition)</td><td>You can go out <b>as long as</b> you finish your homework.</td></tr>
+    <tr><td class="expr-term">as far as</td><td>to the extent that / limitation</td><td><b>As far as</b> I know, she's still in Madrid.</td></tr>
+    <tr><td class="expr-term">as well as</td><td>in addition to</td><td>He plays the guitar <b>as well as</b> the piano.</td></tr>
+    <tr><td class="expr-term">as if / as though</td><td>as if it were true (often unreal)</td><td>She acted <b>as if</b> she hadn't heard me.</td></tr>
+    <tr><td class="expr-term">as (reason)</td><td>because (more formal)</td><td><b>As</b> it was raining, we cancelled the trip.</td></tr>
+    <tr><td class="expr-term">as (time)</td><td>while, at the same moment</td><td><b>As</b> I was leaving, the phone rang.</td></tr>
+    <tr><td class="expr-term">so as to</td><td>in order to (purpose)</td><td>She whispered <b>so as</b> not to wake the baby.</td></tr>
+  </table>
+
+  <!-- ===== SECTION 4 ===== -->
+  <h2 class="section-title">4. How Cambridge Tests This</h2>
+  <p class="section-note">In B2 First Use of English, these structures turn up across three parts — here's exactly what to expect.</p>
+
+  <div class="exam-card">
+    <span class="part-tag">Part 1 &middot; Multiple-choice cloze</span>
+    <p class="q">One of the four options is often a similar "as" phrase, testing whether you know which one fits the meaning.</p>
+    <p class="q">He's a talented footballer <span style="border-bottom:1px dashed var(--muted)">&nbsp;____&nbsp;</span> a good student.</p>
+    <p class="opts">A) as well as &nbsp; B) such as &nbsp; C) so as &nbsp; D) as long as</p>
+    <p class="ans">Answer: A — as well as</p>
+  </div>
+
+  <div class="exam-card">
+    <span class="part-tag">Part 2 &middot; Open cloze</span>
+    <p class="q">The missing word is very often <code class="frm">as</code> itself, since it appears twice in most of these structures.</p>
+    <p class="q">You can borrow the car <span style="border-bottom:1px dashed var(--muted)">&nbsp;____&nbsp;</span> long <span style="border-bottom:1px dashed var(--muted)">&nbsp;____&nbsp;</span> you fill up the tank.</p>
+    <p class="ans">Answer: as / as</p>
+  </div>
+
+  <div class="exam-card">
+    <span class="part-tag">Part 4 &middot; Key word transformation</span>
+    <p class="q">This is where comparatives and as...as appear most — usually by flipping a comparative sentence into its equal/unequal opposite.</p>
+    <p class="q">Tom is more experienced than Sam. <b>(AS)</b><br>Sam <span style="border-bottom:1px dashed var(--muted)">&nbsp;____________________&nbsp;</span> Tom.</p>
+    <p class="ans">Answer: isn't as experienced as</p>
+  </div>
+
+  <!-- ===== SECTION 5: PRACTICE ===== -->
+  <h2 class="section-title">5. Quick Practice</h2>
+  <p class="section-note">Try these exam-style items yourself, then check your answers.</p>
+
+  <h3 class="sub">Part A — Key Word Transformation</h3>
+  <p class="section-note">Complete the second sentence using the word given, so it means the same as the first.</p>
+  <div class="practice-block">
+    <ol class="practice-list" id="partA-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('partA')">Check</button>
+      <button class="btn-reset" onclick="resetSection('partA')">Reset</button>
+      <span class="stamp" id="stamp-partA">0/0</span>
+    </div>
+  </div>
+
+  <h3 class="sub">Part B — Open Cloze</h3>
+  <p class="section-note">Fill each gap with one word only.</p>
+  <div class="practice-block">
+    <ol class="practice-list" id="partB-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('partB')">Check</button>
+      <button class="btn-reset" onclick="resetSection('partB')">Reset</button>
+      <span class="stamp" id="stamp-partB">0/0</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>B2 English &middot; Comparisons &amp; "AS" Expressions</footer>
+
+<script>
+  let counter = 0;
+  const registry = {};
+  function norm(v){ return v.trim().toLowerCase(); }
+
+  function blank(section, answers, width){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const w = width ? ` style="width:${width}px"` : '';
+    return `<span class="gap-wrap"><input type="text" class="gap" id="${id}"${w} autocomplete="off" spellcheck="false"><span class="mark" id="${id}-mark"></span></span>`;
+  }
+
+  function checkSection(key){
+    const entries = Object.entries(registry).filter(([id,e]) => e.section === key);
+    let correct = 0;
+    entries.forEach(([id,e]) => {
+      const el = document.getElementById(id);
+      const mark = document.getElementById(id + '-mark');
+      const val = norm(el.value);
+      const ok = val !== '' && e.answers.includes(val);
+      el.classList.remove('correct','incorrect');
+      if (ok){ el.classList.add('correct'); mark.textContent='✓'; mark.className='mark mark-correct'; correct++; }
+      else { el.classList.add('incorrect'); mark.textContent='✗ ' + e.answers[0]; mark.className='mark mark-incorrect'; }
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    const pct = entries.length ? correct/entries.length : 0;
+    stamp.textContent = `${correct}/${entries.length}`;
+    stamp.classList.remove('good','mid','low');
+    stamp.classList.add(pct>=0.8?'good':pct>=0.5?'mid':'low');
+    stamp.classList.add('show');
+  }
+
+  function resetSection(key){
+    Object.entries(registry).filter(([id,e]) => e.section === key).forEach(([id]) => {
+      const el = document.getElementById(id), mark = document.getElementById(id+'-mark');
+      el.value=''; el.classList.remove('correct','incorrect'); mark.textContent=''; mark.className='mark';
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    stamp.classList.remove('show','good','mid','low'); stamp.textContent='0/0';
+  }
+
+  // Part A — Key Word Transformation
+  const partA = [
+    ['My brother is younger than me.', 'AS', `I'm not ${blank('partA', ['as young as'], 150)} my brother.`],
+    ['This restaurant is the most expensive one in town.', 'AS', `No other restaurant in town ${blank('partA', ['is as expensive as'], 170)} this one.`],
+    ['You can stay at my house on condition that you help with the cleaning.', 'LONG', `You can stay at my house ${blank('partA', ['as long as'], 150)} you help with the cleaning.`],
+    ['In addition to studying medicine, she works part-time at a hospital.', 'WELL', `She works part-time at a hospital, ${blank('partA', ['as well as'], 150)} studying medicine.`],
+    ['This suitcase weighs twice what mine does.', 'TWICE', `This suitcase is ${blank('partA', ['twice as heavy as'], 170)} mine.`],
+  ];
+  document.getElementById('partA-list').innerHTML = partA.map(([orig, kw, sentence]) =>
+    `<li>${orig} <span class="kw">(${kw})</span><br>${sentence}</li>`
+  ).join('');
+
+  // Part B — Open Cloze
+  const partB = [
+    `This jacket isn't ${blank('partB', ['as'], 60)} warm as the one I had last year.`,
+    `You can borrow the car as long ${blank('partB', ['as'], 60)} you fill up the tank before returning it.`,
+    `${blank('partB', ['as'], 60)} far as I know, the shop closes at eight.`,
+    `The harder you study, the ${blank('partB', ['better'], 90)} you'll do in the exam.`,
+  ];
+  document.getElementById('partB-list').innerHTML = partB.map(s => `<li>${s}</li>`).join('');
+</script>
+
+</body>
+</html>
