@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Use of English — B2 Complete Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B;  --gold-l:#FBF1DD;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+    --teal:#1F8A70;  --teal-l:#E1F3EE;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; }
+  .wrap{ max-width:940px; margin:0 auto; padding:0 1.5rem 3rem; }
+
+  header{
+    background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%);
+    padding: 2.8rem 1.5rem 2.2rem; text-align:center;
+  }
+  .eyebrow{ color:#E8B84B; font-size:0.76rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.7rem; }
+  header h1{ font-family:'DM Serif Display',serif; color:#fff; font-size:clamp(1.9rem,4.5vw,2.7rem); margin:0 0 0.5rem; }
+  header p{ color:#C7D0E2; font-size:1rem; max-width:600px; margin:0 auto; }
+
+  .index-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width:900px; margin:1.6rem auto 0; }
+  .index-chip{ display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:#EDEFF5; text-decoration:none; padding:0.4rem 0.85rem 0.4rem 0.5rem; border-radius:999px; font-size:0.82rem; font-weight:500; }
+  .index-chip .dot{ width:0.55rem; height:0.55rem; border-radius:50%; flex-shrink:0; }
+
+  h2.section-title{ font-family:'DM Serif Display', serif; font-size:1.6rem; font-weight:400; margin: 2.6rem 0 0.3rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); display:flex; align-items:center; gap:0.6rem; }
+  .part-num{ display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; color:#fff; font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:700; flex-shrink:0; }
+  .section-note{ color:var(--muted); font-size:0.92rem; margin: 0 0 1.1rem; }
+
+  h3.sub{ font-size:1.02rem; font-weight:700; margin:1.3rem 0 0.5rem; }
+
+  .overview-table{ width:100%; border-collapse:collapse; font-size:0.9rem; margin:1rem 0 0.5rem; }
+  .overview-table th{ text-align:left; background:var(--navy); color:#fff; padding:0.6rem 0.75rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+  .overview-table td{ padding:0.6rem 0.75rem; border-bottom:1px solid var(--border); }
+  .overview-table tr:nth-child(even) td{ background:#F3F1EA; }
+
+  ul.tips{ margin:0 0 1rem; padding-left:1.3rem; }
+  ul.tips li{ margin-bottom:0.45rem; font-size:0.93rem; }
+
+  table.ref{ width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:1.1rem; }
+  table.ref th{ text-align:left; padding:0.55rem 0.7rem; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+  table.ref td{ padding:0.55rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.ref tr:last-child td{ border-bottom:none; }
+  code.frm{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--navy); background:#EEF1F6; padding:0.1rem 0.35rem; border-radius:4px; }
+
+  .struct-card{ background:#fff; border:1px solid var(--border); border-left:4px solid var(--accent, var(--coral)); border-radius:0 8px 8px 0; padding:0.85rem 1.1rem; margin-bottom:0.8rem; font-size:0.92rem; }
+  .struct-card .lbl{ font-weight:700; display:block; margin-bottom:0.25rem; }
+  .struct-card .ex{ display:block; margin-top:0.3rem; font-style:italic; color:var(--muted); }
+  .struct-card .ex b{ font-style:normal; color:var(--ink); }
+
+  .practice-block{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.2rem 1.4rem; margin: 1rem 0 1.6rem; }
+  ol.practice-list{ padding-left:1.3rem; margin:0; }
+  ol.practice-list li{ margin-bottom:0.9rem; font-size:0.95rem; }
+  ol.practice-list li .kw{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--coral); font-size:0.85rem; }
+  .gap-wrap{ display:inline-flex; align-items:center; gap:4px; margin:0 2px; }
+  input.gap{ font-family:'Inter',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ink); width:150px; padding:3px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; }
+  select.gap{ font-family:'Inter',sans-serif; font-size:0.88rem; font-weight:600; color:var(--ink); padding:4px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; }
+  input.gap.correct, select.gap.correct{ border-bottom-color:var(--teal); color:var(--teal); }
+  input.gap.incorrect, select.gap.incorrect{ border-bottom-color:var(--coral); color:var(--coral); }
+  .mark{ font-size:0.82rem; font-weight:700; white-space:nowrap; }
+  .mark-correct{ color:var(--teal); }
+  .mark-incorrect{ color:var(--coral); }
+
+  .controls-row{ display:flex; align-items:center; gap:10px; margin-top:0.7rem; flex-wrap:wrap; }
+  button{ font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; border-radius:8px; cursor:pointer; padding:8px 16px; border:none; }
+  .btn-check{ background:var(--navy); color:#fff; }
+  .btn-reset{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .stamp{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; padding:3px 12px; border:2px solid var(--muted); border-radius:999px; color:var(--muted); opacity:0; transition:opacity .2s; }
+  .stamp.show{ opacity:1; }
+  .stamp.good{ color:var(--teal); border-color:var(--teal); }
+  .stamp.mid{ color:var(--gold); border-color:var(--gold); }
+  .stamp.low{ color:var(--coral); border-color:var(--coral); }
+
+  .global-controls{ text-align:center; margin: 2.2rem 0; }
+  .btn-check-all{ background:var(--coral); color:#fff; padding:10px 20px; font-size:0.88rem; margin-right:10px; }
+  .btn-reset-all{ background:transparent; color:var(--coral); border:1px solid var(--coral); padding:10px 18px; font-size:0.88rem; }
+
+  footer{ text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0 2.4rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Complete Study Guide</div>
+  <h1>Use of English</h1>
+  <p>Everything you need across all four parts of the Cambridge B2 First Use of English paper — grammar, vocabulary, word formation, and exam-style practice for each.</p>
+  <div class="index-strip">
+    <a class="index-chip" href="#part1"><span class="dot" style="background:#E8B84B"></span>Part 1</a>
+    <a class="index-chip" href="#part2"><span class="dot" style="background:#82B4DD"></span>Part 2</a>
+    <a class="index-chip" href="#part3"><span class="dot" style="background:#5FCBA9"></span>Part 3</a>
+    <a class="index-chip" href="#part4"><span class="dot" style="background:#E29365"></span>Part 4</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2 class="section-title" style="border:none; margin-top:2.2rem;">Paper Overview</h2>
+  <table class="overview-table">
+    <tr><th>Part</th><th>What it tests</th><th>Questions</th><th>Format</th></tr>
+    <tr><td>1 — Multiple-choice cloze</td><td>Vocabulary: collocations, phrasal verbs, confusable words</td><td>8</td><td>Choose A, B, C or D for each gap</td></tr>
+    <tr><td>2 — Open cloze</td><td>Grammar: articles, prepositions, pronouns, auxiliaries, linkers</td><td>8</td><td>Write the missing word — no options given</td></tr>
+    <tr><td>3 — Word formation</td><td>Building words: prefixes, suffixes, changing word class</td><td>8</td><td>Transform a given base word to fit the gap</td></tr>
+    <tr><td>4 — Key word transformation</td><td>Grammar structures: passive, reported speech, conditionals...</td><td>6</td><td>Complete a sentence using a given word (2–5 words)</td></tr>
+  </table>
+
+  <!-- ============ PART 1 ============ -->
+  <h2 class="section-title" id="part1"><span class="part-num" style="background:var(--gold)">1</span>Multiple-Choice Cloze</h2>
+  <p class="section-note">Vocabulary in context — collocations, phrasal verbs, and words that are easy to confuse.</p>
+
+  <h3 class="sub">Strategy</h3>
+  <ul class="tips">
+    <li>Read the whole text first for general meaning before choosing any answer.</li>
+    <li>Look at the words immediately before and after each gap — many answers depend on a fixed collocation or phrasal verb.</li>
+    <li>The four options are usually the same part of speech, so grammar alone won't eliminate them — focus on meaning and fixed use.</li>
+    <li>Watch prepositions that change meaning entirely: <code class="frm">look at</code> vs <code class="frm">look after</code> vs <code class="frm">look for</code>.</li>
+  </ul>
+
+  <h3 class="sub">Commonly confused words</h3>
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Word group</th><th style="background:var(--gold-l); color:var(--gold)">Use</th></tr>
+    <tr><td><b>say / tell / speak / talk</b></td><td><code class="frm">say</code> + words/that- (no person); <code class="frm">tell</code> + person; <code class="frm">speak/talk about</code> a topic</td></tr>
+    <tr><td><b>make / do</b></td><td><code class="frm">make</code> = create/produce (make a mistake, a decision); <code class="frm">do</code> = perform an activity (do homework, a favour)</td></tr>
+    <tr><td><b>look / see / watch</b></td><td><code class="frm">look</code> = direct your eyes; <code class="frm">see</code> = perceive/notice; <code class="frm">watch</code> = observe something happening/moving</td></tr>
+    <tr><td><b>job / work / occupation</b></td><td><code class="frm">job</code> = countable; <code class="frm">work</code> = uncountable; <code class="frm">occupation</code> = formal/official term</td></tr>
+    <tr><td><b>travel / trip / journey</b></td><td><code class="frm">travel</code> = general activity (uncountable); <code class="frm">trip</code> = a single excursion; <code class="frm">journey</code> = the act of getting there</td></tr>
+    <tr><td><b>remember / remind</b></td><td><code class="frm">remember</code> = recall yourself; <code class="frm">remind</code> = make someone else recall</td></tr>
+  </table>
+
+  <h3 class="sub">Practice</h3>
+  <div class="practice-block">
+    <ol class="practice-list" id="part1-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('part1')">Check</button>
+      <button class="btn-reset" onclick="resetSection('part1')">Reset</button>
+      <span class="stamp" id="stamp-part1">0/0</span>
+    </div>
+  </div>
+
+  <!-- ============ PART 2 ============ -->
+  <h2 class="section-title" id="part2"><span class="part-num" style="background:var(--denim)">2</span>Open Cloze</h2>
+  <p class="section-note">Grammar words only — the answer is never a noun, verb, adjective or adverb with independent meaning.</p>
+
+  <h3 class="sub">What gets tested</h3>
+  <table class="ref">
+    <tr><th style="background:var(--denim-l); color:var(--denim)">Category</th><th style="background:var(--denim-l); color:var(--denim)">Examples</th></tr>
+    <tr><td>Articles</td><td><code class="frm">a / an / the</code> / (no article)</td></tr>
+    <tr><td>Prepositions</td><td><code class="frm">in, on, at, by, since, with, about</code></td></tr>
+    <tr><td>Relative pronouns</td><td><code class="frm">who, which, that, whose, where</code></td></tr>
+    <tr><td>Auxiliary verbs</td><td><code class="frm">do/does/did, have/has/had, am/is/are/was/were</code></td></tr>
+    <tr><td>Modal verbs</td><td><code class="frm">can, could, must, should, would, might</code></td></tr>
+    <tr><td>Conjunctions</td><td><code class="frm">although, because, since, unless, while</code></td></tr>
+    <tr><td>Quantifiers</td><td><code class="frm">some, any, much, many, few, little, both, neither</code></td></tr>
+    <tr><td>Other pronouns</td><td><code class="frm">it, this, that, one, myself, each other</code></td></tr>
+  </table>
+
+  <h3 class="sub">Strategy</h3>
+  <ul class="tips">
+    <li>If your answer has clear standalone meaning (a noun, verb, adjective...), it's wrong — try again.</li>
+    <li>Look for fixed patterns: verb + preposition (<code class="frm">depend on</code>, <code class="frm">look forward to</code>) and multi-word linkers (<code class="frm">as well as</code>, <code class="frm">in spite of</code>).</li>
+    <li>Check subject–verb agreement and tense consistency around the gap.</li>
+  </ul>
+
+  <h3 class="sub">Practice</h3>
+  <div class="practice-block">
+    <ol class="practice-list" id="part2-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('part2')">Check</button>
+      <button class="btn-reset" onclick="resetSection('part2')">Reset</button>
+      <span class="stamp" id="stamp-part2">0/0</span>
+    </div>
+  </div>
+
+  <!-- ============ PART 3 ============ -->
+  <h2 class="section-title" id="part3"><span class="part-num" style="background:var(--teal)">3</span>Word Formation</h2>
+  <p class="section-note">A base word is given in capitals — change its form (and often its word class) to fit the gap.</p>
+
+  <h3 class="sub">Prefixes</h3>
+  <table class="ref">
+    <tr><th style="background:var(--teal-l); color:var(--teal)">Type</th><th style="background:var(--teal-l); color:var(--teal)">Examples</th></tr>
+    <tr><td>Negative</td><td><code class="frm">un-</code> unhappy &middot; <code class="frm">in-</code> inaccurate &middot; <code class="frm">im-</code> impossible &middot; <code class="frm">il-</code> illegal &middot; <code class="frm">ir-</code> irregular &middot; <code class="frm">dis-</code> disagree &middot; <code class="frm">non-</code> nonsense</td></tr>
+    <tr><td>Other</td><td><code class="frm">re-</code> rewrite &middot; <code class="frm">over-</code> overreact &middot; <code class="frm">under-</code> underestimate &middot; <code class="frm">mis-</code> misunderstand &middot; <code class="frm">pre-</code> prepare</td></tr>
+  </table>
+
+  <h3 class="sub">Suffixes</h3>
+  <table class="ref">
+    <tr><th style="background:var(--teal-l); color:var(--teal)">Forms</th><th style="background:var(--teal-l); color:var(--teal)">Examples</th></tr>
+    <tr><td>Nouns</td><td><code class="frm">-tion/-sion</code> decision &middot; <code class="frm">-ment</code> employment &middot; <code class="frm">-ness</code> happiness &middot; <code class="frm">-ity</code> possibility &middot; <code class="frm">-er/-or</code> teacher &middot; <code class="frm">-ance/-ence</code> importance</td></tr>
+    <tr><td>Adjectives</td><td><code class="frm">-able/-ible</code> comfortable &middot; <code class="frm">-ful</code> careful &middot; <code class="frm">-less</code> careless &middot; <code class="frm">-al</code> national &middot; <code class="frm">-ive</code> creative &middot; <code class="frm">-ous</code> dangerous</td></tr>
+    <tr><td>Adverbs</td><td><code class="frm">-ly</code> carefully</td></tr>
+    <tr><td>Verbs</td><td><code class="frm">-ise/-ize</code> modernise &middot; <code class="frm">-en</code> strengthen &middot; <code class="frm">-ify</code> simplify</td></tr>
+  </table>
+  <ul class="tips">
+    <li>Decide what part of speech the gap needs (noun / verb / adjective / adverb) from the sentence structure <em>before</em> you pick a prefix or suffix.</li>
+    <li>Check whether a negative prefix is also needed — it's easy to build the right word but forget it should mean the opposite.</li>
+  </ul>
+
+  <h3 class="sub">Practice</h3>
+  <div class="practice-block">
+    <ol class="practice-list" id="part3-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('part3')">Check</button>
+      <button class="btn-reset" onclick="resetSection('part3')">Reset</button>
+      <span class="stamp" id="stamp-part3">0/0</span>
+    </div>
+  </div>
+
+  <!-- ============ PART 4 ============ -->
+  <h2 class="section-title" id="part4"><span class="part-num" style="background:var(--coral)">4</span>Key Word Transformation</h2>
+  <p class="section-note">Rewrite a sentence using a given word, keeping the exact same meaning, in 2–5 words.</p>
+
+  <h3 class="sub">Structures worth knowing cold</h3>
+
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Passive voice</span>
+    object → subject + <code class="frm">be</code> + past participle
+    <span class="ex">They built the house in 1990. → <b>The house was built</b> in 1990.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Reported speech</span>
+    tense shifts back one step; pronouns/time expressions change
+    <span class="ex">"I'll call you," she said. → She said <b>she would call</b> me.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Conditionals</span>
+    0 (general truth) &middot; 1 (real future) &middot; 2 (unreal present) &middot; 3 (unreal past) &middot; mixed
+    <span class="ex">I didn't study, so I failed. → If <b>I had studied</b>, I wouldn't have failed.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Comparatives &amp; as...as</span>
+    see the dedicated Comparisons guide for full detail
+    <span class="ex">Tom is more experienced than Sam. → Sam <b>isn't as experienced as</b> Tom.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Modals of deduction</span>
+    <code class="frm">must have</code> / <code class="frm">can't have</code> / <code class="frm">might have</code> + past participle
+    <span class="ex">I'm sure he didn't know. → He <b>can't have known</b>.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Wish / if only</span>
+    <code class="frm">wish</code> + past simple (present regret) &middot; <code class="frm">wish</code> + past perfect (past regret)
+    <span class="ex">I regret not studying harder. → I <b>wish I had studied</b> harder.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">Too / enough</span>
+    <code class="frm">too</code> + adjective + to-infinitive &middot; adjective + <code class="frm">enough</code> + to-infinitive
+    <span class="ex">This box is too heavy for me to lift. → This box isn't <b>light enough</b> for me to lift.</span>
+  </div>
+  <div class="struct-card" style="--accent:var(--coral)">
+    <span class="lbl">So / such...that</span>
+    <code class="frm">so</code> + adjective/adverb + <code class="frm">that</code> &middot; <code class="frm">such</code> (a/an) + adjective + noun + <code class="frm">that</code>
+    <span class="ex">It was such a good film that we watched it twice.</span>
+  </div>
+
+  <h3 class="sub">Practice</h3>
+  <div class="practice-block">
+    <ol class="practice-list" id="part4-list"></ol>
+    <div class="controls-row">
+      <button class="btn-check" onclick="checkSection('part4')">Check</button>
+      <button class="btn-reset" onclick="resetSection('part4')">Reset</button>
+      <span class="stamp" id="stamp-part4">0/0</span>
+    </div>
+  </div>
+
+  <div class="global-controls">
+    <button class="btn-check-all" onclick="checkAll()">Check everything</button>
+    <button class="btn-reset-all" onclick="resetAll()">Reset everything</button>
+  </div>
+
+</div>
+
+<footer>B2 English &middot; Use of English Complete Study Guide</footer>
+
+<script>
+  let counter = 0;
+  const registry = {};
+  function norm(v){ return v.trim().toLowerCase(); }
+
+  function blank(section, answers, width){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const w = width ? ` style="width:${width}px"` : '';
+    return `<span class="gap-wrap"><input type="text" class="gap" id="${id}"${w} autocomplete="off" spellcheck="false"><span class="mark" id="${id}-mark"></span></span>`;
+  }
+
+  function sel(section, options, answers, placeholder){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const ph = placeholder || '— choose —';
+    const opts = [`<option value="">${ph}</option>`].concat(options.map(o => `<option value="${o.toLowerCase()}">${o}</option>`)).join('');
+    return `<span class="gap-wrap"><select class="gap" id="${id}">${opts}</select><span class="mark" id="${id}-mark"></span></span>`;
+  }
+
+  function checkSection(key){
+    const entries = Object.entries(registry).filter(([id,e]) => e.section === key);
+    let correct = 0;
+    entries.forEach(([id,e]) => {
+      const el = document.getElementById(id);
+      const mark = document.getElementById(id + '-mark');
+      const val = norm(el.value);
+      const ok = val !== '' && e.answers.includes(val);
+      el.classList.remove('correct','incorrect');
+      if (ok){ el.classList.add('correct'); mark.textContent='✓'; mark.className='mark mark-correct'; correct++; }
+      else { el.classList.add('incorrect'); mark.textContent='✗ ' + e.answers[0]; mark.className='mark mark-incorrect'; }
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    const pct = entries.length ? correct/entries.length : 0;
+    stamp.textContent = `${correct}/${entries.length}`;
+    stamp.classList.remove('good','mid','low');
+    stamp.classList.add(pct>=0.8?'good':pct>=0.5?'mid':'low');
+    stamp.classList.add('show');
+  }
+
+  function resetSection(key){
+    Object.entries(registry).filter(([id,e]) => e.section === key).forEach(([id]) => {
+      const el = document.getElementById(id), mark = document.getElementById(id+'-mark');
+      el.value=''; el.classList.remove('correct','incorrect'); mark.textContent=''; mark.className='mark';
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    stamp.classList.remove('show','good','mid','low'); stamp.textContent='0/0';
+  }
+
+  function checkAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(checkSection); }
+  function resetAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(resetSection); }
+
+  // ===== PART 1: Multiple-choice cloze =====
+  const p1Opts = {
+    a: ['turn','make','do','put'],
+    b: ['do','make','take','have'],
+    c: ['come','get','make','take'],
+    d: ['off','on','up','down'],
+    e: ['in','on','at','with'],
+    f: ['forgot','left','missed','lost'],
+  };
+  const part1 = [
+    ['Could you please', p1Opts.a, 'turn', 'the light off when you leave?'],
+    ["I don't want to", p1Opts.b, 'take', 'any risks before the exam.'],
+    ['He finds it hard to', p1Opts.c, 'get', 'on with new people.'],
+    ['The meeting has been put', p1Opts.d, 'off', 'until next week.'],
+    ["She's really good", p1Opts.e, 'at', 'maths.'],
+    ['I completely', p1Opts.f, 'left', 'my keys at home this morning.'],
+  ];
+  document.getElementById('part1-list').innerHTML = part1.map(([pre, opts, ans, post]) =>
+    `<li>${pre} ${sel('part1', opts, [ans])} ${post}</li>`
+  ).join('');
+
+  // ===== PART 2: Open cloze =====
+  const part2 = [
+    `${blank('part2', ['would'], 70)} you like to come with us?`,
+    `She's the woman ${blank('part2', ['whose'], 70)} car was stolen last week.`,
+    `There isn't ${blank('part2', ['any'], 70)} milk left in the fridge.`,
+    `He's been working here ${blank('part2', ['since'], 70)} 2020.`,
+    `I'm looking forward ${blank('part2', ['to'], 70)} seeing you soon.`,
+    `${blank('part2', ['even'], 70)} though it was raining, we decided to go for a walk.`,
+    `This is by far the best film I ${blank('part2', ['have'], 70)} ever seen.`,
+    `Neither of the answers ${blank('part2', ['is','was'], 70)} correct.`,
+  ];
+  document.getElementById('part2-list').innerHTML = part2.map(s => `<li>${s}</li>`).join('');
+
+  // ===== PART 3: Word formation =====
+  const part3 = [
+    ['HAPPY', 'She felt a deep sense of', 'happiness', 'when she saw her family again.'],
+    ['DEPEND', 'Children are completely', 'dependent', 'on their parents at that age.'],
+    ['CARE', 'He was extremely', 'careful', 'when handling the fragile equipment.'],
+    ['POSSIBLE', "It's", 'impossible', 'to finish this project by tomorrow.'],
+    ['DECIDE', 'Her', 'decision', 'to leave the company surprised everyone.'],
+    ['STRONG', 'The extra beams were added to', 'strengthen', 'the old bridge.'],
+    ['EMPLOY', "The company's", 'employment', 'rate has grown significantly this year.'],
+    ['COMFORT', 'I felt very', 'comfortable', 'during the long flight thanks to the extra legroom.'],
+  ];
+  document.getElementById('part3-list').innerHTML = part3.map(([base, pre, ans, post]) =>
+    `<li><span class="kw">(${base})</span><br>${pre} ${blank('part3', [ans], 150)} ${post}</li>`
+  ).join('');
+
+  // ===== PART 4: Key word transformation =====
+  const part4 = [
+    ['Someone stole my bike yesterday.', 'STOLEN', `My bike ${blank('part4', ['was stolen'], 150)} yesterday.`],
+    [`"I'll call you tomorrow," she said.`, 'WOULD', `She said ${blank('part4', ['she would call'], 170)} me the next day.`],
+    ["If it doesn't rain, we'll go to the beach.", 'UNLESS', `${blank('part4', ['unless'], 100)} it rains, we'll go to the beach.`],
+    ["I'm sure he didn't know about the meeting.", 'HAVE', `He ${blank('part4', ["can't have known"], 170)} about the meeting.`],
+    ['I regret not studying harder for the exam.', 'WISH', `I ${blank('part4', ['wish i had studied'], 170)} harder for the exam.`],
+    ['This box is too heavy for me to lift.', 'ENOUGH', `This box isn't ${blank('part4', ['light enough'], 150)} for me to lift.`],
+  ];
+  document.getElementById('part4-list').innerHTML = part4.map(([orig, kw, sentence]) =>
+    `<li>${orig} <span class="kw">(${kw})</span><br>${sentence}</li>`
+  ).join('');
+</script>
+
+</body>
+</html>
