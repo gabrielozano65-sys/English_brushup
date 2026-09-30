@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listening — B2 Complete Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B;  --gold-l:#FBF1DD;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+    --teal:#1F8A70;  --teal-l:#E1F3EE;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; }
+  .wrap{ max-width:940px; margin:0 auto; padding:0 1.5rem 3rem; }
+
+  header{ background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%); padding: 2.8rem 1.5rem 2.2rem; text-align:center; }
+  .eyebrow{ color:#E8B84B; font-size:0.76rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.7rem; }
+  header h1{ font-family:'DM Serif Display',serif; color:#fff; font-size:clamp(1.9rem,4.5vw,2.7rem); margin:0 0 0.5rem; }
+  header p{ color:#C7D0E2; font-size:1rem; max-width:600px; margin:0 auto; }
+
+  .index-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width:900px; margin:1.6rem auto 0; }
+  .index-chip{ display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:#EDEFF5; text-decoration:none; padding:0.4rem 0.85rem 0.4rem 0.5rem; border-radius:999px; font-size:0.82rem; font-weight:500; }
+  .index-chip .dot{ width:0.55rem; height:0.55rem; border-radius:50%; flex-shrink:0; }
+
+  .tts-note{ background:#fff; border:1px solid var(--border); border-left:4px solid var(--navy); border-radius:0 8px 8px 0; padding:0.9rem 1.1rem; font-size:0.88rem; color:var(--muted); margin:1.6rem 0; }
+  .tts-note b{ color:var(--navy); }
+  #tts-warning{ display:none; background:var(--coral-l); border-left:4px solid var(--coral); border-radius:0 8px 8px 0; padding:0.9rem 1.1rem; font-size:0.88rem; margin:1rem 0; }
+
+  h2.section-title{ font-family:'DM Serif Display', serif; font-size:1.6rem; font-weight:400; margin: 2.6rem 0 0.3rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); display:flex; align-items:center; gap:0.6rem; }
+  .part-num{ display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; color:#fff; font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:700; flex-shrink:0; }
+  .section-note{ color:var(--muted); font-size:0.92rem; margin: 0 0 1.1rem; }
+  h3.sub{ font-size:1.02rem; font-weight:700; margin:1.3rem 0 0.5rem; }
+
+  .overview-table{ width:100%; border-collapse:collapse; font-size:0.9rem; margin:1rem 0 0.5rem; }
+  .overview-table th{ text-align:left; background:var(--navy); color:#fff; padding:0.6rem 0.75rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+  .overview-table td{ padding:0.6rem 0.75rem; border-bottom:1px solid var(--border); }
+  .overview-table tr:nth-child(even) td{ background:#F3F1EA; }
+
+  ul.tips{ margin:0 0 1rem; padding-left:1.3rem; }
+  ul.tips li{ margin-bottom:0.45rem; font-size:0.93rem; }
+
+  table.ref{ width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:1.1rem; }
+  table.ref th{ text-align:left; padding:0.55rem 0.7rem; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+  table.ref td{ padding:0.55rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.ref tr:last-child td{ border-bottom:none; }
+  code.frm{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--navy); background:#EEF1F6; padding:0.1rem 0.35rem; border-radius:4px; }
+
+  /* listening items */
+  .listen-item{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.3rem; margin-bottom:1rem; }
+  .audio-row{ display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; margin-bottom:0.7rem; }
+  .btn-play{ display:flex; align-items:center; gap:0.4rem; background:var(--accent, var(--navy)); color:#fff; border:none; border-radius:999px; padding:7px 16px 7px 12px; font-family:'Inter',sans-serif; font-weight:600; font-size:0.85rem; cursor:pointer; }
+  .btn-play svg{ width:16px; height:16px; flex-shrink:0; }
+  .btn-play.playing{ opacity:0.6; cursor:default; }
+  .btn-transcript{ background:transparent; border:1px solid var(--border); color:var(--muted); border-radius:999px; padding:6px 14px; font-size:0.8rem; font-family:'Inter',sans-serif; cursor:pointer; }
+  .transcript-box{ background:#F5F3EC; border-radius:8px; padding:0.8rem 1rem; font-size:0.87rem; font-style:italic; color:var(--muted); margin-bottom:0.8rem; }
+  .transcript-box p{ margin:0 0 0.4rem; }
+  .transcript-box p:last-child{ margin-bottom:0; }
+  .transcript-box b{ font-style:normal; color:var(--ink); }
+  .question{ font-size:0.94rem; }
+  .question .qn{ font-weight:700; margin-right:0.3rem; }
+
+  .gap-wrap{ display:inline-flex; align-items:center; gap:4px; margin:0 2px; }
+  input.gap{ font-family:'Inter',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ink); width:150px; padding:3px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; }
+  select.gap{ font-family:'Inter',sans-serif; font-size:0.88rem; font-weight:600; color:var(--ink); padding:4px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; max-width:280px; }
+  input.gap.correct, select.gap.correct{ border-bottom-color:var(--teal); color:var(--teal); }
+  input.gap.incorrect, select.gap.incorrect{ border-bottom-color:var(--coral); color:var(--coral); }
+  .mark{ font-size:0.82rem; font-weight:700; white-space:nowrap; }
+  .mark-correct{ color:var(--teal); }
+  .mark-incorrect{ color:var(--coral); }
+
+  .controls-row{ display:flex; align-items:center; gap:10px; margin:1rem 0 1.6rem; flex-wrap:wrap; }
+  button.ctrl{ font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; border-radius:8px; cursor:pointer; padding:8px 16px; border:none; }
+  .btn-check{ background:var(--navy); color:#fff; }
+  .btn-reset{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .stamp{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; padding:3px 12px; border:2px solid var(--muted); border-radius:999px; color:var(--muted); opacity:0; transition:opacity .2s; }
+  .stamp.show{ opacity:1; }
+  .stamp.good{ color:var(--teal); border-color:var(--teal); }
+  .stamp.mid{ color:var(--gold); border-color:var(--gold); }
+  .stamp.low{ color:var(--coral); border-color:var(--coral); }
+
+  .global-controls{ text-align:center; margin: 2.2rem 0; }
+  .btn-check-all{ background:var(--coral); color:#fff; padding:10px 20px; font-size:0.88rem; margin-right:10px; }
+  .btn-reset-all{ background:transparent; color:var(--coral); border:1px solid var(--coral); padding:10px 18px; font-size:0.88rem; }
+
+  footer{ text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0 2.4rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Complete Study Guide</div>
+  <h1>Listening</h1>
+  <p>Format, strategies and genuine listening practice for all four parts of the Cambridge B2 First Listening paper.</p>
+  <div class="index-strip">
+    <a class="index-chip" href="#part1"><span class="dot" style="background:#E8B84B"></span>Part 1</a>
+    <a class="index-chip" href="#part2"><span class="dot" style="background:#82B4DD"></span>Part 2</a>
+    <a class="index-chip" href="#part3"><span class="dot" style="background:#5FCBA9"></span>Part 3</a>
+    <a class="index-chip" href="#part4"><span class="dot" style="background:#E29365"></span>Part 4</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="tts-note"><b>How the audio works:</b> every "Play recording" button below uses your browser's built-in text-to-speech to read the script aloud — no audio files needed. It works best in Chrome, Edge or Safari. The transcript stays hidden until you choose to reveal it, so you can genuinely practise listening rather than reading.</div>
+  <div id="tts-warning">Your browser doesn't seem to support text-to-speech, so the "Play recording" buttons won't work here. Everything else — the guide, transcripts and exercises — will still work normally.</div>
+
+  <h2 class="section-title" style="border:none; margin-top:1rem;">Paper Overview</h2>
+  <table class="overview-table">
+    <tr><th>Part</th><th>What it tests</th><th>Questions</th><th>Format</th></tr>
+    <tr><td>1 — Short extracts</td><td>Gist, detail, function, opinion or attitude — 8 unrelated short recordings</td><td>8</td><td>Multiple choice (A/B/C), one question per extract</td></tr>
+    <tr><td>2 — Sentence completion</td><td>Specific information from one longer monologue</td><td>10</td><td>Complete each sentence with a word or short phrase you hear</td></tr>
+    <tr><td>3 — Multiple matching</td><td>Gist and attitude across 5 short related speakers</td><td>5</td><td>Match each speaker to one of 8 options (3 unused)</td></tr>
+    <tr><td>4 — Multiple choice</td><td>Detailed understanding of a longer interview/conversation</td><td>7</td><td>Multiple choice (A/B/C) on a longer recording</td></tr>
+  </table>
+
+  <h3 class="sub">General strategy</h3>
+  <ul class="tips">
+    <li>You hear each recording <b>twice</b> — use the first listening for the overall gist, the second to confirm details.</li>
+    <li>Read the questions <em>before</em> listening — they tell you exactly what to listen for.</li>
+    <li>In Part 2, predict the type of word missing (a number? a name? a place?) before you hear it.</li>
+    <li>Watch for distractors: speakers often mention one thing, then correct themselves — <i>"I was going to say Tuesday, but actually it's Wednesday"</i> — the exam tests the corrected information.</li>
+    <li>Don't panic if you miss a word — keep listening. You can often work it out from context on the second listen.</li>
+  </ul>
+
+  <h3 class="sub">Signal language to listen for</h3>
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Signals...</th><th style="background:var(--gold-l); color:var(--gold)">Phrases</th></tr>
+    <tr><td>A correction is coming</td><td><code class="frm">Actually...</code> &middot; <code class="frm">I mean...</code> &middot; <code class="frm">Well, on second thoughts...</code></td></tr>
+    <tr><td>An opinion</td><td><code class="frm">To be honest...</code> &middot; <code class="frm">If you ask me...</code> &middot; <code class="frm">As far as I'm concerned...</code></td></tr>
+    <tr><td>A contrast</td><td><code class="frm">But then again...</code> &middot; <code class="frm">Having said that...</code> &middot; <code class="frm">On the other hand...</code></td></tr>
+    <tr><td>An example</td><td><code class="frm">For instance...</code> &middot; <code class="frm">Like when...</code></td></tr>
+    <tr><td>Emphasis / a key point</td><td><code class="frm">The thing is...</code> &middot; <code class="frm">What really struck me was...</code></td></tr>
+  </table>
+
+  <!-- ============ PART 1 ============ -->
+  <h2 class="section-title" id="part1"><span class="part-num" style="background:var(--gold)">1</span>Short Extracts</h2>
+  <p class="section-note">Eight unrelated short recordings in the real exam. Try these four: read the question first, then play the recording just once before answering — that's the real exam pressure.</p>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--gold)" data-key="part1" data-idx="0"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden><p>Hi, it's Rachel. I'm calling about the flat viewing tomorrow — actually, could we move it to Thursday instead? Something's come up at work. Let me know if that works for you. Thanks, bye!</p></div>
+    <div class="question"><span class="qn">1.</span>Why is Rachel calling?<br>
+      ${SEL1}
+    </div>
+  </div>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--gold)" data-key="part1" data-idx="1"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden><p>And don't forget, listeners, the charity fun run starts at nine sharp this Saturday morning down by the river. Entry's free, but we're asking for donations on the day for the local hospital.</p></div>
+    <div class="question"><span class="qn">2.</span>What is the purpose of this announcement?<br>
+      ${SEL2}
+    </div>
+  </div>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--gold)" data-key="part1" data-idx="2"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden><p>Right, before you go, remember your essays are due Friday, not Monday like I said last week — sorry about that mix-up. And please email me if you're struggling with the word count.</p></div>
+    <div class="question"><span class="qn">3.</span>What does the teacher want students to know?<br>
+      ${SEL3}
+    </div>
+  </div>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--gold)" data-key="part1" data-idx="3"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden><p>I ordered this two weeks ago and it still hasn't arrived. I've already emailed twice with no reply, so I'd like a full refund if it doesn't turn up by Friday.</p></div>
+    <div class="question"><span class="qn">4.</span>How does the speaker feel?<br>
+      ${SEL4}
+    </div>
+  </div>
+
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('part1')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('part1')">Reset</button>
+    <span class="stamp" id="stamp-part1">0/0</span>
+  </div>
+
+  <!-- ============ PART 2 ============ -->
+  <h2 class="section-title" id="part2"><span class="part-num" style="background:var(--denim)">2</span>Sentence Completion</h2>
+  <p class="section-note">One longer monologue. Read the five gapped sentences first, predict what kind of word is missing, then play the recording.</p>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--denim)" data-key="part2" data-idx="0"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden><p>Welcome to the new exhibition, which opens to the public next Tuesday, the 14th of April. The exhibition is called "Voices of the Deep" and focuses on ocean wildlife. It's located on the second floor, in the East Wing gallery. Entry is free for members, but non-members will need to pay eight pounds fifty. The exhibition will run for three months, until the middle of July. On the opening weekend, there will be a special talk given by the marine biologist Dr Helen Carter at 2 o'clock. Please note that photography is allowed, but flash photography is strictly forbidden throughout the gallery.</p></div>
+    <ol class="practice-list" id="part2-list" style="padding-left:1.3rem; margin:0;"></ol>
+  </div>
+
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('part2')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('part2')">Reset</button>
+    <span class="stamp" id="stamp-part2">0/0</span>
+  </div>
+
+  <!-- ============ PART 3 ============ -->
+  <h2 class="section-title" id="part3"><span class="part-num" style="background:var(--teal)">3</span>Multiple Matching</h2>
+  <p class="section-note">Five speakers talk about learning a new skill as an adult. Match each one to the option that best summarises their main point — there's one option you won't need.</p>
+
+  <table class="ref" style="margin-bottom:1.2rem;">
+    <tr><th style="background:var(--teal-l); color:var(--teal)">Options</th></tr>
+    <tr><td><b>A.</b> It has turned into a favourite part of my routine.</td></tr>
+    <tr><td><b>B.</b> The result matters less to me than the experience itself.</td></tr>
+    <tr><td><b>C.</b> I'm concerned I won't reach the level I need.</td></tr>
+    <tr><td><b>D.</b> A good teacher helped me get past my fear.</td></tr>
+    <tr><td><b>E.</b> It's helped me feel closer to the people I work with.</td></tr>
+    <tr><td><b>F.</b> I regret not starting this skill sooner.</td></tr>
+  </table>
+
+  <div id="part3-items"></div>
+
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('part3')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('part3')">Reset</button>
+    <span class="stamp" id="stamp-part3">0/0</span>
+  </div>
+
+  <!-- ============ PART 4 ============ -->
+  <h2 class="section-title" id="part4"><span class="part-num" style="background:var(--coral)">4</span>Multiple Choice</h2>
+  <p class="section-note">A longer interview between two speakers. Questions follow the order of the conversation. Since this uses one browser voice, listen for content rather than trying to tell speakers apart by sound.</p>
+
+  <div class="listen-item">
+    <div class="audio-row"><button class="btn-play" style="--accent:var(--coral)" data-key="part4" data-idx="0"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play recording</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+    <div class="transcript-box" hidden id="part4-transcript"></div>
+    <ol class="practice-list" id="part4-list" style="padding-left:1.3rem; margin:0;"></ol>
+  </div>
+
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('part4')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('part4')">Reset</button>
+    <span class="stamp" id="stamp-part4">0/0</span>
+  </div>
+
+  <div class="global-controls">
+    <button class="ctrl btn-check-all" onclick="checkAll()">Check everything</button>
+    <button class="ctrl btn-reset-all" onclick="resetAll()">Reset everything</button>
+  </div>
+
+</div>
+
+<footer>B2 English &middot; Listening Complete Study Guide</footer>
+
+<script>
+  // ---------- self-check scaffold ----------
+  let counter = 0;
+  const registry = {};
+  function norm(v){ return v.trim().toLowerCase(); }
+
+  function blank(section, answers, width){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const w = width ? ` style="width:${width}px"` : '';
+    return `<span class="gap-wrap"><input type="text" class="gap" id="${id}"${w} autocomplete="off" spellcheck="false"><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function sel(section, options, answers, placeholder){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const ph = placeholder || '— choose —';
+    const opts = [`<option value="">${ph}</option>`].concat(options.map(o => `<option value="${o.toLowerCase()}">${o}</option>`)).join('');
+    return `<span class="gap-wrap"><select class="gap" id="${id}">${opts}</select><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function checkSection(key){
+    const entries = Object.entries(registry).filter(([id,e]) => e.section === key);
+    let correct = 0;
+    entries.forEach(([id,e]) => {
+      const el = document.getElementById(id);
+      const mark = document.getElementById(id + '-mark');
+      const val = norm(el.value);
+      const ok = val !== '' && e.answers.includes(val);
+      el.classList.remove('correct','incorrect');
+      if (ok){ el.classList.add('correct'); mark.textContent='✓'; mark.className='mark mark-correct'; correct++; }
+      else { el.classList.add('incorrect'); mark.textContent='✗ ' + e.answers[0]; mark.className='mark mark-incorrect'; }
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    const pct = entries.length ? correct/entries.length : 0;
+    stamp.textContent = `${correct}/${entries.length}`;
+    stamp.classList.remove('good','mid','low');
+    stamp.classList.add(pct>=0.8?'good':pct>=0.5?'mid':'low');
+    stamp.classList.add('show');
+  }
+  function resetSection(key){
+    Object.entries(registry).filter(([id,e]) => e.section === key).forEach(([id]) => {
+      const el = document.getElementById(id), mark = document.getElementById(id+'-mark');
+      el.value=''; el.classList.remove('correct','incorrect'); mark.textContent=''; mark.className='mark';
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    stamp.classList.remove('show','good','mid','low'); stamp.textContent='0/0';
+  }
+  function checkAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(checkSection); }
+  function resetAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(resetSection); }
+
+  function toggleTranscript(btn){
+    const box = btn.parentElement.nextElementSibling;
+    const hidden = box.hasAttribute('hidden');
+    if (hidden){ box.removeAttribute('hidden'); btn.textContent = 'Hide transcript'; }
+    else { box.setAttribute('hidden',''); btn.textContent = 'Show transcript'; }
+  }
+
+  // ---------- Part 1 multiple-choice selects ----------
+  document.querySelectorAll('.listen-item .question').forEach((q, i) => {
+    const opts = [
+      ['To cancel the viewing','To change the day of the viewing','To ask about the price'],
+      ['To sell tickets for an event','To remind people about a free event','To thank people for donating'],
+      ['The deadline has changed','The essay topic has changed','The word count requirement has been removed'],
+      ['Confused','Frustrated','Apologetic'],
+    ][i];
+    const answers = ['To change the day of the viewing','To remind people about a free event','The deadline has changed','Frustrated'][i];
+    q.innerHTML = q.innerHTML.replace(/\$\{SEL\d\}/, sel('part1', opts, [answers]));
+  });
+
+  // ---------- Part 2 sentence completion ----------
+  const part2 = [
+    `The exhibition opens on the ${blank('part2', ['14th','the 14th','14'], 100)} of April.`,
+    `The exhibition is located in the ${blank('part2', ['east wing','the east wing'], 130)} gallery.`,
+    `Non-members must pay ${blank('part2', ['eight pounds fifty','£8.50','8.50'], 150)} to enter.`,
+    `The exhibition will run until the middle of ${blank('part2', ['july'], 100)}.`,
+    `${blank('part2', ['flash'], 100)} photography is strictly forbidden.`,
+  ];
+  document.getElementById('part2-list').innerHTML = part2.map(s => `<li>${s}</li>`).join('');
+
+  // ---------- Part 3 speakers ----------
+  const speakers = [
+    `I decided to learn the guitar last year, mainly because I wanted something to do that had nothing to do with screens. Honestly, my fingers hurt for the first month, but now I actually look forward to practising every evening — it's become the best part of my day.`,
+    `I took up pottery classes, and I'll be honest, I'm still not very good at it! But that's not really the point for me — I just love being creative with my hands after sitting at a desk all day. The end result doesn't matter much.`,
+    `I started learning Italian because we're moving to Rome next year. It's been tough fitting lessons around a full-time job, and some weeks I barely open the textbook. I do worry I won't be ready in time.`,
+    `My daughter convinced me to try rock climbing with her. I was terrified the first few sessions — heights have never been my thing — but the instructor was brilliant and built my confidence up gradually.`,
+    `I picked up baking during a quiet period at work. What surprised me most was how much my colleagues appreciated it — I started bringing cakes in, and it's genuinely improved how connected I feel to the team.`,
+  ];
+  const options3 = ['A. favourite part of my routine','B. result matters less than the experience','C. concerned about reaching the level needed','D. a good teacher helped with fear','E. feel closer to colleagues','F. regret not starting sooner'];
+  const answers3 = ['A','B','C','D','E'];
+  document.getElementById('part3-items').innerHTML = speakers.map((text, i) => `
+    <div class="listen-item">
+      <div class="audio-row"><button class="btn-play" style="--accent:var(--teal)" data-key="part3" data-idx="${i}"><svg viewBox="0 0 24 24" fill="white"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>Play speaker ${i+1}</button><button class="btn-transcript" onclick="toggleTranscript(this)">Show transcript</button></div>
+      <div class="transcript-box" hidden><p>${text}</p></div>
+      <div class="question"><span class="qn">Speaker ${i+1}:</span>${sel('part3', options3.map(o=>o[0]), [answers3[i]], '— A–F —')}</div>
+    </div>
+  `).join('');
+
+  // ---------- Part 4 dialogue ----------
+  const dialogueTurns = [
+    { speaker: 'A', label: 'Interviewer', text: `So, you opened your first restaurant at just twenty-three. Was that daunting?` },
+    { speaker: 'B', label: 'Chef', text: `Honestly, at the time I didn't think about it too much — I was probably too naive to be scared! Looking back now, though, I realise how big a risk it actually was.` },
+    { speaker: 'A', label: 'Interviewer', text: `What's changed most about your approach to cooking since then?` },
+    { speaker: 'B', label: 'Chef', text: `I used to focus purely on complicated techniques, trying to impress people. Now I care much more about using really good, simple ingredients and letting them speak for themselves.` },
+    { speaker: 'A', label: 'Interviewer', text: `Any advice for young chefs starting out?` },
+    { speaker: 'B', label: 'Chef', text: `Don't rush to open your own place. I learned so much more working under other chefs for a few years than I would have figured out alone. Patience really does pay off.` },
+    { speaker: 'A', label: 'Interviewer', text: `And what's next for you?` },
+    { speaker: 'B', label: 'Chef', text: `We're actually opening a second restaurant next spring, focused entirely on vegetarian food — something I've wanted to do for years.` },
+  ];
+  document.getElementById('part4-transcript').innerHTML = dialogueTurns.map(t => `<p><b>${t.label}:</b> ${t.text}</p>`).join('');
+
+  const p4Opts = [
+    ['Extremely nervous','Not particularly worried','Fully aware of the risks'],
+    ['It has become more experimental','It has become simpler and more ingredient-focused','It has stayed exactly the same'],
+    ['Open your own restaurant as soon as possible','Focus only on complex techniques','Gain experience working for others first'],
+    ['To retire early','To open a vegetarian restaurant','To stop cooking professionally'],
+  ];
+  const p4Ans = ['Not particularly worried','It has become simpler and more ingredient-focused','Gain experience working for others first','To open a vegetarian restaurant'];
+  const p4Qs = [
+    'How did the chef feel about opening a restaurant at 23 at the time?',
+    "How has the chef's cooking style changed?",
+    'What advice does the chef give to young chefs?',
+    "What are the chef's future plans?",
+  ];
+  document.getElementById('part4-list').innerHTML = p4Qs.map((q, i) =>
+    `<li><span class="qn">${i+1}.</span>${q}<br>${sel('part4', p4Opts[i], [p4Ans[i]])}</li>`
+  ).join('');
+
+  // ---------- Text-to-speech ----------
+  const TRANSCRIPTS = {
+    part1: [
+      `Hi, it's Rachel. I'm calling about the flat viewing tomorrow — actually, could we move it to Thursday instead? Something's come up at work. Let me know if that works for you. Thanks, bye!`,
+      `And don't forget, listeners, the charity fun run starts at nine sharp this Saturday morning down by the river. Entry's free, but we're asking for donations on the day for the local hospital.`,
+      `Right, before you go, remember your essays are due Friday, not Monday like I said last week — sorry about that mix-up. And please email me if you're struggling with the word count.`,
+      `I ordered this two weeks ago and it still hasn't arrived. I've already emailed twice with no reply, so I'd like a full refund if it doesn't turn up by Friday.`,
+    ],
+    part2: [
+      `Welcome to the new exhibition, which opens to the public next Tuesday, the 14th of April. The exhibition is called "Voices of the Deep" and focuses on ocean wildlife. It's located on the second floor, in the East Wing gallery. Entry is free for members, but non-members will need to pay eight pounds fifty. The exhibition will run for three months, until the middle of July. On the opening weekend, there will be a special talk given by the marine biologist Doctor Helen Carter at 2 o'clock. Please note that photography is allowed, but flash photography is strictly forbidden throughout the gallery.`,
+    ],
+    part3: speakers,
+  };
+
+  let voicesCache = null;
+  function getVoices(){
+    return new Promise((resolve) => {
+      if (voicesCache && voicesCache.length){ resolve(voicesCache); return; }
+      let v = window.speechSynthesis.getVoices();
+      if (v.length){ voicesCache = v; resolve(v); return; }
+      window.speechSynthesis.onvoiceschanged = () => {
+        voicesCache = window.speechSynthesis.getVoices();
+        resolve(voicesCache);
+      };
+      setTimeout(() => resolve(window.speechSynthesis.getVoices()), 800);
+    });
+  }
+
+  function speak(text, btn){
+    if (!('speechSynthesis' in window)){ document.getElementById('tts-warning').style.display = 'block'; return; }
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-GB';
+    u.rate = 0.95;
+    btn.classList.add('playing');
+    u.onend = () => btn.classList.remove('playing');
+    u.onerror = () => btn.classList.remove('playing');
+    window.speechSynthesis.speak(u);
+  }
+
+  async function speakDialogue(turns, btn){
+    if (!('speechSynthesis' in window)){ document.getElementById('tts-warning').style.display = 'block'; return; }
+    window.speechSynthesis.cancel();
+    const voices = await getVoices();
+    const enVoices = voices.filter(v => v.lang && v.lang.startsWith('en'));
+    const pool = enVoices.length ? enVoices : voices;
+    const voiceA = pool[0] || null;
+    const voiceB = pool.find(v => v !== voiceA) || voiceA;
+    btn.classList.add('playing');
+    let i = 0;
+    function playNext(){
+      if (i >= turns.length){ btn.classList.remove('playing'); return; }
+      const turn = turns[i++];
+      const u = new SpeechSynthesisUtterance(turn.text);
+      u.voice = turn.speaker === 'A' ? voiceA : voiceB;
+      u.rate = 0.95;
+      u.onend = playNext;
+      u.onerror = playNext;
+      window.speechSynthesis.speak(u);
+    }
+    playNext();
+  }
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn-play');
+    if (!btn) return;
+    const key = btn.dataset.key;
+    const idx = parseInt(btn.dataset.idx, 10);
+    if (key === 'part4'){ speakDialogue(dialogueTurns, btn); }
+    else { speak(TRANSCRIPTS[key][idx], btn); }
+  });
+
+  if (!('speechSynthesis' in window)){ document.getElementById('tts-warning').style.display = 'block'; }
+</script>
+
+</body>
+</html>
