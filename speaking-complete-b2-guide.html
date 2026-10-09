@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking — B2 Complete Study Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B;  --gold-l:#FBF1DD;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+    --teal:#1F8A70;  --teal-l:#E1F3EE;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+    --indigo:#5B4B8A; --indigo-l:#EDE9F6;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; }
+  .wrap{ max-width:1000px; margin:0 auto; padding:0 1.5rem 3rem; }
+
+  header{ background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%); padding: 2.8rem 1.5rem 2.2rem; text-align:center; }
+  .eyebrow{ color:#E8B84B; font-size:0.76rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.7rem; }
+  header h1{ font-family:'DM Serif Display',serif; color:#fff; font-size:clamp(1.9rem,4.5vw,2.7rem); margin:0 0 0.5rem; }
+  header p{ color:#C7D0E2; font-size:1rem; max-width:620px; margin:0 auto; }
+  .index-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.6rem; max-width:900px; margin:1.6rem auto 0; }
+  .index-chip{ display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:#EDEFF5; text-decoration:none; padding:0.4rem 0.85rem 0.4rem 0.5rem; border-radius:999px; font-size:0.82rem; font-weight:500; }
+  .index-chip .dot{ width:0.55rem; height:0.55rem; border-radius:50%; flex-shrink:0; }
+
+  h2.section-title{ font-family:'DM Serif Display', serif; font-size:1.6rem; font-weight:400; margin: 2.8rem 0 0.3rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); display:flex; align-items:center; gap:0.6rem; }
+  .part-num{ display:inline-flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; color:#fff; font-family:'JetBrains Mono',monospace; font-size:1rem; font-weight:700; flex-shrink:0; }
+  .section-note{ color:var(--muted); font-size:0.92rem; margin: 0 0 1.1rem; }
+  h3.sub{ font-size:1.02rem; font-weight:700; margin:1.5rem 0 0.5rem; }
+
+  .overview-table{ width:100%; border-collapse:collapse; font-size:0.9rem; margin:1rem 0 0.5rem; }
+  .overview-table th{ text-align:left; background:var(--navy); color:#fff; padding:0.6rem 0.75rem; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+  .overview-table td{ padding:0.6rem 0.75rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  .overview-table tr:nth-child(even) td{ background:#F3F1EA; }
+
+  ul.tips{ margin:0 0 1rem; padding-left:1.3rem; }
+  ul.tips li{ margin-bottom:0.45rem; font-size:0.93rem; }
+
+  table.ref{ width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:1.1rem; }
+  table.ref th{ text-align:left; padding:0.55rem 0.7rem; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+  table.ref td{ padding:0.55rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.ref tr:last-child td{ border-bottom:none; }
+  code.frm{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--navy); background:#EEF1F6; padding:0.1rem 0.35rem; border-radius:4px; }
+
+  .callout{ border-left:4px solid var(--accent, var(--navy)); background:#fff; border-radius:0 8px 8px 0; padding:0.85rem 1.1rem; margin:0.9rem 0; font-size:0.9rem; border-top:1px solid var(--border); border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .callout b.lbl{ display:block; text-transform:uppercase; font-size:0.72rem; letter-spacing:0.05em; margin-bottom:0.25rem; color:var(--accent, var(--navy)); }
+
+  .task-card{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1rem 1.2rem; margin:0.8rem 0 1.2rem; }
+  .task-card .tag{ display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#fff; background:var(--accent, var(--navy)); border-radius:5px; padding:0.15rem 0.55rem; margin-bottom:0.5rem; }
+  .photo-pair{ display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin:0.6rem 0; }
+  .photo{ background:var(--accent-l, #EEF1F6); border-radius:8px; padding:0.9rem 1rem; font-size:0.86rem; display:flex; gap:0.7rem; align-items:flex-start; }
+  .photo svg{ width:30px; height:30px; flex-shrink:0; }
+  .photo b{ display:block; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+  .options-row{ display:flex; flex-wrap:wrap; gap:0.5rem; margin:0.6rem 0; }
+  .options-row span{ background:var(--accent-l, #EEF1F6); border-radius:999px; padding:0.25rem 0.85rem; font-size:0.86rem; font-weight:600; }
+
+  /* side-by-side worksheet blocks */
+  .sbs-item{ margin-bottom:1.3rem; }
+  .sbs-q{ font-weight:700; font-size:0.95rem; margin-bottom:0.4rem; }
+  .sbs{ display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; }
+  .sbs-col{ border-radius:10px; padding:0.9rem 1.1rem; font-size:0.92rem; line-height:1.9; }
+  .sbs-col .col-lbl{ display:block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem; line-height:1.4; }
+  .sbs-model{ background:var(--teal-l); border:1px solid #BFE3D9; }
+  .sbs-model .col-lbl{ color:var(--teal); }
+  .sbs-model b{ color:var(--teal); background:rgba(31,138,112,0.12); padding:0 0.25rem; border-radius:3px; }
+  .sbs-gaps{ background:#fff; border:1px solid var(--border); }
+  .sbs-gaps .col-lbl{ color:var(--coral); }
+
+  .gap-wrap{ display:inline-flex; align-items:center; gap:4px; margin:0 2px; }
+  input.gap{ font-family:'Inter',sans-serif; font-size:0.9rem; font-weight:600; color:var(--ink); padding:2px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; text-align:center; }
+  select.gap{ font-family:'Inter',sans-serif; font-size:0.86rem; font-weight:600; color:var(--ink); padding:4px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; max-width:240px; }
+  input.gap.correct, select.gap.correct{ border-bottom-color:var(--teal); color:var(--teal); }
+  input.gap.incorrect, select.gap.incorrect{ border-bottom-color:var(--coral); color:var(--coral); }
+  .mark{ font-size:0.8rem; font-weight:700; white-space:nowrap; }
+  .mark-correct{ color:var(--teal); }
+  .mark-incorrect{ color:var(--coral); }
+
+  .match-list{ list-style:none; padding:0; margin:0; }
+  .match-list li{ background:#fff; border:1px solid var(--border); border-radius:8px; padding:0.6rem 1rem; margin-bottom:0.5rem; font-size:0.92rem; display:flex; align-items:center; justify-content:space-between; gap:0.8rem; flex-wrap:wrap; }
+  .match-list li q{ font-style:italic; }
+
+  .controls-row{ display:flex; align-items:center; gap:10px; margin:0.9rem 0 1.4rem; flex-wrap:wrap; }
+  button.ctrl{ font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; border-radius:8px; cursor:pointer; padding:8px 16px; border:none; }
+  .btn-check{ background:var(--navy); color:#fff; }
+  .btn-reset{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .stamp{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; padding:3px 12px; border:2px solid var(--muted); border-radius:999px; color:var(--muted); opacity:0; transition:opacity .2s; }
+  .stamp.show{ opacity:1; }
+  .stamp.good{ color:var(--teal); border-color:var(--teal); }
+  .stamp.mid{ color:var(--gold); border-color:var(--gold); }
+  .stamp.low{ color:var(--coral); border-color:var(--coral); }
+
+  .timer-box{ display:flex; align-items:center; gap:1rem; background:var(--indigo-l); border-radius:10px; padding:0.8rem 1.1rem; margin:0.8rem 0 1.2rem; flex-wrap:wrap; }
+  .timer-display{ font-family:'JetBrains Mono',monospace; font-size:1.7rem; font-weight:700; color:var(--indigo); min-width:4.2rem; }
+  .timer-display.low{ color:var(--coral); }
+  .btn-timer{ background:var(--indigo); color:#fff; }
+  .timer-note{ font-size:0.84rem; color:var(--muted); flex:1; min-width:200px; }
+
+  .checklist{ list-style:none; padding:0; margin:0 0 1rem; }
+  .checklist li{ margin-bottom:0.45rem; font-size:0.92rem; }
+  .checklist label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .checklist input{ margin-top:0.35rem; accent-color:var(--teal); }
+
+  .global-controls{ text-align:center; margin: 2.2rem 0; }
+  .btn-check-all{ background:var(--coral); color:#fff; padding:10px 20px; font-size:0.88rem; margin-right:10px; }
+  .btn-reset-all{ background:transparent; color:var(--coral); border:1px solid var(--coral); padding:10px 18px; font-size:0.88rem; }
+
+  footer{ text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0 2.4rem; }
+
+  @media (max-width:720px){
+    .sbs, .photo-pair{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Complete Study Guide</div>
+  <h1>Speaking</h1>
+  <p>The format, the marking criteria, useful language and guided practice for all four parts of the Cambridge B2 First Speaking test.</p>
+  <div class="index-strip">
+    <a class="index-chip" href="#criteria"><span class="dot" style="background:#E8B84B"></span>How you're marked</a>
+    <a class="index-chip" href="#part1"><span class="dot" style="background:#E8B84B"></span>Part 1</a>
+    <a class="index-chip" href="#part2"><span class="dot" style="background:#82B4DD"></span>Part 2</a>
+    <a class="index-chip" href="#part3"><span class="dot" style="background:#5FCBA9"></span>Part 3</a>
+    <a class="index-chip" href="#part4"><span class="dot" style="background:#E29365"></span>Part 4</a>
+    <a class="index-chip" href="#pron"><span class="dot" style="background:#B0A0E0"></span>Pronunciation</a>
+    <a class="index-chip" href="#final"><span class="dot" style="background:#EDEFF5"></span>Checklist</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2 class="section-title" style="border:none; margin-top:2.2rem;">Test Overview</h2>
+  <p class="section-note">You take the test with another candidate (occasionally in a group of three), and there are two examiners: one speaks to you, the other only listens and assesses. The whole test lasts about 14 minutes.</p>
+  <table class="overview-table">
+    <tr><th>Part</th><th>Time</th><th>Who talks</th><th>What you do</th></tr>
+    <tr><td><b>1</b> — Interview</td><td>2 min</td><td>Examiner &harr; each candidate</td><td>Answer personal questions about yourself: home, work/study, free time, plans, experiences</td></tr>
+    <tr><td><b>2</b> — Long turn</td><td>4 min</td><td>One candidate at a time</td><td>Compare two photographs for <b>1 minute</b> and answer a question about them. Your partner then gives a short (about 30 seconds) reaction to a question about your photos</td></tr>
+    <tr><td><b>3</b> — Collaborative task</td><td>4 min</td><td>The two candidates together</td><td>Discuss written prompts for about 2 minutes, then decide something together in about 1 minute</td></tr>
+    <tr><td><b>4</b> — Discussion</td><td>4 min</td><td>Examiner and both candidates</td><td>Discuss wider questions connected to the topic of Part 3</td></tr>
+  </table>
+
+  <div class="callout" style="--accent:var(--navy)">
+    <b class="lbl">The golden rule</b>
+    Speaking is not a performance in front of an audience &mdash; it's a conversation. Examiners reward natural interaction, clear organisation and a good range of language, not perfect grammar or long memorised speeches.
+  </div>
+
+  <!-- ============ CRITERIA ============ -->
+  <h2 class="section-title" id="criteria"><span class="part-num" style="background:var(--navy)">&#9733;</span>How You're Marked</h2>
+  <p class="section-note">One examiner scores you on four analytic criteria; the other gives you a global impression. Knowing what they look for tells you exactly what to practise.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Criterion</th><th style="background:var(--gold-l); color:var(--gold)">What it means</th><th style="background:var(--gold-l); color:var(--gold)">How to show it</th></tr>
+    <tr><td><b>Grammar &amp; Vocabulary</b></td><td>Range and accuracy of structures and words</td><td>Mix tenses, use conditionals and passives, and choose precise vocabulary (<i>delighted</i> rather than <i>very happy</i>). Self-correct if you slip.</td></tr>
+    <tr><td><b>Discourse Management</b></td><td>Coherence, organisation and length of what you say</td><td>Develop each answer with a reason or example. Use linkers (<i>however, as a result, for instance</i>). Stay on topic.</td></tr>
+    <tr><td><b>Pronunciation</b></td><td>Individual sounds, word stress, sentence stress and intonation</td><td>Stress the important words, vary your intonation and speak clearly. A foreign accent is fine &mdash; being understood is what counts.</td></tr>
+    <tr><td><b>Interactive Communication</b></td><td>How well you work with your partner</td><td>Ask for their opinion, react to what they say, invite them in, and keep the conversation moving without dominating it.</td></tr>
+    <tr><td><b>Global Achievement</b></td><td>Overall effectiveness (second examiner)</td><td>An overall impression of how well you handle the tasks across all four parts.</td></tr>
+  </table>
+
+  <h3 class="sub">General strategy</h3>
+  <ul class="tips">
+    <li><b>Extend your answers.</b> One-word answers lose marks. Use the formula <b>answer + reason + example</b>.</li>
+    <li><b>Never go silent.</b> Use natural fillers (<i>Let me think&hellip;, That's an interesting question&hellip;</i>) rather than long pauses.</li>
+    <li><b>It's fine to ask for repetition.</b> <i>Sorry, could you repeat that, please?</i> is perfectly acceptable &mdash; but don't rely on it every time.</li>
+    <li><b>Don't memorise speeches.</b> Examiners notice and they can't give you credit for rehearsed text that doesn't answer the question.</li>
+    <li><b>Be a good partner.</b> Looking at, listening to and reacting to your partner is part of your score.</li>
+    <li><b>Correct yourself calmly.</b> <i>I mean&hellip;, or rather&hellip;</i> shows awareness and control.</li>
+  </ul>
+
+  <h3 class="sub">Natural fillers vs. empty fillers</h3>
+  <table class="ref">
+    <tr><th style="background:var(--coral-l); color:var(--coral)">Avoid</th><th style="background:var(--coral-l); color:var(--coral)">Use instead</th></tr>
+    <tr><td>&ldquo;Eeeh&hellip; emmm&hellip; how do you say&hellip;&rdquo;</td><td><code class="frm">Let me think&hellip;</code> &middot; <code class="frm">Well, I suppose&hellip;</code> &middot; <code class="frm">That's a good question&hellip;</code></td></tr>
+    <tr><td>Long silence while searching for a word</td><td><code class="frm">What I mean is&hellip;</code> &middot; <code class="frm">It's a kind of&hellip;</code> &middot; <code class="frm">Something like&hellip;</code> (paraphrase!)</td></tr>
+    <tr><td>&ldquo;I don't know&rdquo; and stopping</td><td><code class="frm">I've never really thought about it, but I'd say&hellip;</code></td></tr>
+  </table>
+
+  <!-- ============ PART 1 ============ -->
+  <h2 class="section-title" id="part1"><span class="part-num" style="background:var(--gold)">1</span>Interview</h2>
+  <p class="section-note">About 2 minutes. The examiner asks each of you questions about your life. The aim is to relax and show you can talk about familiar topics.</p>
+
+  <h3 class="sub">What to expect</h3>
+  <ul class="tips">
+    <li>You'll be asked your name and where you're from, then questions about <b>present</b> (home, studies, work), <b>past</b> (a recent experience) and <b>future</b> (plans, hopes).</li>
+    <li>Answers should be 2&ndash;3 sentences, not one word &mdash; but not long speeches either.</li>
+    <li>Different tenses are your chance to show range: present simple, past simple, present perfect, <i>going to</i> / <i>would like to</i>.</li>
+  </ul>
+
+  <h3 class="sub">Typical questions</h3>
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Topic</th><th style="background:var(--gold-l); color:var(--gold)">Examples</th></tr>
+    <tr><td>Home &amp; place</td><td>Where do you live? What do you like about living there? Would you like to live somewhere else?</td></tr>
+    <tr><td>Free time</td><td>What do you enjoy doing in your free time? How often do you do it? Have you taken up any new hobbies recently?</td></tr>
+    <tr><td>Work / study</td><td>What are you studying? What do you enjoy most about it? What would your ideal job be?</td></tr>
+    <tr><td>Past experiences</td><td>Tell us about a memorable holiday. What did you do last weekend?</td></tr>
+    <tr><td>Future plans</td><td>What are you hoping to do in the next few years? Do you think you'll travel more in future?</td></tr>
+  </table>
+
+  <h3 class="sub">Useful language</h3>
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Function</th><th style="background:var(--gold-l); color:var(--gold)">Phrases</th></tr>
+    <tr><td>Likes &amp; interests</td><td><code class="frm">I'm really into&hellip;</code> &middot; <code class="frm">I'm quite keen on&hellip;</code> &middot; <code class="frm">What I enjoy most is&hellip;</code></td></tr>
+    <tr><td>Habits</td><td><code class="frm">I tend to&hellip;</code> &middot; <code class="frm">I usually&hellip;</code> &middot; <code class="frm">I try to&hellip; whenever I can</code></td></tr>
+    <tr><td>Past experiences</td><td><code class="frm">A while back, I&hellip;</code> &middot; <code class="frm">The last time I&hellip;</code> &middot; <code class="frm">I've been&hellip; for about&hellip; now</code></td></tr>
+    <tr><td>Plans &amp; hopes</td><td><code class="frm">I'm hoping to&hellip;</code> &middot; <code class="frm">I'd love to&hellip;</code> &middot; <code class="frm">If I get the chance, I'll&hellip;</code></td></tr>
+    <tr><td>Adding a reason</td><td><code class="frm">&hellip;mainly because&hellip;</code> &middot; <code class="frm">&hellip;which is why&hellip;</code></td></tr>
+  </table>
+
+  <h3 class="sub">Practice &mdash; model answers and your version</h3>
+  <p class="section-note">On the left is a model answer with the key words highlighted. On the right is the same answer with gaps &mdash; fill them from memory, then check. Afterwards, say your own true answer aloud.</p>
+  <div id="p1-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p1')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p1')">Reset</button>
+    <span class="stamp" id="stamp-p1">0/0</span>
+  </div>
+
+  <!-- ============ PART 2 ============ -->
+  <h2 class="section-title" id="part2"><span class="part-num" style="background:var(--denim)">2</span>Long Turn</h2>
+  <p class="section-note">About 4 minutes in total (two long turns). The examiner gives you two photographs and asks a question. You speak alone for <b>one minute</b>.</p>
+
+  <h3 class="sub">What to expect</h3>
+  <ul class="tips">
+    <li>You get two photographs, and a question printed above them that you should answer <b>about both pictures</b>.</li>
+    <li>The task is to <b>compare</b> the photos and answer the question &mdash; not to describe each photo in detail.</li>
+    <li>While you speak, your partner listens. Afterwards the examiner asks your partner a short question about your photos, and your partner answers in about 30 seconds.</li>
+    <li>When it's your partner's turn to speak, listen carefully &mdash; you'll be asked a short question about their photos.</li>
+  </ul>
+
+  <div class="callout" style="--accent:var(--coral)">
+    <b class="lbl">The most common mistake</b>
+    Describing each photo separately for a minute and never answering the question. Spend a few seconds on similarities and differences, then use most of your time on the actual question.
+  </div>
+
+  <h3 class="sub">A winning structure for one minute</h3>
+  <table class="ref">
+    <tr><th style="background:var(--denim-l); color:var(--denim)">Step</th><th style="background:var(--denim-l); color:var(--denim)">Time</th><th style="background:var(--denim-l); color:var(--denim)">What to do</th></tr>
+    <tr><td><b>1. Compare</b></td><td>~15 sec</td><td>One clear similarity and one clear difference between the two photos.</td></tr>
+    <tr><td><b>2. Answer the question</b></td><td>~35 sec</td><td>Give reasons for photo 1, then reasons for photo 2. Use speculation language.</td></tr>
+    <tr><td><b>3. Finish</b></td><td>~10 sec</td><td>Add a final comment. Stop when the examiner says "Thank you".</td></tr>
+  </table>
+
+  <h3 class="sub">Useful language</h3>
+  <table class="ref">
+    <tr><th style="background:var(--denim-l); color:var(--denim)">Function</th><th style="background:var(--denim-l); color:var(--denim)">Phrases</th></tr>
+    <tr><td>Comparing</td><td><code class="frm">Both photos show&hellip;</code> &middot; <code class="frm">In the first photo&hellip;, whereas in the second&hellip;</code> &middot; <code class="frm">One thing they have in common is&hellip;</code> &middot; <code class="frm">Unlike the people in the first picture&hellip;</code></td></tr>
+    <tr><td>Speculating</td><td><code class="frm">They might / may / could be&hellip;</code> &middot; <code class="frm">She must be&hellip;</code> &middot; <code class="frm">He can't be&hellip;</code> &middot; <code class="frm">It looks as if / as though&hellip;</code> &middot; <code class="frm">They seem to be&hellip;</code> &middot; <code class="frm">I'd say that&hellip;</code></td></tr>
+    <tr><td>Giving reasons</td><td><code class="frm">&hellip;probably because&hellip;</code> &middot; <code class="frm">&hellip;which might explain why&hellip;</code> &middot; <code class="frm">&hellip;perhaps in order to&hellip;</code></td></tr>
+    <tr><td>Position in the photo</td><td><code class="frm">in the foreground / background</code> &middot; <code class="frm">on the left / right</code> &middot; <code class="frm">in the middle</code> &middot; <code class="frm">at the top / bottom</code></td></tr>
+    <tr><td>When you can't find a word</td><td><code class="frm">It's a kind of&hellip;</code> &middot; <code class="frm">something you use for&hellip;</code> &middot; <code class="frm">I can't remember the word, but&hellip;</code></td></tr>
+    <tr><td>Ending</td><td><code class="frm">All in all, I'd say&hellip;</code> &middot; <code class="frm">So, to sum up&hellip;</code></td></tr>
+  </table>
+
+  <h3 class="sub">Sample task</h3>
+  <div class="task-card" style="--accent:var(--denim); --accent-l:var(--denim-l)">
+    <span class="tag">Photographs</span>
+    <div class="photo-pair">
+      <div class="photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2E6B9E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 V10 L12 4 L20 10 V20 Z"/><path d="M10 20 V14 H14 V20"/></svg>
+        <div><b>Photo 1</b>A group of friends preparing a meal together in a home kitchen, laughing and chopping vegetables.</div>
+      </div>
+      <div class="photo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2E6B9E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3 V11 M5 3 V8 C5 9.5 6 10.5 7 10.5 C8 10.5 9 9.5 9 8 V3"/><path d="M7 11 V21"/><path d="M17 3 C14.5 4 14 8 14 11 H17 V21"/></svg>
+        <div><b>Photo 2</b>A family eating a meal in a busy restaurant, with waiters passing between crowded tables.</div>
+      </div>
+    </div>
+    <p style="margin:0.5rem 0 0;"><b>Question:</b> Compare the photographs and say why the people might have chosen to eat in these ways.</p>
+  </div>
+
+  <div class="timer-box">
+    <div class="timer-display" id="timer-display">1:00</div>
+    <button class="ctrl btn-timer" id="timer-btn" onclick="toggleTimer()">Start 1-minute timer</button>
+    <div class="timer-note">Try the sample task aloud <b>before</b> you read the model answer. Record yourself on your phone if you can.</div>
+  </div>
+
+  <h3 class="sub">Practice &mdash; model answer and your version</h3>
+  <div id="p2-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p2')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p2')">Reset</button>
+    <span class="stamp" id="stamp-p2">0/0</span>
+  </div>
+
+  <h3 class="sub">Your partner's turn: the 30-second response</h3>
+  <p class="section-note">After your long turn, the examiner asks your partner a short question about <i>your</i> photos, for example <i>"Which of these meals would you prefer to be at?"</i> Answer briefly and with a reason.</p>
+  <div id="p2b-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p2b')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p2b')">Reset</button>
+    <span class="stamp" id="stamp-p2b">0/0</span>
+  </div>
+
+  <!-- ============ PART 3 ============ -->
+  <h2 class="section-title" id="part3"><span class="part-num" style="background:var(--teal)">3</span>Collaborative Task</h2>
+  <p class="section-note">About 4 minutes. You and your partner discuss a task together using written prompts. This is where interactive communication matters most.</p>
+
+  <h3 class="sub">What to expect</h3>
+  <ul class="tips">
+    <li>You see a central question and several options (usually five) in a diagram.</li>
+    <li>For about <b>2 minutes</b> you discuss the question, talking about the options with your partner.</li>
+    <li>Then the examiner gives you a <b>decision question</b> and you have about <b>1 minute</b> to reach a decision together.</li>
+    <li>You <b>don't</b> have to discuss all the options, and you don't have to agree &mdash; but you should try to reach a decision on the final question.</li>
+  </ul>
+
+  <div class="callout" style="--accent:var(--teal)">
+    <b class="lbl">Remember</b>
+    This is a conversation <b>between you and your partner</b>, not an interview with the examiner. Look at your partner, not at the examiners, and respond to what they actually say.
+  </div>
+
+  <h3 class="sub">Sample task</h3>
+  <div class="task-card" style="--accent:var(--teal); --accent-l:var(--teal-l)">
+    <span class="tag">Task</span>
+    <p style="margin:0.2rem 0 0.5rem;">Here are some things that can help teenagers stay healthy. <b>Talk to each other about how important each of these is.</b></p>
+    <div class="options-row"><span>Sleep</span><span>Diet</span><span>Exercise</span><span>Friends</span><span>Hobbies</span></div>
+    <p style="margin:0.6rem 0 0;"><b>Decision question (1 minute):</b> Now decide which two are the most important for teenagers to stay healthy.</p>
+  </div>
+
+  <h3 class="sub">Useful language</h3>
+  <table class="ref">
+    <tr><th style="background:var(--teal-l); color:var(--teal)">Function</th><th style="background:var(--teal-l); color:var(--teal)">Phrases</th></tr>
+    <tr><td>Starting</td><td><code class="frm">Shall we start with&hellip;?</code> &middot; <code class="frm">Why don't we begin by talking about&hellip;?</code> &middot; <code class="frm">Let's start with&hellip;</code></td></tr>
+    <tr><td>Asking your partner</td><td><code class="frm">What do you think about&hellip;?</code> &middot; <code class="frm">How about you?</code> &middot; <code class="frm">Do you agree?</code> &middot; <code class="frm">What's your view on&hellip;?</code></td></tr>
+    <tr><td>Giving an opinion</td><td><code class="frm">I'd say that&hellip;</code> &middot; <code class="frm">In my opinion&hellip;</code> &middot; <code class="frm">It seems to me that&hellip;</code> &middot; <code class="frm">As far as I'm concerned&hellip;</code></td></tr>
+    <tr><td>Agreeing</td><td><code class="frm">I couldn't agree more.</code> &middot; <code class="frm">Absolutely, that's a good point.</code> &middot; <code class="frm">You're right, and&hellip;</code></td></tr>
+    <tr><td>Disagreeing politely</td><td><code class="frm">I see what you mean, but&hellip;</code> &middot; <code class="frm">I'm afraid I see it differently.</code> &middot; <code class="frm">That's true to some extent, however&hellip;</code></td></tr>
+    <tr><td>Suggesting</td><td><code class="frm">How about&hellip;?</code> &middot; <code class="frm">Why don't we&hellip;?</code> &middot; <code class="frm">We could&hellip;</code></td></tr>
+    <tr><td>Moving on</td><td><code class="frm">Shall we move on to&hellip;?</code> &middot; <code class="frm">What about&hellip;?</code></td></tr>
+    <tr><td>Reaching a decision</td><td><code class="frm">So, shall we agree on&hellip;?</code> &middot; <code class="frm">I think we both feel that&hellip;</code> &middot; <code class="frm">Shall we go for&hellip;?</code></td></tr>
+  </table>
+
+  <h3 class="sub">Practice 1 &mdash; match the phrase to its function</h3>
+  <ul class="match-list" id="p3match"></ul>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p3m')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p3m')">Reset</button>
+    <span class="stamp" id="stamp-p3m">0/0</span>
+  </div>
+
+  <h3 class="sub">Practice 2 &mdash; model conversation and your version</h3>
+  <div id="p3-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p3')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p3')">Reset</button>
+    <span class="stamp" id="stamp-p3">0/0</span>
+  </div>
+
+  <div class="callout" style="--accent:var(--coral)">
+    <b class="lbl">Common mistakes in Part 3</b>
+    Dominating the conversation &middot; Not letting your partner speak &middot; Agreeing with everything (no discussion) &middot; Making a decision too early &middot; Talking to the examiner instead of your partner.
+  </div>
+
+  <!-- ============ PART 4 ============ -->
+  <h2 class="section-title" id="part4"><span class="part-num" style="background:var(--coral)">4</span>Discussion</h2>
+  <p class="section-note">About 4 minutes. The examiner asks questions to both of you, broadening the topic from Part 3. You can respond to the examiner <i>and</i> to each other.</p>
+
+  <h3 class="sub">What to expect</h3>
+  <ul class="tips">
+    <li>Questions move from the specific topic to <b>general opinions</b>: society, the future, people in general.</li>
+    <li>The examiner may ask you individually, or ask both of you the same question.</li>
+    <li>Both of you should speak about equally. If your partner has been quiet, invite them in; if you're asked directly, answer fully.</li>
+    <li>It's fine to disagree with your partner, as long as you do it politely and give reasons.</li>
+  </ul>
+
+  <h3 class="sub">Typical questions</h3>
+  <table class="ref">
+    <tr><th style="background:var(--coral-l); color:var(--coral)">Theme (linked to Part 3)</th><th style="background:var(--coral-l); color:var(--coral)">Examples</th></tr>
+    <tr><td>Health</td><td>Do you think people are healthier today than in the past? Should schools do more to teach young people about healthy living?</td></tr>
+    <tr><td>Technology</td><td>How has technology changed the way people communicate? Do you think we depend too much on our phones?</td></tr>
+    <tr><td>Travel</td><td>Is it better to travel alone or with other people? Does tourism do more good than harm?</td></tr>
+    <tr><td>Environment</td><td>What can individuals do to protect the environment? Whose responsibility is it &mdash; governments or ordinary people?</td></tr>
+    <tr><td>Education &amp; work</td><td>Is it more important to enjoy your job or to earn a good salary? How will jobs change in the future?</td></tr>
+  </table>
+
+  <h3 class="sub">A strong answer: opinion + reason + example + balance</h3>
+  <div class="callout" style="--accent:var(--coral)">
+    <b class="lbl">Formula</b>
+    <b>1.</b> Give your opinion &rarr; <b>2.</b> Explain why &rarr; <b>3.</b> Give an example &rarr; <b>4.</b> Acknowledge the other side &rarr; <b>5.</b> (Optionally) ask your partner what they think.
+  </div>
+
+  <h3 class="sub">Useful language</h3>
+  <table class="ref">
+    <tr><th style="background:var(--coral-l); color:var(--coral)">Function</th><th style="background:var(--coral-l); color:var(--coral)">Phrases</th></tr>
+    <tr><td>Opinion</td><td><code class="frm">Personally, I believe&hellip;</code> &middot; <code class="frm">From my point of view&hellip;</code> &middot; <code class="frm">I'm convinced that&hellip;</code></td></tr>
+    <tr><td>Generalising</td><td><code class="frm">On the whole&hellip;</code> &middot; <code class="frm">By and large&hellip;</code> &middot; <code class="frm">In most cases&hellip;</code> &middot; <code class="frm">People tend to&hellip;</code></td></tr>
+    <tr><td>Balancing</td><td><code class="frm">That said&hellip;</code> &middot; <code class="frm">On the other hand&hellip;</code> &middot; <code class="frm">Having said that&hellip;</code> &middot; <code class="frm">It really depends on&hellip;</code></td></tr>
+    <tr><td>Examples</td><td><code class="frm">For instance&hellip;</code> &middot; <code class="frm">Take&hellip; for example</code> &middot; <code class="frm">A good example of this is&hellip;</code></td></tr>
+    <tr><td>Speculating about the future</td><td><code class="frm">I imagine that&hellip;</code> &middot; <code class="frm">It's likely that&hellip;</code> &middot; <code class="frm">I wouldn't be surprised if&hellip;</code></td></tr>
+    <tr><td>Hypothesising</td><td><code class="frm">If I were&hellip;, I would&hellip;</code> &middot; <code class="frm">If people stopped&hellip;, we would&hellip;</code></td></tr>
+  </table>
+
+  <h3 class="sub">Practice &mdash; model answer and your version</h3>
+  <div id="p4-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('p4')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('p4')">Reset</button>
+    <span class="stamp" id="stamp-p4">0/0</span>
+  </div>
+
+  <!-- ============ PRONUNCIATION ============ -->
+  <h2 class="section-title" id="pron"><span class="part-num" style="background:var(--indigo)">&#9834;</span>Pronunciation</h2>
+  <p class="section-note">Pronunciation is one-fifth of your analytic marks. You don't need a native accent &mdash; you need to be easy to understand.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--indigo-l); color:var(--indigo)">Area</th><th style="background:var(--indigo-l); color:var(--indigo)">What it is</th><th style="background:var(--indigo-l); color:var(--indigo)">Tip</th></tr>
+    <tr><td><b>Word stress</b></td><td>The syllable pronounced more strongly in a word</td><td>Learn the stress with every new word: <i>PHOtograph</i>, <i>phoTOgraphy</i>, <i>photoGRAPHic</i>.</td></tr>
+    <tr><td><b>Sentence stress</b></td><td>Stressing the key content words in a sentence</td><td>Stress nouns, main verbs and adjectives; say small words (<i>of, the, to</i>) quickly and weakly.</td></tr>
+    <tr><td><b>Intonation</b></td><td>The rise and fall of your voice</td><td>Fall at the end of statements; rise slightly to show you're not finished or when inviting your partner in.</td></tr>
+    <tr><td><b>Connected speech</b></td><td>Sounds linking and changing between words</td><td>Say <i>"a lot of"</i> as one flow, not three separate words.</td></tr>
+    <tr><td><b>The schwa /&#601;/</b></td><td>The most common English vowel, in unstressed syllables</td><td>Say <i>comfortable</i> as <i>COM-f&#601;-t&#601;-b&#601;l</i> and <i>about</i> as <i>&#601;-BOUT</i>.</td></tr>
+  </table>
+
+  <h3 class="sub">Common challenges for Spanish speakers</h3>
+  <table class="ref">
+    <tr><th style="background:var(--indigo-l); color:var(--indigo)">Challenge</th><th style="background:var(--indigo-l); color:var(--indigo)">Example</th><th style="background:var(--indigo-l); color:var(--indigo)">Fix</th></tr>
+    <tr><td>Adding /e/ before s + consonant</td><td>&ldquo;<i>e</i>student&rdquo; instead of <i>student</i>; &ldquo;<i>e</i>special&rdquo; instead of <i>special</i></td><td>Start with a clean /s/ sound and link straight into the next consonant.</td></tr>
+    <tr><td>Short vs. long vowels</td><td><i>ship</i> /&#618;/ vs. <i>sheep</i> /i&#720;/; <i>full</i> vs. <i>fool</i></td><td>Make long vowels clearly longer, and short ones quick and relaxed.</td></tr>
+    <tr><td>-ed endings</td><td><i>wanted</i> /&#618;d/, <i>worked</i> /t/, <i>played</i> /d/</td><td>Only add an extra syllable /&#618;d/ after /t/ or /d/ (see exercise below).</td></tr>
+    <tr><td>The /h/ sound</td><td><i>house, have, how</i></td><td>Breathe out gently: a light, soft /h/, not a harsh Spanish /x/.</td></tr>
+    <tr><td>The &ldquo;th&rdquo; sounds</td><td><i>think</i> /&theta;/, <i>this</i> /&eth;/</td><td>Place the tongue lightly between the teeth &mdash; don't replace with /t/, /d/ or /s/.</td></tr>
+    <tr><td>b / v</td><td><i>very</i> vs. <i>berry</i></td><td>For /v/, gently touch your top teeth to your lower lip.</td></tr>
+  </table>
+
+  <h3 class="sub">Practice 1 &mdash; how is the -ed ending pronounced?</h3>
+  <ul class="match-list" id="pron1"></ul>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('pron1')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('pron1')">Reset</button>
+    <span class="stamp" id="stamp-pron1">0/0</span>
+  </div>
+
+  <h3 class="sub">Practice 2 &mdash; which syllable is stressed?</h3>
+  <ul class="match-list" id="pron2"></ul>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('pron2')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('pron2')">Reset</button>
+    <span class="stamp" id="stamp-pron2">0/0</span>
+  </div>
+
+  <!-- ============ FINAL ============ -->
+  <h2 class="section-title" id="final"><span class="part-num" style="background:var(--navy)">&#10003;</span>Self-Check &amp; Test Day</h2>
+
+  <h3 class="sub">Before you speak &mdash; checklist</h3>
+  <ul class="checklist">
+    <li><label><input type="checkbox"> I extend my answers with a reason or example (never just one word).</label></li>
+    <li><label><input type="checkbox"> In Part 2, I compare the photos <i>and</i> answer the question.</label></li>
+    <li><label><input type="checkbox"> I can speak for a full minute without silence.</label></li>
+    <li><label><input type="checkbox"> In Part 3, I ask my partner for their opinion at least twice.</label></li>
+    <li><label><input type="checkbox"> I disagree politely and give reasons.</label></li>
+    <li><label><input type="checkbox"> In Part 4, I give opinion + reason + example.</label></li>
+    <li><label><input type="checkbox"> I use a range of tenses and linkers.</label></li>
+    <li><label><input type="checkbox"> I stress key words and vary my intonation.</label></li>
+  </ul>
+
+  <h3 class="sub">On test day</h3>
+  <ul class="tips">
+    <li>Listen carefully to the examiner's instructions &mdash; they are read from a fixed script, so understanding them is easy once you know the pattern.</li>
+    <li>Smile, make eye contact with your partner and speak at a natural pace.</li>
+    <li>If you make a mistake, correct yourself calmly and carry on &mdash; don't stop.</li>
+    <li>Don't worry about your partner's level. Be supportive; helping them participate improves your own interactive score.</li>
+    <li>Practise with a friend before the exam: record yourselves, play it back and note what to improve.</li>
+  </ul>
+
+  <div class="global-controls">
+    <button class="ctrl btn-check-all" onclick="checkAll()">Check everything</button>
+    <button class="ctrl btn-reset-all" onclick="resetAll()">Reset everything</button>
+  </div>
+
+</div>
+
+<footer>B2 English &middot; Speaking Complete Study Guide</footer>
+
+<script>
+  // ---------- scaffold ----------
+  let counter = 0;
+  const registry = {};
+  function norm(v){ return v.trim().toLowerCase(); }
+
+  function blank(section, answers, width){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const w = width ? ` style="width:${width}px"` : '';
+    return `<span class="gap-wrap"><input type="text" class="gap" id="${id}"${w} autocomplete="off" spellcheck="false"><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function sel(section, options, answers, placeholder){
+    const id = 'b' + (counter++);
+    registry[id] = { section, answers: answers.map(a => a.toLowerCase().trim()) };
+    const ph = placeholder || '— choose —';
+    const opts = [`<option value="">${ph}</option>`].concat(options.map(o => `<option value="${o.toLowerCase()}">${o}</option>`)).join('');
+    return `<span class="gap-wrap"><select class="gap" id="${id}">${opts}</select><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function checkSection(key){
+    const entries = Object.entries(registry).filter(([id,e]) => e.section === key);
+    let correct = 0;
+    entries.forEach(([id,e]) => {
+      const el = document.getElementById(id);
+      const mark = document.getElementById(id + '-mark');
+      const val = norm(el.value);
+      const ok = val !== '' && e.answers.includes(val);
+      el.classList.remove('correct','incorrect');
+      if (ok){ el.classList.add('correct'); mark.textContent='✓'; mark.className='mark mark-correct'; correct++; }
+      else { el.classList.add('incorrect'); mark.textContent='✗ ' + e.answers[0]; mark.className='mark mark-incorrect'; }
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    const pct = entries.length ? correct/entries.length : 0;
+    stamp.textContent = `${correct}/${entries.length}`;
+    stamp.classList.remove('good','mid','low');
+    stamp.classList.add(pct>=0.8?'good':pct>=0.5?'mid':'low');
+    stamp.classList.add('show');
+  }
+  function resetSection(key){
+    Object.entries(registry).filter(([id,e]) => e.section === key).forEach(([id]) => {
+      const el = document.getElementById(id), mark = document.getElementById(id+'-mark');
+      el.value=''; el.classList.remove('correct','incorrect'); mark.textContent=''; mark.className='mark';
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    stamp.classList.remove('show','good','mid','low'); stamp.textContent='0/0';
+  }
+  function checkAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(checkSection); }
+  function resetAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(resetSection); }
+
+  // ---------- side-by-side builder: text uses {{answer}} or {{answer|alt}} ----------
+  function build(text, section){
+    const model = text.replace(/\{\{([^}]+)\}\}/g, (m, g) => `<b>${g.split('|')[0]}</b>`);
+    const gapped = text.replace(/\{\{([^}]+)\}\}/g, (m, g) => {
+      const variants = g.split('|');
+      const width = Math.max(64, variants[0].length * 9 + 22);
+      return blank(section, variants, width);
+    });
+    return { model, gapped };
+  }
+  function renderSbs(containerId, items, section, qLabel){
+    document.getElementById(containerId).innerHTML = items.map(it => {
+      const { model, gapped } = build(it.text, section);
+      const q = it.q ? `<div class="sbs-q">${qLabel || ''}${it.q}</div>` : '';
+      return `<div class="sbs-item">${q}
+        <div class="sbs">
+          <div class="sbs-col sbs-model"><span class="col-lbl">Model answer</span>${model.replace(/\n/g,'<br>')}</div>
+          <div class="sbs-col sbs-gaps"><span class="col-lbl">Your version — fill the gaps</span>${gapped.replace(/\n/g,'<br>')}</div>
+        </div></div>`;
+    }).join('');
+  }
+
+  // ---------- Part 1 ----------
+  renderSbs('p1-items', [
+    { q: '“Tell me about where you live.”',
+      text: `I live in a {{small}} town near the coast. What I like most about it is that it's really {{peaceful}}, and I can walk to the beach in ten minutes. The only {{downside}} is that there isn't much to do in the evenings.` },
+    { q: '“What do you enjoy doing in your free time?”',
+      text: `In my free time I'm really {{into}} photography. I've {{been}} doing it for about three years now, and I usually go out at weekends with a friend of mine. Next summer I'm {{hoping}} to take a course.` },
+    { q: '“Tell us about a holiday you remember.”',
+      text: `Last summer I {{went}} on holiday to Italy with my family. We {{stayed}} in a small hotel and spent most of the time sightseeing. It was one of the best trips I've {{ever}} had.` },
+    { q: '“What would you like to do in the future?”',
+      text: `I'd like to work in a job {{where}} I can use my English. If I get the chance, I'd love to live abroad for a year, {{because}} I think it would help me become more independent.` },
+  ], 'p1');
+
+  // ---------- Part 2 ----------
+  renderSbs('p2-items', [
+    { q: 'Sample task — model long turn (about 1 minute)',
+      text: `{{Both}} photos show people sharing a meal, but in very different settings. In the first photo, a group of friends {{seem}} to be preparing food together at home, {{whereas}} in the second one a family is eating out in a crowded restaurant. The friends might have chosen to cook {{because|as|since}} it's cheaper and more relaxed, while the family probably wanted to celebrate something without the hassle of cooking. In the first picture they look {{as if|as though}} they're having a great time, but in the second one the atmosphere seems more formal. All in all, I'd say each choice {{depends}} on the occasion.` },
+  ], 'p2');
+
+  renderSbs('p2b-items', [
+    { q: 'Question: “Which of these meals would you prefer to be at?”',
+      text: `I'd {{rather}} be at the meal in the restaurant, {{because}} I don't enjoy cooking, and it looks like a special occasion. {{That said|However}}, I can see that cooking with friends would be a lot more fun.` },
+  ], 'p2b');
+
+  // ---------- Part 3 ----------
+  const funcs = ['Starting','Asking opinion','Agreeing','Disagreeing politely','Suggesting','Buying time'];
+  const matchItems = [
+    ['Shall we start with sleep?', 'Starting'],
+    ["What's your view on this?", 'Asking opinion'],
+    ["I couldn't agree more.", 'Agreeing'],
+    ["I'm afraid I see it differently.", 'Disagreeing politely'],
+    ['How about we choose diet and sleep?', 'Suggesting'],
+    ["Let me think... that's a good question.", 'Buying time'],
+  ];
+  document.getElementById('p3match').innerHTML = matchItems.map(([phrase, ans]) =>
+    `<li><q>${phrase}</q>${sel('p3m', funcs, [ans])}</li>`).join('');
+
+  renderSbs('p3-items', [
+    { q: 'Sample conversation: “How important is each of these for staying healthy?”',
+      text: `A: {{Shall}} we start with sleep? I think it's absolutely essential for staying healthy.
+B: I couldn't {{agree}} more. If you don't get enough sleep, you can't concentrate at all. What do you {{think}} about exercise?
+A: Well, I {{see}} what you mean, but I'm not sure it's as important as diet.
+B: That's a {{fair|good|valid}} point. How {{about}} we agree that diet and sleep are the two most important?
+A: Yes, I'm {{happy}} with that.` },
+  ], 'p3');
+
+  // ---------- Part 4 ----------
+  renderSbs('p4-items', [
+    { q: '“Do you think people are healthier today than in the past?”',
+      text: `I'd say that, {{on}} the whole, people are healthier nowadays, mainly {{because}} medicine has improved so much. For {{instance|example}}, many illnesses that used to be fatal can now be cured. That {{said}}, lifestyles have become more sedentary, so it isn't entirely clear-cut.` },
+    { q: '“Is it better to live in a city or in the countryside?”',
+      text: `It really {{depends}} on the person. Personally, I'd {{rather}} live in a city, as there's far more to do and it's easier to find work. {{However|That said}}, I can see why some people prefer the countryside, where life is calmer.` },
+  ], 'p4');
+
+  // ---------- Pronunciation ----------
+  const edItems = [['worked','/t/'],['played','/d/'],['wanted','/ɪd/'],['stopped','/t/'],['needed','/ɪd/'],['watched','/t/']];
+  document.getElementById('pron1').innerHTML = edItems.map(([w, a]) =>
+    `<li><q>${w}</q>${sel('pron1', ['/t/','/d/','/ɪd/'], [a], '— sound —')}</li>`).join('');
+
+  const stressItems = [['photograph','1st'],['photography','2nd'],['comfortable','1st'],['decision','2nd'],['important','2nd'],['economy','2nd']];
+  document.getElementById('pron2').innerHTML = stressItems.map(([w, a]) =>
+    `<li><q>${w}</q>${sel('pron2', ['1st','2nd','3rd'], [a], '— syllable —')}</li>`).join('');
+
+  // ---------- 1-minute timer ----------
+  let timerId = null, remaining = 60;
+  function fmt(s){ return Math.floor(s/60) + ':' + String(s%60).padStart(2,'0'); }
+  function toggleTimer(){
+    const disp = document.getElementById('timer-display');
+    const btn = document.getElementById('timer-btn');
+    if (timerId){
+      clearInterval(timerId); timerId = null; remaining = 60;
+      disp.textContent = fmt(60); disp.classList.remove('low');
+      btn.textContent = 'Start 1-minute timer';
+      return;
+    }
+    remaining = 60;
+    disp.textContent = fmt(remaining);
+    btn.textContent = 'Stop / reset';
+    timerId = setInterval(() => {
+      remaining--;
+      disp.textContent = fmt(Math.max(remaining,0));
+      if (remaining <= 10) disp.classList.add('low');
+      if (remaining <= 0){
+        clearInterval(timerId); timerId = null;
+        btn.textContent = 'Start 1-minute timer';
+        disp.textContent = "Time's up!";
+      }
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>
