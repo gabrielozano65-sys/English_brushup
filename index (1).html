@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Brush-Up — B2 First Materials</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B; --gold-l:#FBF1DD;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+    --teal:#1F8A70; --teal-l:#E1F3EE;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+    --indigo:#5B4B8A; --indigo-l:#EDE9F6;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;}
+  header{background:linear-gradient(155deg,var(--navy),var(--navy-2));padding:3rem 1.5rem 2.4rem;text-align:center;}
+  .eyebrow{color:#E8B84B;font-size:.76rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem;}
+  header h1{font-family:'DM Serif Display',serif;color:#fff;font-size:clamp(2rem,5vw,2.9rem);margin:0 0 .5rem;font-weight:400;}
+  header p{color:#C7D0E2;max-width:620px;margin:0 auto;}
+  .filters{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.5rem;}
+  .filters button{font-family:inherit;font-size:.82rem;font-weight:600;color:#EDEFF5;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:.4rem 1rem;cursor:pointer;}
+  .filters button.on{background:#E8B84B;color:var(--navy);border-color:#E8B84B;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 1.5rem 3rem;}
+  h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.5rem;margin:2.4rem 0 .9rem;padding-bottom:.45rem;border-bottom:2px solid var(--border);}
+  h2 small{font-family:'Inter',sans-serif;font-size:.8rem;color:var(--muted);font-weight:500;margin-left:.4rem;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1rem;}
+  a.card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-top:4px solid var(--c);border-radius:10px;padding:1rem 1.15rem 1.1rem;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s;}
+  a.card:hover,a.card:focus-visible{transform:translateY(-3px);box-shadow:0 6px 18px rgba(27,42,74,.12);outline:none;}
+  .tag{align-self:flex-start;font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c);background:var(--cl);padding:.15rem .6rem;border-radius:999px;margin-bottom:.55rem;}
+  .card h3{margin:0 0 .3rem;font-size:1.02rem;line-height:1.35;}
+  .card p{margin:0 0 .8rem;font-size:.87rem;color:var(--muted);flex:1;}
+  .open{font-size:.82rem;font-weight:700;color:var(--c);}
+  .new{display:inline-block;margin-left:.4rem;font-size:.62rem;background:var(--coral);color:#fff;padding:.1rem .45rem;border-radius:4px;vertical-align:middle;letter-spacing:.06em;}
+  .hidden{display:none !important;}
+  footer{text-align:center;color:var(--muted);font-size:.8rem;padding:1rem 0 2.4rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cambridge B2 First &middot; Interactive materials</div>
+  <h1>English Brush-Up</h1>
+  <p>Study guides with self-checking exercises for every paper of the exam. Open a guide, do the exercises, press <b>Check</b>.</p>
+  <div class="filters" id="filters">
+    <button class="on" data-f="all">All</button>
+    <button data-f="grammar">Grammar &amp; Use of English</button>
+    <button data-f="skills">Exam skills</button>
+    <button data-f="vocab">Vocabulary</button>
+    <button data-f="downloads">Downloads</button>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section data-cat="grammar">
+    <h2>Grammar &amp; Use of English</h2>
+    <div class="grid">
+      <a class="card" style="--c:var(--coral);--cl:var(--coral-l)" href="reported-speech-complete-b2-guide.html">
+        <span class="tag">Grammar &middot; Part 4</span>
+        <h3>Reported Speech &mdash; Complete Guide <span class="new">NEW</span></h3>
+        <p>Backshift, questions, commands, reporting verbs and exceptions. Seven graded levels plus Cambridge key word transformations.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+      <a class="card" style="--c:var(--denim);--cl:var(--denim-l)" href="use-of-english-complete-b2-guide.html">
+        <span class="tag">Paper 1 &middot; Use of English</span>
+        <h3>Use of English &mdash; Complete Study Guide</h3>
+        <p>All the parts of the paper explained, with strategies and exercises for each one.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+      <a class="card" style="--c:var(--teal);--cl:var(--teal-l)" href="comparisons-as-expressions-b2-guide.html">
+        <span class="tag">Grammar</span>
+        <h3>Comparisons &amp; &ldquo;AS&rdquo; Expressions</h3>
+        <p>Comparatives, <i>as&hellip;as</i>, <i>as soon as</i> and how they are tested in the Use of English paper.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+      <a class="card" style="--c:var(--gold);--cl:var(--gold-l)" href="use-of-english-b2-practice.html">
+        <span class="tag">Worksheet</span>
+        <h3>Use of English &mdash; Practice Worksheet</h3>
+        <p>Prepositions, words with prepositions, phrasal verbs and collocations.</p>
+        <span class="open">Open worksheet &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section data-cat="skills">
+    <h2>Exam skills</h2>
+    <div class="grid">
+      <a class="card" style="--c:var(--indigo);--cl:var(--indigo-l)" href="listening-complete-b2-guide.html">
+        <span class="tag">Paper 3 &middot; Listening</span>
+        <h3>Listening &mdash; Complete Study Guide</h3>
+        <p>Every part of the paper, strategies, and practice with audio read aloud by your browser.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+      <a class="card" style="--c:var(--coral);--cl:var(--coral-l)" href="speaking-complete-b2-guide.html">
+        <span class="tag">Paper 4 &middot; Speaking</span>
+        <h3>Speaking &mdash; Complete Study Guide</h3>
+        <p>Parts 1&ndash;4, marking criteria, useful language, pronunciation and a final checklist.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+      <a class="card" style="--c:var(--denim);--cl:var(--denim-l)" href="b2-monologue-body-image-social-media.html">
+        <span class="tag">Speaking &middot; Model</span>
+        <h3>B2+ Monologue &mdash; Body Image &amp; Social Media</h3>
+        <p>A step-by-step long-turn model with language to reuse in your own talk.</p>
+        <span class="open">Open guide &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section data-cat="vocab">
+    <h2>Vocabulary</h2>
+    <div class="grid">
+      <a class="card" style="--c:var(--teal);--cl:var(--teal-l)" href="take-phrasal-verbs-infographic.html">
+        <span class="tag">Infographic</span>
+        <h3>Phrasal Verbs with TAKE</h3>
+        <p>Seven key B2 phrasal verbs with definitions, examples and visual icons.</p>
+        <span class="open">Open infographic &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section data-cat="downloads">
+    <h2>Downloads <small>Word and PowerPoint files</small></h2>
+    <div class="grid">
+      <a class="card" style="--c:var(--gold);--cl:var(--gold-l)" href="how-to-write-for-and-against-essay.pptx">
+        <span class="tag">PowerPoint</span>
+        <h3>How to Write a For-and-Against Essay</h3>
+        <p>11 slides: structure, linking words, fixed expressions and a fill-in template.</p>
+        <span class="open">Download .pptx &darr;</span>
+      </a>
+      <a class="card" style="--c:var(--navy);--cl:#E6E9F0" href="general-interview-english-toolkit.docx">
+        <span class="tag">Word</span>
+        <h3>General Interview English Toolkit</h3>
+        <p>Fixed expressions, useful structures and model answers for job interviews.</p>
+        <span class="open">Download .docx &darr;</span>
+      </a>
+      <a class="card" style="--c:var(--navy);--cl:#E6E9F0" href="job-interview-prep-java-springboot.docx">
+        <span class="tag">Word</span>
+        <h3>Job Interview Prep &mdash; Java &amp; Spring Boot</h3>
+        <p>Likely questions and answers for a developer interview, plus questions to ask.</p>
+        <span class="open">Download .docx &darr;</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<footer>English Brush-Up &middot; Cambridge B2 First materials</footer>
+
+<script>
+  document.getElementById('filters').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b) return;
+    var f = b.getAttribute('data-f');
+    document.querySelectorAll('#filters button').forEach(function(x){ x.classList.toggle('on', x === b); });
+    document.querySelectorAll('section[data-cat]').forEach(function(s){
+      s.classList.toggle('hidden', f !== 'all' && s.getAttribute('data-cat') !== f);
+    });
+  });
+</script>
+</body>
+</html>
