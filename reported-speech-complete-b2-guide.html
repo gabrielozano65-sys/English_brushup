@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reported Speech — B2 Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF9F5; --ink:#20263A; --muted:#5C6470; --border:#E7E4DA;
+    --navy:#1B2A4A; --navy-2:#2A3C63;
+    --gold:#B8860B;  --gold-l:#FBF1DD;
+    --denim:#2E6B9E; --denim-l:#E6EFF6;
+    --teal:#1F8A70;  --teal-l:#E1F3EE;
+    --coral:#C1552C; --coral-l:#FBEAE1;
+    --indigo:#5B4B8A; --indigo-l:#EDE9F6;
+  }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:'Inter',sans-serif; line-height:1.65; }
+  .wrap{ max-width:1000px; margin:0 auto; padding:0 1.5rem 3rem; }
+
+  header{ background: linear-gradient(155deg, var(--navy) 0%, var(--navy-2) 100%); padding: 2.8rem 1.5rem 2.2rem; text-align:center; }
+  .eyebrow{ color:#E8B84B; font-size:0.76rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.7rem; }
+  header h1{ font-family:'DM Serif Display',serif; color:#fff; font-size:clamp(1.9rem,4.5vw,2.7rem); margin:0 0 0.5rem; }
+  header p{ color:#C7D0E2; font-size:1rem; max-width:640px; margin:0 auto; }
+  .index-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:0.55rem; max-width:920px; margin:1.6rem auto 0; }
+  .index-chip{ display:flex; align-items:center; gap:0.4rem; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.18); color:#EDEFF5; text-decoration:none; padding:0.35rem 0.8rem 0.35rem 0.5rem; border-radius:999px; font-size:0.8rem; font-weight:500; }
+  .index-chip .dot{ width:0.55rem; height:0.55rem; border-radius:50%; flex-shrink:0; }
+
+  h2.section-title{ font-family:'DM Serif Display', serif; font-size:1.6rem; font-weight:400; margin: 2.8rem 0 0.3rem; padding-bottom:0.5rem; border-bottom:2px solid var(--border); display:flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }
+  .part-num{ display:inline-flex; align-items:center; justify-content:center; min-width:2rem; height:2rem; padding:0 0.4rem; border-radius:999px; color:#fff; font-family:'JetBrains Mono',monospace; font-size:0.95rem; font-weight:700; flex-shrink:0; }
+  .section-note{ color:var(--muted); font-size:0.92rem; margin: 0 0 1.1rem; }
+  h3.sub{ font-size:1.02rem; font-weight:700; margin:1.5rem 0 0.5rem; }
+  .theory-band{ font-family:'DM Serif Display',serif; font-size:1.25rem; color:var(--navy); margin:3rem 0 0; padding-top:1rem; border-top:3px solid var(--navy); letter-spacing:0.01em; }
+
+  ul.tips{ margin:0 0 1rem; padding-left:1.3rem; }
+  ul.tips li{ margin-bottom:0.45rem; font-size:0.93rem; }
+
+  table.ref{ width:100%; border-collapse:collapse; font-size:0.88rem; margin-bottom:1.1rem; }
+  table.ref th{ text-align:left; padding:0.55rem 0.7rem; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.04em; }
+  table.ref td{ padding:0.55rem 0.7rem; border-bottom:1px solid var(--border); vertical-align:top; }
+  table.ref tr:last-child td{ border-bottom:none; }
+  code.frm{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--navy); background:#EEF1F6; padding:0.1rem 0.35rem; border-radius:4px; }
+  .arrow-cell{ color:var(--gold); font-weight:700; text-align:center; width:2.2rem; }
+
+  .callout{ border-left:4px solid var(--accent, var(--navy)); background:#fff; border-radius:0 8px 8px 0; padding:0.85rem 1.1rem; margin:0.9rem 0; font-size:0.9rem; border-top:1px solid var(--border); border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .callout b.lbl{ display:block; text-transform:uppercase; font-size:0.72rem; letter-spacing:0.05em; margin-bottom:0.25rem; color:var(--accent, var(--navy)); }
+
+  .bubble-pair{ display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; margin:0.8rem 0 1.2rem; }
+  .bubble{ border-radius:12px; padding:0.8rem 1rem; font-size:0.93rem; }
+  .bubble .tag{ display:block; font-size:0.68rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.2rem; }
+  .bubble.direct{ background:var(--gold-l); border:1px solid #EBD9AA; }
+  .bubble.direct .tag{ color:var(--gold); }
+  .bubble.reported{ background:var(--teal-l); border:1px solid #BFE3D9; }
+  .bubble.reported .tag{ color:var(--teal); }
+  .bubble b{ color:var(--coral); }
+
+  .steps{ counter-reset:step; list-style:none; padding:0; margin:0.6rem 0 1rem; }
+  .steps li{ counter-increment:step; position:relative; padding:0.55rem 0.8rem 0.55rem 3rem; background:#fff; border:1px solid var(--border); border-radius:8px; margin-bottom:0.5rem; font-size:0.92rem; }
+  .steps li::before{ content:counter(step); position:absolute; left:0.8rem; top:0.55rem; width:1.7rem; height:1.7rem; border-radius:50%; background:var(--navy); color:#fff; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:0.85rem; display:flex; align-items:center; justify-content:center; }
+
+  /* exercises */
+  .lvl-pill{ display:inline-flex; align-items:center; gap:0.5rem; font-family:'Inter',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; padding:0.25rem 0.7rem; border-radius:999px; background:var(--lvl-l, #EEF1F6); color:var(--lvl, var(--navy)); }
+  .lvl-dots{ letter-spacing:2px; font-size:0.7rem; }
+  .practice-block{ background:#fff; border:1px solid var(--border); border-radius:10px; padding:1.1rem 1.3rem; margin:0.8rem 0 0.4rem; }
+  ol.practice-list{ padding-left:1.3rem; margin:0; }
+  ol.practice-list li{ margin-bottom:1rem; font-size:0.95rem; }
+  ol.practice-list li .direct-q{ display:block; font-style:italic; color:var(--muted); margin-bottom:0.15rem; }
+  ol.practice-list li .kw{ font-family:'JetBrains Mono',monospace; font-weight:700; color:var(--coral); font-size:0.82rem; background:var(--coral-l); padding:0.05rem 0.45rem; border-radius:4px; }
+  .pair-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:0.5rem 1.6rem; }
+  .pair{ display:flex; align-items:center; gap:0.5rem; font-size:0.93rem; }
+  .pair .d{ min-width:7.2rem; font-weight:600; }
+  .pair .ar{ color:var(--gold); font-weight:700; }
+
+  .gap-wrap{ display:inline-flex; align-items:center; gap:4px; margin:0 2px; flex-wrap:wrap; }
+  input.gap{ font-family:'Inter',sans-serif; font-size:0.92rem; font-weight:600; color:var(--ink); padding:2px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; text-align:center; }
+  select.gap{ font-family:'Inter',sans-serif; font-size:0.88rem; font-weight:600; color:var(--ink); padding:4px 6px; border:none; border-bottom:2px solid #CFC3A0; background:transparent; max-width:100%; }
+  input.gap.correct, select.gap.correct{ border-bottom-color:var(--teal); color:var(--teal); }
+  input.gap.incorrect, select.gap.incorrect{ border-bottom-color:var(--coral); color:var(--coral); }
+  .mark{ font-size:0.8rem; font-weight:700; white-space:nowrap; }
+  .mark-correct{ color:var(--teal); }
+  .mark-incorrect{ color:var(--coral); }
+
+  .controls-row{ display:flex; align-items:center; gap:10px; margin:0.7rem 0 1.4rem; flex-wrap:wrap; }
+  button.ctrl{ font-family:'Inter',sans-serif; font-size:0.85rem; font-weight:600; border-radius:8px; cursor:pointer; padding:8px 16px; border:none; }
+  .btn-check{ background:var(--navy); color:#fff; }
+  .btn-reset{ background:transparent; color:var(--muted); border:1px solid var(--border); }
+  .stamp{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; font-weight:700; padding:3px 12px; border:2px solid var(--muted); border-radius:999px; color:var(--muted); opacity:0; transition:opacity .2s; }
+  .stamp.show{ opacity:1; }
+  .stamp.good{ color:var(--teal); border-color:var(--teal); }
+  .stamp.mid{ color:var(--gold); border-color:var(--gold); }
+  .stamp.low{ color:var(--coral); border-color:var(--coral); }
+
+  /* WhatsApp-style chat (real-world format) */
+  .wa{ background:#EFE7DD; border-radius:14px; padding:0 0 0.7rem; max-width:430px; overflow:hidden; margin:0.6rem 0 1rem; box-shadow:0 1px 4px rgba(0,0,0,0.12); }
+  .wa-head{ background:#075E54; color:#fff; padding:0.55rem 0.9rem; font-weight:600; font-size:0.9rem; }
+  .wa-head small{ display:block; font-weight:400; opacity:0.8; font-size:0.72rem; }
+  .wa .b{ max-width:78%; padding:0.35rem 0.7rem; border-radius:8px; margin:0.35rem 0.7rem 0; font-size:0.88rem; line-height:1.45; box-shadow:0 1px 1px rgba(0,0,0,0.1); color:#1a1a1a; }
+  .wa .b .who{ display:block; font-size:0.68rem; font-weight:700; color:#128C7E; }
+  .wa .in{ background:#fff; margin-right:auto; }
+  .wa .out{ background:#DCF8C6; margin-left:auto; }
+
+  .sbs-item{ margin-bottom:1.2rem; }
+  .sbs-q{ font-weight:700; font-size:0.95rem; margin-bottom:0.4rem; }
+  .sbs{ display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; }
+  .sbs-col{ border-radius:10px; padding:0.9rem 1.1rem; font-size:0.92rem; line-height:1.95; }
+  .sbs-col .col-lbl{ display:block; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:0.3rem; line-height:1.4; }
+  .sbs-model{ background:var(--teal-l); border:1px solid #BFE3D9; }
+  .sbs-model .col-lbl{ color:var(--teal); }
+  .sbs-model b{ color:var(--teal); background:rgba(31,138,112,0.12); padding:0 0.25rem; border-radius:3px; }
+  .sbs-gaps{ background:#fff; border:1px solid var(--border); }
+  .sbs-gaps .col-lbl{ color:var(--coral); }
+
+  .global-controls{ text-align:center; margin: 2.2rem 0; }
+  .btn-check-all{ background:var(--coral); color:#fff; padding:10px 20px; font-size:0.88rem; margin-right:10px; }
+  .btn-reset-all{ background:transparent; color:var(--coral); border:1px solid var(--coral); padding:10px 18px; font-size:0.88rem; }
+
+  footer{ text-align:center; color:var(--muted); font-size:0.8rem; padding:1rem 0 2.4rem; }
+
+  @media (max-width:720px){
+    .bubble-pair, .sbs, .pair-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">B2 English &middot; Complete Grammar Guide</div>
+  <h1>Reported Speech</h1>
+  <p>From the basic rules to the tricky exceptions &mdash; then seven graded exercise levels, finishing with Cambridge Part 4 key word transformations.</p>
+  <div class="index-strip">
+    <a class="index-chip" href="#basics"><span class="dot" style="background:#E8B84B"></span>Basics</a>
+    <a class="index-chip" href="#backshift"><span class="dot" style="background:#82B4DD"></span>Backshift</a>
+    <a class="index-chip" href="#words"><span class="dot" style="background:#5FCBA9"></span>Pronouns &amp; time</a>
+    <a class="index-chip" href="#questions"><span class="dot" style="background:#E29365"></span>Questions</a>
+    <a class="index-chip" href="#commands"><span class="dot" style="background:#B0A0E0"></span>Commands</a>
+    <a class="index-chip" href="#verbs"><span class="dot" style="background:#E8B84B"></span>Reporting verbs</a>
+    <a class="index-chip" href="#exceptions"><span class="dot" style="background:#82B4DD"></span>Exceptions</a>
+    <a class="index-chip" href="#mistakes"><span class="dot" style="background:#E29365"></span>Common mistakes</a>
+    <a class="index-chip" href="#exercises"><span class="dot" style="background:#5FCBA9"></span>Exercises</a>
+    <a class="index-chip" href="#cambridge"><span class="dot" style="background:#B0A0E0"></span>Cambridge Part 4</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="theory-band" style="border-top:none; margin-top:2rem;">PART A &middot; THE GRAMMAR</div>
+
+  <!-- ============ BASICS ============ -->
+  <h2 class="section-title" id="basics"><span class="part-num" style="background:var(--gold)">1</span>What Is Reported Speech?</h2>
+  <p class="section-note">We use reported (or indirect) speech to tell someone what a person said, without repeating their exact words.</p>
+
+  <div class="bubble-pair">
+    <div class="bubble direct"><span class="tag">Direct speech</span>Anna said, &ldquo;<b>I am</b> tired and <b>I want</b> to go home.&rdquo;</div>
+    <div class="bubble reported"><span class="tag">Reported speech</span>Anna said (that) <b>she was</b> tired and <b>she wanted</b> to go home.</div>
+  </div>
+
+  <h3 class="sub">Four things can change</h3>
+  <ol class="steps">
+    <li><b>The tense</b> usually moves one step back in time (&ldquo;backshift&rdquo;): <i>am &rarr; was</i>.</li>
+    <li><b>Pronouns and possessives</b> change to fit the new speaker: <i>I &rarr; she</i>, <i>my &rarr; her</i>.</li>
+    <li><b>Time and place words</b> change: <i>tomorrow &rarr; the next day</i>, <i>here &rarr; there</i>.</li>
+    <li><b>The structure</b> changes for questions and commands: <i>&ldquo;Where do you live?&rdquo; &rarr; She asked where I lived.</i></li>
+  </ol>
+
+  <h3 class="sub">Say or tell?</h3>
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Verb</th><th style="background:var(--gold-l); color:var(--gold)">Rule</th><th style="background:var(--gold-l); color:var(--gold)">Example</th></tr>
+    <tr><td><code class="frm">say</code></td><td>No person after it (or <i>say to + person</i>)</td><td>She <b>said</b> (that) she was late. &middot; She <b>said to me</b> that she was late.</td></tr>
+    <tr><td><code class="frm">tell</code></td><td>Always followed by the <b>person</b></td><td>She <b>told me</b> (that) she was late.</td></tr>
+  </table>
+  <div class="callout" style="--accent:var(--gold)">
+    <b class="lbl">Remember</b>
+    <b>that</b> is optional after <i>say</i> and <i>tell</i> in everyday English: <i>He said he was busy.</i> = <i>He said that he was busy.</i>
+  </div>
+
+  <!-- ============ BACKSHIFT ============ -->
+  <h2 class="section-title" id="backshift"><span class="part-num" style="background:var(--denim)">2</span>Tense Changes (Backshift)</h2>
+  <p class="section-note">When the reporting verb is in the past (<i>said, told, asked&hellip;</i>), the tense normally goes one step back.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--denim-l); color:var(--denim)">Direct speech</th><th style="background:var(--denim-l); color:var(--denim)"></th><th style="background:var(--denim-l); color:var(--denim)">Reported speech</th></tr>
+    <tr><td>Present simple<br><i>&ldquo;I live in Madrid.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past simple<br><i>She said she <b>lived</b> in Madrid.</i></td></tr>
+    <tr><td>Present continuous<br><i>&ldquo;I&rsquo;m studying.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past continuous<br><i>She said she <b>was studying</b>.</i></td></tr>
+    <tr><td>Present perfect<br><i>&ldquo;I&rsquo;ve finished.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past perfect<br><i>She said she <b>had finished</b>.</i></td></tr>
+    <tr><td>Present perfect continuous<br><i>&ldquo;I&rsquo;ve been working.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past perfect continuous<br><i>She said she <b>had been working</b>.</i></td></tr>
+    <tr><td>Past simple<br><i>&ldquo;I went to Rome.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past perfect<br><i>She said she <b>had gone</b> to Rome.</i></td></tr>
+    <tr><td>Past continuous<br><i>&ldquo;I was waiting.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td>Past perfect continuous<br><i>She said she <b>had been waiting</b>.</i></td></tr>
+    <tr><td><code class="frm">will</code> <i>&ldquo;I&rsquo;ll help you.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td><code class="frm">would</code> <i>She said she <b>would</b> help me.</i></td></tr>
+    <tr><td><code class="frm">can</code> <i>&ldquo;I can swim.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td><code class="frm">could</code> <i>She said she <b>could</b> swim.</i></td></tr>
+    <tr><td><code class="frm">may</code> <i>&ldquo;I may be late.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td><code class="frm">might</code> <i>She said she <b>might</b> be late.</i></td></tr>
+    <tr><td><code class="frm">must</code> <i>&ldquo;I must go.&rdquo;</i></td><td class="arrow-cell">&rarr;</td><td><code class="frm">had to</code> (or <code class="frm">must</code>) <i>She said she <b>had to</b> go.</i></td></tr>
+    <tr><td><code class="frm">am/is/are going to</code></td><td class="arrow-cell">&rarr;</td><td><code class="frm">was/were going to</code></td></tr>
+  </table>
+
+  <div class="callout" style="--accent:var(--denim)">
+    <b class="lbl">Memory trick</b>
+    Take one step <b>back</b> in time: <i>present &rarr; past &rarr; past perfect</i>. The past perfect cannot go back any further, so <b>past perfect stays the same</b>.
+  </div>
+
+  <!-- ============ PRONOUNS & TIME ============ -->
+  <h2 class="section-title" id="words"><span class="part-num" style="background:var(--teal)">3</span>Pronouns, Time &amp; Place Words</h2>
+  <p class="section-note">Think about <i>who</i> is speaking now and <i>when</i> you are reporting.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--teal-l); color:var(--teal)">Direct speech</th><th style="background:var(--teal-l); color:var(--teal)">Reported speech</th><th style="background:var(--teal-l); color:var(--teal)">Direct speech</th><th style="background:var(--teal-l); color:var(--teal)">Reported speech</th></tr>
+    <tr><td>now</td><td>then / at that time</td><td>here</td><td>there</td></tr>
+    <tr><td>today</td><td>that day</td><td>this / these</td><td>that / those</td></tr>
+    <tr><td>tonight</td><td>that night</td><td>come</td><td>go</td></tr>
+    <tr><td>yesterday</td><td>the day before / the previous day</td><td>bring</td><td>take</td></tr>
+    <tr><td>tomorrow</td><td>the next day / the following day</td><td>last week</td><td>the week before / the previous week</td></tr>
+    <tr><td>two days ago</td><td>two days before / earlier</td><td>next week</td><td>the following week / the week after</td></tr>
+  </table>
+
+  <div class="bubble-pair">
+    <div class="bubble direct"><span class="tag">Direct</span>Tom said to me, &ldquo;<b>I</b> will call <b>you tomorrow</b> from <b>my</b> office <b>here</b>.&rdquo;</div>
+    <div class="bubble reported"><span class="tag">Reported</span>Tom told me <b>he</b> would call <b>me the next day</b> from <b>his</b> office <b>there</b>.</div>
+  </div>
+  <div class="callout" style="--accent:var(--teal)">
+    <b class="lbl">Careful</b>
+    If you report the words on the <b>same day</b> and in the <b>same place</b>, you don&rsquo;t need to change the time and place words: <i>&ldquo;I&rsquo;ll see you tomorrow,&rdquo; she said this morning. &rarr; She said this morning she&rsquo;d see me tomorrow.</i>
+  </div>
+
+  <!-- ============ QUESTIONS ============ -->
+  <h2 class="section-title" id="questions"><span class="part-num" style="background:var(--coral)">4</span>Reported Questions</h2>
+  <p class="section-note">The question becomes a statement: <b>no inversion, no do/does/did, no question mark</b>.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--coral-l); color:var(--coral)">Type</th><th style="background:var(--coral-l); color:var(--coral)">Pattern</th><th style="background:var(--coral-l); color:var(--coral)">Example</th></tr>
+    <tr><td><b>Wh- questions</b></td><td><code class="frm">asked + (obj) + wh-word + subject + verb</code></td><td>&ldquo;Where <u>do you live</u>?&rdquo; &rarr; She asked me where <b>I lived</b>.</td></tr>
+    <tr><td><b>Yes/No questions</b></td><td><code class="frm">asked + (obj) + if / whether + subject + verb</code></td><td>&ldquo;<u>Are you</u> ready?&rdquo; &rarr; He asked me <b>if I was</b> ready.</td></tr>
+    <tr><td><b>Questions with an auxiliary</b></td><td>The auxiliary <i>do/does/did</i> disappears</td><td>&ldquo;What time <u>does</u> the film start?&rdquo; &rarr; She wanted to know what time the film <b>started</b>.</td></tr>
+  </table>
+
+  <div class="bubble-pair">
+    <div class="bubble direct"><span class="tag">Direct</span>&ldquo;<b>Have you</b> seen my keys?&rdquo; he asked me.</div>
+    <div class="bubble reported"><span class="tag">Reported</span>He asked me <b>if I had seen</b> his keys.</div>
+  </div>
+
+  <ul class="tips">
+    <li>Useful alternatives to <i>asked</i>: <code class="frm">wanted to know</code>, <code class="frm">wondered</code>, <code class="frm">enquired</code>.</li>
+    <li>Use <b>whether</b> (not <i>if</i>) before <i>or not</i> or after a preposition: <i>He asked whether or not I was coming.</i></li>
+    <li>A reported question is not a question, so we <b>never</b> write a question mark.</li>
+  </ul>
+
+  <!-- ============ COMMANDS ============ -->
+  <h2 class="section-title" id="commands"><span class="part-num" style="background:var(--indigo)">5</span>Commands, Requests &amp; Advice</h2>
+  <p class="section-note">We use a reporting verb + <b>person</b> + <b>(not) to + infinitive</b>. The tense does not change.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--indigo-l); color:var(--indigo)">Type</th><th style="background:var(--indigo-l); color:var(--indigo)">Direct</th><th style="background:var(--indigo-l); color:var(--indigo)">Reported</th></tr>
+    <tr><td>Order</td><td>&ldquo;Close the window.&rdquo;</td><td>She <b>told me to close</b> the window.</td></tr>
+    <tr><td>Negative order</td><td>&ldquo;Don&rsquo;t touch that!&rdquo;</td><td>He <b>told us not to touch</b> that.</td></tr>
+    <tr><td>Request</td><td>&ldquo;Could you open the door, please?&rdquo;</td><td>She <b>asked me to open</b> the door.</td></tr>
+    <tr><td>Advice</td><td>&ldquo;You should see a doctor.&rdquo;</td><td>He <b>advised me to see</b> a doctor.</td></tr>
+    <tr><td>Warning</td><td>&ldquo;Don&rsquo;t go near the edge!&rdquo;</td><td>He <b>warned us not to go</b> near the edge.</td></tr>
+    <tr><td>Suggestion</td><td>&ldquo;Let&rsquo;s go to the beach.&rdquo;</td><td>She <b>suggested going</b> to the beach. / She <b>suggested (that) we go</b> to the beach.</td></tr>
+  </table>
+  <div class="callout" style="--accent:var(--indigo)">
+    <b class="lbl">Watch out</b>
+    <code class="frm">suggest</code> is <b>never</b> followed by <i>to + infinitive</i> or by a person + <i>to</i>. Say <i>She suggested going</i> &mdash; not <i>She suggested to go</i>, and not <i>She suggested me to go</i>.
+  </div>
+
+  <!-- ============ REPORTING VERBS ============ -->
+  <h2 class="section-title" id="verbs"><span class="part-num" style="background:var(--gold)">6</span>Reporting Verbs</h2>
+  <p class="section-note">At B2 you are expected to go beyond <i>said</i> and <i>told</i>. Each verb has its own pattern &mdash; learn them together.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--gold-l); color:var(--gold)">Pattern</th><th style="background:var(--gold-l); color:var(--gold)">Verbs</th><th style="background:var(--gold-l); color:var(--gold)">Example</th></tr>
+    <tr><td><code class="frm">verb + that + clause</code></td><td>explain, mention, complain, point out, claim, admit, announce, add, reply, insist, warn, promise, suggest</td><td>He <b>explained that</b> the train had been delayed.</td></tr>
+    <tr><td><code class="frm">verb + to-infinitive</code></td><td>offer, promise, refuse, agree, threaten, demand, claim</td><td>She <b>offered to pay</b> for dinner.<br>They <b>refused to leave</b>.</td></tr>
+    <tr><td><code class="frm">verb + object + to-infinitive</code></td><td>advise, ask, tell, order, remind, warn, invite, encourage, persuade, forbid, beg</td><td>He <b>reminded me to lock</b> the door.<br>She <b>advised us to wait</b>.</td></tr>
+    <tr><td><code class="frm">verb + -ing</code></td><td>admit, deny, suggest, recommend, regret</td><td>Tom <b>denied taking</b> the money.<br>She <b>suggested taking</b> a taxi.</td></tr>
+    <tr><td><code class="frm">verb + (object) + preposition + -ing</code></td><td>apologise for, accuse sb of, blame sb for, congratulate sb on, insist on, criticise sb for, thank sb for</td><td>She <b>apologised for being</b> late.<br>He <b>accused me of lying</b>.<br>They <b>congratulated her on winning</b>.</td></tr>
+  </table>
+  <div class="callout" style="--accent:var(--gold)">
+    <b class="lbl">Why this matters for Cambridge</b>
+    In Part 4 the key word is very often a <b>reporting verb</b> (<i>SUGGESTED, DENIED, ACCUSED, APOLOGISED&hellip;</i>). If you know the pattern that follows it, half the question is already solved.
+  </div>
+
+  <!-- ============ EXCEPTIONS ============ -->
+  <h2 class="section-title" id="exceptions"><span class="part-num" style="background:var(--denim)">7</span>When the Tense Does NOT Change</h2>
+  <p class="section-note">Backshift is common, but not compulsory in these cases.</p>
+
+  <table class="ref">
+    <tr><th style="background:var(--denim-l); color:var(--denim)">Situation</th><th style="background:var(--denim-l); color:var(--denim)">Example</th></tr>
+    <tr><td><b>The reporting verb is in the present</b> (says, tells, has said)</td><td>&ldquo;I&rsquo;m leaving tomorrow.&rdquo; &rarr; He <b>says</b> he <b>is leaving</b> tomorrow.</td></tr>
+    <tr><td><b>The statement is a general truth or is still true</b></td><td>The teacher said that the Earth <b>goes</b> (or <b>went</b>) round the Sun.</td></tr>
+    <tr><td><b>Modals with no past form:</b> <i>could, would, should, might, ought to</i></td><td>&ldquo;You should rest.&rdquo; &rarr; The doctor said I <b>should</b> rest.</td></tr>
+    <tr><td><b>Past perfect</b> (cannot go back further)</td><td>&ldquo;I had never seen it.&rdquo; &rarr; She said she <b>had never seen</b> it.</td></tr>
+    <tr><td><b>Second and third conditionals</b></td><td>&ldquo;If I had more time, I would learn Italian.&rdquo; &rarr; He said that if he <b>had</b> more time, he <b>would</b> learn Italian.</td></tr>
+    <tr><td><b>The facts are still true when you report them</b></td><td>&ldquo;The film starts at eight.&rdquo; &rarr; She said the film <b>starts</b> (or <b>started</b>) at eight.</td></tr>
+  </table>
+
+  <!-- ============ MISTAKES ============ -->
+  <h2 class="section-title" id="mistakes"><span class="part-num" style="background:var(--coral)">8</span>Common Mistakes</h2>
+  <table class="ref">
+    <tr><th style="background:var(--coral-l); color:var(--coral)">Wrong</th><th style="background:var(--coral-l); color:var(--coral)">Right</th><th style="background:var(--coral-l); color:var(--coral)">Why</th></tr>
+    <tr><td>He <s>said me</s> he was tired.</td><td>He <b>told me</b> / He <b>said</b> he was tired.</td><td><i>say</i> has no direct person object.</td></tr>
+    <tr><td>She asked me where <s>did I live</s>?</td><td>She asked me where <b>I lived</b>.</td><td>No inversion in reported questions.</td></tr>
+    <tr><td>He asked me <s>that</s> I could help.</td><td>He asked me <b>if</b> I could help.</td><td>Yes/No questions need <i>if / whether</i>.</td></tr>
+    <tr><td>She suggested <s>to go</s> home.</td><td>She suggested <b>going</b> home.</td><td><i>suggest</i> + -ing or <i>that</i>-clause.</td></tr>
+    <tr><td>He told us <s>don&rsquo;t talk</s>.</td><td>He told us <b>not to talk</b>.</td><td>Use <i>(not) to + infinitive</i>.</td></tr>
+    <tr><td>She explained <s>me</s> the problem.</td><td>She explained the problem <b>to me</b>.</td><td><i>explain</i> needs <i>to</i> before the person.</td></tr>
+    <tr><td>He said he <s>will</s> come.</td><td>He said he <b>would</b> come.</td><td>Backshift: <i>will &rarr; would</i>.</td></tr>
+    <tr><td>She asked where I lived<s>?</s></td><td>She asked where I lived<b>.</b></td><td>Reported questions end with a full stop.</td></tr>
+  </table>
+
+  <!-- ============ EXERCISES ============ -->
+  <div class="theory-band" id="exercises">PART B &middot; EXERCISES (EASY &rarr; DIFFICULT)</div>
+  <p class="section-note" style="margin-top:0.6rem;">Work through the levels in order. Type your answers or choose from the menus, then press <b>Check</b> &mdash; wrong answers show the correct form in red. Contractions are accepted (<i>hadn&rsquo;t</i> = <i>had not</i>).</p>
+
+  <!-- LEVEL 1 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--teal); --lvl-l:var(--teal-l)">Level 1 <span class="lvl-dots">&#9679;&#9675;&#9675;&#9675;&#9675;&#9675;&#9675;</span> Easy</span>Say or tell?</h2>
+  <div class="practice-block"><ol class="practice-list" id="l1a-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l1a')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l1a')">Reset</button>
+    <span class="stamp" id="stamp-l1a">0/0</span>
+  </div>
+
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--teal); --lvl-l:var(--teal-l)">Level 1 <span class="lvl-dots">&#9679;&#9675;&#9675;&#9675;&#9675;&#9675;&#9675;</span> Easy</span>Time and place words</h2>
+  <p class="section-note">How do these words change in reported speech?</p>
+  <div class="practice-block"><div class="pair-grid" id="l1b-grid"></div></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l1b')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l1b')">Reset</button>
+    <span class="stamp" id="stamp-l1b">0/0</span>
+  </div>
+
+  <!-- LEVEL 2 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--teal); --lvl-l:var(--teal-l)">Level 2 <span class="lvl-dots">&#9679;&#9679;&#9675;&#9675;&#9675;&#9675;&#9675;</span> Easy</span>Tense changes</h2>
+  <p class="section-note">Complete each reported sentence with the correct verb form.</p>
+  <div class="practice-block"><ol class="practice-list" id="l2-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l2')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l2')">Reset</button>
+    <span class="stamp" id="stamp-l2">0/0</span>
+  </div>
+
+  <!-- LEVEL 3 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--denim); --lvl-l:var(--denim-l)">Level 3 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9675;&#9675;&#9675;&#9675;</span> Medium</span>A real chat: WhatsApp</h2>
+  <p class="section-note">Read the conversation and report what each person said. On the left is a model; on the right, the same text with gaps.</p>
+  <div class="wa">
+    <div class="wa-head">Lucía<small>online</small></div>
+    <div class="b in"><span class="who">Marta</span>Where are you?</div>
+    <div class="b out"><span class="who">Lucía</span>I'm waiting outside the cinema.</div>
+    <div class="b out"><span class="who">Lucía</span>I've bought the tickets already.</div>
+    <div class="b in"><span class="who">Marta</span>Have you got my ticket?</div>
+    <div class="b out"><span class="who">Lucía</span>The film starts at eight.</div>
+    <div class="b in"><span class="who">Marta</span>Can you wait for me?</div>
+    <div class="b out"><span class="who">Lucía</span>Don't forget your ID!</div>
+  </div>
+  <div id="l3-items"></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l3')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l3')">Reset</button>
+    <span class="stamp" id="stamp-l3">0/0</span>
+  </div>
+
+  <!-- LEVEL 4 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--denim); --lvl-l:var(--denim-l)">Level 4 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9679;&#9675;&#9675;&#9675;</span> Medium</span>Questions and commands</h2>
+  <p class="section-note">Report the questions (items 1&ndash;6) and the commands or requests (items 7&ndash;10).</p>
+  <div class="practice-block"><ol class="practice-list" id="l4-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l4')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l4')">Reset</button>
+    <span class="stamp" id="stamp-l4">0/0</span>
+  </div>
+
+  <!-- LEVEL 5 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--indigo); --lvl-l:var(--indigo-l)">Level 5 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9675;&#9675;</span> Upper</span>Reporting verbs</h2>
+  <p class="section-note">Use the verb in brackets and the correct pattern. Complete only the gap.</p>
+  <div class="practice-block"><ol class="practice-list" id="l5-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l5')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l5')">Reset</button>
+    <span class="stamp" id="stamp-l5">0/0</span>
+  </div>
+
+  <!-- LEVEL 6 -->
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--coral); --lvl-l:var(--coral-l)">Level 6 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9675;</span> Difficult</span>Tricky cases: when NOT to backshift</h2>
+  <p class="section-note">Careful &mdash; the tense does not always change. Some gaps accept more than one answer.</p>
+  <div class="practice-block"><ol class="practice-list" id="l6-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l6')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l6')">Reset</button>
+    <span class="stamp" id="stamp-l6">0/0</span>
+  </div>
+
+  <h3 class="sub">Which report is correct?</h3>
+  <p class="section-note">Choose the one correct sentence in each group.</p>
+  <div class="practice-block"><ol class="practice-list" id="l6b-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('l6b')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('l6b')">Reset</button>
+    <span class="stamp" id="stamp-l6b">0/0</span>
+  </div>
+
+  <!-- ============ CAMBRIDGE ============ -->
+  <div class="theory-band" id="cambridge">PART C &middot; CAMBRIDGE B2 FIRST &mdash; USE OF ENGLISH PART 4</div>
+  <h2 class="section-title" style="margin-top:1rem;"><span class="part-num" style="background:var(--navy)">&#9733;</span>Key Word Transformations on Reported Speech</h2>
+  <p class="section-note">In Part 4 you complete a second sentence so it means the same as the first, using the key word. Reported speech appears in almost every paper.</p>
+
+  <div class="callout" style="--accent:var(--navy)">
+    <b class="lbl">Exam rules</b>
+    <b>2&ndash;5 words</b> in the gap, <b>including the key word</b> &middot; Never change the key word &middot; Contractions count as two words (<i>didn&rsquo;t</i> = <i>did not</i>) &middot; Spelling must be correct &middot; Each question is worth up to <b>2 marks</b> (one for each correct part of the answer).
+  </div>
+
+  <h3 class="sub">A four-step method</h3>
+  <ol class="steps">
+    <li><b>Identify the type</b> of direct speech: statement, question, command, request, advice, promise&hellip;</li>
+    <li><b>Use the key word to choose the structure.</b> A reporting verb tells you the pattern (<i>SUGGESTED &rarr; -ing</i>, <i>ADVISED &rarr; me to&hellip;</i>). A question word or <i>IF</i> tells you it&rsquo;s a reported question.</li>
+    <li><b>Backshift and change pronouns</b> and time words where necessary.</li>
+    <li><b>Count your words</b> and re-read the whole second sentence.</li>
+  </ol>
+
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--coral); --lvl-l:var(--coral-l)">Level 7 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</span> Exam</span>Set A &mdash; guided practice</h2>
+  <div class="practice-block"><ol class="practice-list" id="k1-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('k1')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('k1')">Reset</button>
+    <span class="stamp" id="stamp-k1">0/0</span>
+  </div>
+
+  <h2 class="section-title"><span class="lvl-pill" style="--lvl:var(--coral); --lvl-l:var(--coral-l)">Level 7 <span class="lvl-dots">&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;</span> Exam</span>Set B &mdash; exam conditions</h2>
+  <p class="section-note">Eight more items, closer to the real paper. Try them in 10 minutes.</p>
+  <div class="practice-block"><ol class="practice-list" id="k2-list"></ol></div>
+  <div class="controls-row">
+    <button class="ctrl btn-check" onclick="checkSection('k2')">Check</button>
+    <button class="ctrl btn-reset" onclick="resetSection('k2')">Reset</button>
+    <span class="stamp" id="stamp-k2">0/0</span>
+  </div>
+
+  <div class="global-controls">
+    <button class="ctrl btn-check-all" onclick="checkAll()">Check everything</button>
+    <button class="ctrl btn-reset-all" onclick="resetAll()">Reset everything</button>
+  </div>
+
+</div>
+
+<footer>B2 English &middot; Reported Speech Complete Guide</footer>
+
+<script>
+  // ---------- scaffold ----------
+  let counter = 0;
+  const registry = {};
+
+  function norm(v){
+    let s = String(v).toLowerCase()
+      .replace(/[‘’`]/g, "'")
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/[.!?,;]+$/, '');
+    s = s.replace(/\bcan't\b/g, 'cannot')
+         .replace(/\bwon't\b/g, 'will not')
+         .replace(/n't\b/g, ' not')
+         .replace(/'ve\b/g, ' have')
+         .replace(/'re\b/g, ' are')
+         .replace(/'m\b/g, ' am')
+         .replace(/'ll\b/g, ' will')
+         .replace(/\bcan not\b/g, 'cannot');
+    return s.replace(/\s+/g, ' ').trim();
+  }
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+  function blank(section, answers, width){
+    const id = 'b' + (counter++);
+    registry[id] = { section, raw: answers.slice(), answers: answers.map(norm) };
+    const w = width ? ` style="width:${width}px"` : '';
+    return `<span class="gap-wrap"><input type="text" class="gap" id="${id}"${w} autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="your answer"><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function sel(section, options, answers, placeholder){
+    const id = 'b' + (counter++);
+    registry[id] = { section, raw: answers.slice(), answers: answers.map(norm) };
+    const ph = placeholder || '— choose —';
+    const opts = [`<option value="">${ph}</option>`]
+      .concat(options.map(o => `<option value="${esc(o)}">${esc(o)}</option>`)).join('');
+    return `<span class="gap-wrap"><select class="gap" id="${id}" aria-label="choose the answer">${opts}</select><span class="mark" id="${id}-mark"></span></span>`;
+  }
+  function gapify(text, section){
+    return text.replace(/\{\{([^}]+)\}\}/g, (m, g) => {
+      const variants = g.split('|');
+      const width = Math.min(290, Math.max(64, variants[0].length * 8.6 + 26));
+      return blank(section, variants, Math.round(width));
+    });
+  }
+  function modelify(text){
+    return text.replace(/\{\{([^}]+)\}\}/g, (m, g) => `<b>${g.split('|')[0]}</b>`);
+  }
+
+  function checkSection(key){
+    const entries = Object.entries(registry).filter(([id,e]) => e.section === key);
+    let correct = 0;
+    entries.forEach(([id,e]) => {
+      const el = document.getElementById(id);
+      const mark = document.getElementById(id + '-mark');
+      const val = norm(el.value);
+      const ok = val !== '' && e.answers.includes(val);
+      el.classList.remove('correct','incorrect');
+      if (ok){ el.classList.add('correct'); mark.textContent='✓'; mark.className='mark mark-correct'; correct++; }
+      else { el.classList.add('incorrect'); mark.textContent='✗ ' + e.raw[0]; mark.className='mark mark-incorrect'; }
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    const pct = entries.length ? correct/entries.length : 0;
+    stamp.textContent = `${correct}/${entries.length}`;
+    stamp.classList.remove('good','mid','low');
+    stamp.classList.add(pct>=0.8?'good':pct>=0.5?'mid':'low');
+    stamp.classList.add('show');
+  }
+  function resetSection(key){
+    Object.entries(registry).filter(([id,e]) => e.section === key).forEach(([id]) => {
+      const el = document.getElementById(id), mark = document.getElementById(id+'-mark');
+      el.value=''; el.classList.remove('correct','incorrect'); mark.textContent=''; mark.className='mark';
+    });
+    const stamp = document.getElementById('stamp-' + key);
+    if(!stamp) return;
+    stamp.classList.remove('show','good','mid','low'); stamp.textContent='0/0';
+  }
+  function checkAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(checkSection); }
+  function resetAll(){ [...new Set(Object.values(registry).map(e=>e.section))].forEach(resetSection); }
+
+  // ---------- Level 1a: say or tell ----------
+  const sayTell = [
+    ['She', 'me that she was tired.', 'told'],
+    ['He', 'he would call later.', 'said'],
+    ['The teacher', 'the students to be quiet.', 'told'],
+    ['My boss', 'that the meeting was cancelled.', 'said'],
+    ['I', 'her the truth.', 'told'],
+    ['They', 'to us that they were leaving.', 'said'],
+    ['Dad', 'me not to worry.', 'told'],
+    ['She', 'she had never been to London.', 'said'],
+  ];
+  document.getElementById('l1a-list').innerHTML = sayTell.map(([pre, post, ans]) =>
+    `<li>${pre} ${sel('l1a', ['said','told'], [ans])} ${post}</li>`).join('');
+
+  // ---------- Level 1b: time & place ----------
+  const timePairs = [
+    ['now', ['then','at that time','at that moment']],
+    ['today', ['that day']],
+    ['tonight', ['that night']],
+    ['yesterday', ['the day before','the previous day']],
+    ['tomorrow', ['the next day','the following day','the day after']],
+    ['last week', ['the week before','the previous week']],
+    ['next month', ['the following month','the month after','the next month']],
+    ['two days ago', ['two days before','two days earlier']],
+    ['here', ['there']],
+    ['this', ['that']],
+    ['these', ['those']],
+    ['come', ['go']],
+  ];
+  document.getElementById('l1b-grid').innerHTML = timePairs.map(([d, ans]) =>
+    `<div class="pair"><span class="d">${d}</span><span class="ar">&rarr;</span>${blank('l1b', ans, 170)}</div>`).join('');
+
+  // ---------- Level 2: tense changes ----------
+  const tenses = [
+    ['“I live in Madrid.”', 'She said she {{lived}} in Madrid.'],
+    ['“We are studying.”', 'They said they {{were studying}}.'],
+    ['“I have finished.”', 'He said he {{had finished}}.'],
+    ['“I went to Rome.”', 'She said she {{had gone}} to Rome.'],
+    ['“I will help you.”', 'He said he {{would}} help me.'],
+    ['“I can swim.”', 'She said she {{could}} swim.'],
+    ['“I’m going to buy a car.”', 'He said he {{was going}} to buy a car.'],
+    ['“I was waiting for you.”', 'She said she {{had been waiting}} for me.'],
+    ['“I have been working all day.”', 'He said he {{had been working}} all day.'],
+    ['“I may be late.”', 'She said she {{might}} be late.'],
+    ['“I must go now.”', 'He said he {{had to|must}} go then.'],
+  ];
+  document.getElementById('l2-list').innerHTML = tenses.map(([d, r]) =>
+    `<li><span class="direct-q">${d}</span>${gapify(r, 'l2')}</li>`).join('');
+
+  // ---------- Level 3: WhatsApp (side by side) ----------
+  const waItems = [
+    { q: 'Report what Lucía said:',
+      text: `Lucía told Marta that she {{was waiting}} outside the cinema. She said she {{had bought}} the tickets already and that the film {{started|starts}} at eight. She also told Marta {{not}} to forget her ID.` },
+    { q: 'Report what Marta asked:',
+      text: `Marta asked Lucía where she {{was}}. Later she asked if Lucía {{had|had got}} her ticket and whether she {{could}} wait for her.` },
+  ];
+  document.getElementById('l3-items').innerHTML = waItems.map(it =>
+    `<div class="sbs-item"><div class="sbs-q">${it.q}</div>
+      <div class="sbs">
+        <div class="sbs-col sbs-model"><span class="col-lbl">Model answer</span>${modelify(it.text)}</div>
+        <div class="sbs-col sbs-gaps"><span class="col-lbl">Your version — fill the gaps</span>${gapify(it.text, 'l3')}</div>
+      </div></div>`).join('');
+
+  // ---------- Level 4: questions & commands ----------
+  const qc = [
+    ['“Where do you live?”', 'She asked me where I {{lived}}.'],
+    ['“Are you ready?”', 'He asked me {{if|whether}} I was ready.'],
+    ['“What time does the film start?”', 'She wanted to know what time the film {{started}}.'],
+    ['“Have you finished?”', 'He asked me if I {{had finished}}.'],
+    ['“Can you help me?”', 'She asked whether I {{could}} help her.'],
+    ['“Did you see the match?”', 'He asked if I {{had seen}} the match.'],
+    ['“Close the window.”', 'She told me {{to close}} the window.'],
+    ['“Don’t touch that!”', 'He told us {{not to touch}} that.'],
+    ['“Could you open the door, please?”', 'She asked me {{to open}} the door.'],
+    ['“Please don’t be late.”', 'He asked me {{not to be}} late.'],
+  ];
+  document.getElementById('l4-list').innerHTML = qc.map(([d, r]) =>
+    `<li><span class="direct-q">${d}</span>${gapify(r, 'l4')}</li>`).join('');
+
+  // ---------- Level 5: reporting verbs ----------
+  const rv = [
+    ['“I’ll pay for dinner,” he said.', 'OFFER', 'He offered {{to pay}} for dinner.'],
+    ['“Don’t forget to lock the door,” she said to me.', 'REMIND', 'She reminded me {{to lock}} the door.'],
+    ['“You should see a doctor,” he said to me.', 'ADVISE', 'He advised me {{to see}} a doctor.'],
+    ['“I didn’t take your pen,” Tom said.', 'DENY', 'Tom denied {{taking|having taken}} my pen.'],
+    ['“I’m sorry I’m late,” she said.', 'APOLOGISE', 'She apologised {{for being|for arriving}} late.'],
+    ['“Let’s go to the beach,” she said.', 'SUGGEST', 'She suggested {{going|that we go|that we went|that we should go}} to the beach.'],
+    ['“Yes, I broke the window,” he said.', 'ADMIT', 'He admitted {{breaking|having broken}} the window.'],
+    ['“I’ll call the police if you don’t pay,” he said.', 'THREATEN', 'He threatened {{to call}} the police if I didn’t pay.'],
+    ['“I’ll definitely be there,” she said.', 'PROMISE', 'She promised {{to be}} there.'],
+    ['“Well done for passing your exam!” he said to me.', 'CONGRATULATE', 'He congratulated me {{on passing|for passing}} my exam.'],
+  ];
+  document.getElementById('l5-list').innerHTML = rv.map(([d, kw, r]) =>
+    `<li><span class="direct-q">${d} <span class="kw">${kw}</span></span>${gapify(r, 'l5')}</li>`).join('');
+
+  // ---------- Level 6: tricky ----------
+  const tricky = [
+    ['“The Earth goes round the Sun,” the teacher said.', 'The teacher said that the Earth {{goes|went}} round the Sun.'],
+    ['“I might come later,” she said.', 'She said she {{might}} come later.'],
+    ['“You should rest,” the doctor said.', 'The doctor said I {{should}} rest.'],
+    ['“If I had more time, I would learn Italian,” he said.', 'He said that if he {{had}} more time, he {{would}} learn Italian.'],
+    ['“I’m leaving tomorrow,” he says.', 'He says he {{is leaving|is going to leave}} tomorrow.'],
+    ['“I’ve lived here since 2010,” she said.', 'She said she {{had lived}} here since 2010.'],
+    ['“I must finish this report today,” she said.', 'She said she {{had to}} finish that report {{that day|the same day}}.'],
+    ['“We were playing when it started to rain,” he said.', 'He said they {{had been playing}} when it {{had started|started}} to rain.'],
+  ];
+  document.getElementById('l6-list').innerHTML = tricky.map(([d, r]) =>
+    `<li><span class="direct-q">${d}</span>${gapify(r, 'l6')}</li>`).join('');
+
+  const correctPick = [
+    ['She asked me where did I live.', 'She asked me where I lived.', 'She asked me where I do live.', 1],
+    ['He said me he would be late.', 'He told that he would be late.', 'He told me he would be late.', 2],
+    ['She suggested taking a taxi.', 'She suggested to take a taxi.', 'She suggested me taking a taxi.', 0],
+    ['He asked me that I could help him.', 'He asked me if could I help him.', 'He asked me if I could help him.', 2],
+    ['The teacher told us not to talk.', 'The teacher told us don’t talk.', 'The teacher told us to not talking.', 0],
+    ['She explained me the problem.', 'She explained the problem to me.', 'She explained to me about problem.', 1],
+  ];
+  document.getElementById('l6b-list').innerHTML = correctPick.map(opts =>
+    `<li>${sel('l6b', opts.slice(0,3), [opts[opts[3]]], '— choose the correct sentence —')}</li>`).join('');
+
+  // ---------- Cambridge Part 4 ----------
+  const kwA = [
+    ['“I’ll call you tomorrow,” Sarah told Jack.', 'WOULD', 'Sarah told Jack that {{she would call him|she would phone him|she would ring him}} the next day.'],
+    ['“Don’t touch the paintings,” the guard said to us.', 'TOLD', 'The guard {{told us not to touch}} the paintings.'],
+    ['“Where did you put my keys?” she asked me.', 'WHERE', 'She asked me {{where I had put|where I put}} her keys.'],
+    ['“You should apply for the job,” Mark said to me.', 'ADVISED', 'Mark {{advised me to apply}} for the job.'],
+    ['“I didn’t steal the money,” said the boy.', 'DENIED', 'The boy {{denied stealing|denied having stolen}} the money.'],
+    ['“I’ll help you with the homework,” my brother said.', 'OFFERED', 'My brother {{offered to help}} me with the homework.'],
+  ];
+  document.getElementById('k1-list').innerHTML = kwA.map(([d, kw, r]) =>
+    `<li>${d} <span class="kw">${kw}</span><br>${gapify(r, 'k1')}</li>`).join('');
+
+  const kwB = [
+    ['“Are you enjoying the course?” the teacher asked us.', 'IF', 'The teacher asked us {{if we were enjoying|if we enjoyed}} the course.'],
+    ['“Why don’t we have a picnic?” said Emma.', 'SUGGESTED', 'Emma {{suggested having|suggested that we have|suggested we have|suggested that we should have|suggested we should have}} a picnic.'],
+    ['“I’m sorry I forgot your birthday,” Tom said to Lucy.', 'APOLOGISED', 'Tom {{apologised for forgetting|apologised for having forgotten|apologized for forgetting|apologized for having forgotten}} Lucy’s birthday.'],
+    ['“You must hand in the project by Friday,” the teacher told us.', 'HAD', 'The teacher said we {{had to hand in}} the project by Friday.'],
+    ['“Have you ever been to Japan?” Ben asked me.', 'EVER', 'Ben asked me {{if I had ever|whether I had ever}} been to Japan.'],
+    ['“I’m going to move to Berlin next month,” Anna said.', 'WAS', 'Anna said she {{was moving|was going to move}} to Berlin the following month.'],
+    ['“How long have you been living here?” he asked me.', 'LONG', 'He asked me {{how long I had been}} living there.'],
+    ['“You broke the vase!” she said to her brother.', 'ACCUSED', 'She {{accused her brother of breaking|accused him of breaking}} the vase.'],
+  ];
+  document.getElementById('k2-list').innerHTML = kwB.map(([d, kw, r]) =>
+    `<li>${d} <span class="kw">${kw}</span><br>${gapify(r, 'k2')}</li>`).join('');
+</script>
+
+</body>
+</html>
