@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Key Word Transformations — Complete B2 Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF9F5;--ink:#20263A;--muted:#5C6470;--border:#E7E4DA;
+  --navy:#1B2A4A;--navy-2:#2A3C63;
+  --gold:#B8860B;--gold-l:#FBF1DD;
+  --denim:#2E6B9E;--denim-l:#E6EFF6;
+  --teal:#1F8A70;--teal-l:#E1F3EE;
+  --coral:#C1552C;--coral-l:#FBEAE1;
+  --indigo:#5B4B8A;--indigo-l:#EDE9F6;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.65;font-size:16px;}
+header{background:linear-gradient(155deg,var(--navy),var(--navy-2));padding:3rem 1.5rem 2.4rem;text-align:center;}
+.eyebrow{color:#E8B84B;font-size:.76rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.7rem;}
+header h1{font-family:'DM Serif Display',serif;color:#fff;font-size:clamp(2rem,5vw,2.9rem);margin:0 0 .5rem;font-weight:400;}
+header p{color:#C7D0E2;max-width:640px;margin:0 auto;font-size:.95rem;}
+.wrap{max-width:820px;margin:0 auto;padding:0 1.5rem 3rem;}
+
+/* TOC */
+.toc{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;margin:1.8rem 0;}
+.toc h3{margin:0 0 .6rem;font-family:'DM Serif Display',serif;font-weight:400;font-size:1.15rem;}
+.toc-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.6rem 1.5rem;}
+.toc b{display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:.5rem;}
+.toc a{display:block;font-size:.86rem;color:var(--denim);text-decoration:none;padding:.12rem 0;}
+.toc a:hover{text-decoration:underline;}
+
+/* Part labels */
+.part-label{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.7rem;margin:2.5rem 0 .3rem;color:var(--navy);}
+.part-sub{color:var(--muted);font-size:.9rem;margin:0 0 1.2rem;}
+h2{font-family:'DM Serif Display',serif;font-weight:400;font-size:1.35rem;margin:2rem 0 .7rem;padding-bottom:.35rem;border-bottom:2px solid var(--border);}
+
+/* Theory boxes */
+.rule{background:var(--denim-l);border-left:4px solid var(--denim);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0;font-size:.92rem;}
+.tip{background:var(--gold-l);border-left:4px solid var(--gold);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0;font-size:.92rem;}
+.warn{background:var(--coral-l);border-left:4px solid var(--coral);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin:.8rem 0;font-size:.92rem;}
+.ex-pair{background:#fff;border:1px solid var(--border);padding:.7rem 1rem;border-radius:8px;margin:.5rem 0;font-size:.92rem;}
+.ex-pair .orig{color:var(--muted);}
+.ex-pair .arrow{color:var(--gold);font-weight:700;margin:0 .3rem;}
+.ex-pair .kw{font-weight:800;color:var(--denim);letter-spacing:.04em;}
+.ex-pair .ans{color:var(--navy);font-weight:600;}
+
+/* Pattern table */
+.ptable{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.9rem;}
+.ptable th{background:var(--navy);color:#fff;text-align:left;padding:.45rem .7rem;font-weight:600;font-size:.82rem;letter-spacing:.03em;}
+.ptable td{padding:.4rem .7rem;border-bottom:1px solid var(--border);}
+.ptable tr:nth-child(even) td{background:#FAFAF7;}
+.ptable code{background:var(--denim-l);padding:.1rem .35rem;border-radius:3px;font-size:.85em;}
+
+/* KWT exercise items */
+.kwt-item{display:flex;gap:.7rem;padding:.9rem 1rem;border:1px solid var(--border);border-radius:8px;margin-bottom:.7rem;background:#fff;}
+.kwt-num{font-family:'DM Serif Display',serif;font-size:1.25rem;color:var(--navy);min-width:1.4rem;padding-top:.1rem;}
+.kwt-body{flex:1;min-width:0;}
+.kwt-lead{margin:0 0 .25rem;font-weight:500;font-size:.93rem;}
+.kwt-kw{display:inline-block;margin:0 0 .35rem;font-weight:800;font-size:.88rem;letter-spacing:.08em;color:var(--navy);background:var(--denim-l);padding:.15rem .7rem;border-radius:4px;}
+.kwt-gap{margin:0;font-size:.93rem;line-height:1.8;}
+.ki{font-family:inherit;font-size:.93rem;border:2px solid var(--border);border-radius:6px;padding:.3rem .5rem;width:clamp(150px,42%,300px);outline:none;transition:border-color .2s,background .2s;}
+.ki:focus{border-color:var(--denim);box-shadow:0 0 0 3px rgba(46,107,158,.12);}
+.ki.right{border-color:var(--teal);background:var(--teal-l);}
+.ki.half{border-color:var(--gold);background:var(--gold-l);}
+.ki.wrong{border-color:var(--coral);background:var(--coral-l);}
+.ca{font-size:.83rem;margin:.25rem 0 0;display:none;line-height:1.4;}
+.ca.show{display:block;}
+.ca.c-full{color:var(--teal);}
+.ca.c-part{color:#9A7209;}
+.ca.c-miss{color:var(--coral);}
+
+/* Buttons & score */
+.btn-row{margin-top:1rem;display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;}
+.btn{font-family:inherit;font-size:.86rem;font-weight:600;border:none;border-radius:8px;padding:.5rem 1.2rem;cursor:pointer;transition:background .15s;}
+.btn-ck{background:var(--navy);color:#fff;}.btn-ck:hover{background:var(--navy-2);}
+.btn-rs{background:transparent;color:var(--muted);border:1px solid var(--border);}.btn-rs:hover{background:#f0efeb;}
+.score-stamp{display:none;font-weight:700;font-size:.86rem;padding:.3rem .85rem;border-radius:999px;margin-left:.3rem;}
+.score-stamp.good{background:var(--teal-l);color:var(--teal);}
+.score-stamp.mid{background:var(--gold-l);color:var(--gold);}
+.score-stamp.low{background:var(--coral-l);color:var(--coral);}
+.level-tag{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:var(--denim);padding:.2rem .6rem;border-radius:4px;vertical-align:middle;margin-left:.4rem;}
+.level-tag.adv{background:var(--coral);}
+.level-tag.exam{background:var(--indigo);}
+.sec-intro{color:var(--muted);font-size:.9rem;margin:0 0 .8rem;}
+
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:1rem 0 2.5rem;border-top:1px solid var(--border);margin-top:2rem;}
+@media(max-width:600px){
+  .kwt-item{flex-direction:column;gap:.3rem;}
+  .ki{width:100%;}
+  .toc-cols{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cambridge B2 First &middot; Paper 1 Part 4</div>
+  <h1>Key Word Transformations</h1>
+  <p>Complete guide: grammar patterns, vocabulary signals, a step-by-step method, and <b>58 practice items</b> with instant marking and partial credit.</p>
+</header>
+
+<div class="wrap">
+
+<!-- ═══════ TABLE OF CONTENTS ═══════ -->
+<nav class="toc">
+  <h3>Contents</h3>
+  <div class="toc-cols">
+    <div>
+      <b>Part A &mdash; Strategy &amp; Grammar</b>
+      <a href="#a1">1. What is Part 4?</a>
+      <a href="#a2">2. The 4-Step Method</a>
+      <a href="#a3">3. Key-Word Decoder</a>
+      <a href="#a4">4. Passive voice</a>
+      <a href="#a5">5. Reported speech</a>
+      <a href="#a6">6. Conditionals &amp; Wish</a>
+      <a href="#a7">7. Comparisons</a>
+      <a href="#a8">8. Modal verbs</a>
+      <a href="#a9">9. Causative</a>
+      <a href="#a10">10. Purpose &amp; Result</a>
+      <a href="#a11">11. Connectors</a>
+      <a href="#a12">12. Vocabulary patterns</a>
+      <a href="#a13">13. Common mistakes</a>
+    </div>
+    <div>
+      <b>Part B &mdash; Exercises</b>
+      <a href="#b1">Level 1: Passive voice</a>
+      <a href="#b2">Level 2: Reported speech</a>
+      <a href="#b3">Level 3: Conditionals &amp; Wish</a>
+      <a href="#b4">Level 4: Comparisons &amp; Modals</a>
+      <a href="#b5">Level 5: Mixed grammar</a>
+      <a href="#b6">Level 6: Vocabulary focus</a>
+      <a href="#b7">Level 7: Exam Practice A</a>
+      <a href="#b8">Level 8: Exam Practice B</a>
+      <b style="margin-top:.5rem">Part C &mdash; Exam Simulation</b>
+      <a href="#c1">Full exam set (6 items)</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════
+     PART A — STRATEGY & GRAMMAR REFERENCE
+     ═══════════════════════════════════════ -->
+<h2 class="part-label">Part A &mdash; Strategy &amp; Grammar Reference</h2>
+<p class="part-sub">Everything you need to know before you start practising.</p>
+
+<!-- A1 -->
+<h2 id="a1">1. What is Part 4?</h2>
+<p>Part 4 of the Use of English paper gives you <b>6 questions</b>. Each question has:</p>
+<ul>
+  <li>An <b>original sentence</b>.</li>
+  <li>A <b>key word</b> in capital letters &mdash; you <i>must not change it</i> (no -s, -ed, -ing, un-, etc.).</li>
+  <li>A <b>gapped sentence</b> &mdash; you complete the gap so the second sentence means the same as the first.</li>
+</ul>
+<div class="rule">
+  <b>Rules:</b> Your answer must be <b>2&ndash;5 words</b> including the key word. Contractions (e.g.&nbsp;<i>don&rsquo;t</i>) count as <b>two words</b>. Spelling must be correct. Each question is worth <b>2 marks</b> (total: 12). You can get <b>1 mark</b> for a partially correct answer.
+</div>
+<div class="tip"><b>Timing:</b> Spend about 10&ndash;12 minutes on Part 4 (out of 75 minutes for the whole paper). That gives you almost 2 minutes per question.</div>
+
+<!-- A2 -->
+<h2 id="a2">2. The 4-Step Method</h2>
+<table class="ptable">
+<tr><th style="width:2.5rem">#</th><th>Step</th><th>What to do</th></tr>
+<tr><td><b>1</b></td><td><b>READ</b></td><td>Read both sentences. Understand the meaning of the original.</td></tr>
+<tr><td><b>2</b></td><td><b>IDENTIFY</b></td><td>Look at the key word. What grammar or vocabulary area does it signal? (See the decoder below.)</td></tr>
+<tr><td><b>3</b></td><td><b>BUILD</b></td><td>Write your answer: 2&ndash;5 words, including the key word, that complete the second sentence with the same meaning.</td></tr>
+<tr><td><b>4</b></td><td><b>CHECK</b></td><td>Same meaning? 2&ndash;5 words? Key word unchanged? Spelling correct?</td></tr>
+</table>
+
+<!-- A3 -->
+<h2 id="a3">3. Key-Word Decoder</h2>
+<p>The key word tells you which grammar or vocabulary area is being tested. Use this table to quickly identify the transformation:</p>
+<table class="ptable">
+<tr><th>Key words you may see</th><th>Grammar / Vocabulary area</th></tr>
+<tr><td><code>BEEN</code> <code>BEING</code> <code>BY</code> <code>WAS</code></td><td>Passive voice</td></tr>
+<tr><td><code>ADVISED</code> <code>APOLOGISED</code> <code>DENIED</code> <code>OFFERED</code> <code>REMINDED</code> <code>SUGGESTED</code> <code>WARNED</code></td><td>Reported speech / Reporting verbs</td></tr>
+<tr><td><code>HAD</code> <code>WISH</code> <code>WISHES</code> <code>ONLY</code> <code>BETTER</code> <code>UNLESS</code></td><td>Conditionals &amp; Wish</td></tr>
+<tr><td><code>AS</code> <code>MORE</code> <code>MOST</code> <code>LESS</code> <code>ENOUGH</code> <code>TOO</code> <code>SUCH</code> <code>SO</code></td><td>Comparisons / Degree</td></tr>
+<tr><td><code>MIGHT</code> <code>MUST</code> <code>SHOULD</code> <code>HAVE</code> <code>ABLE</code> <code>ALLOWED</code> <code>NECESSARY</code></td><td>Modal verbs</td></tr>
+<tr><td><code>HAVING</code> <code>GOT</code></td><td>Causative (have/get something done)</td></tr>
+<tr><td><code>ORDER</code></td><td>Purpose (in order to)</td></tr>
+<tr><td><code>DESPITE</code> <code>SPITE</code> <code>THOUGH</code> <code>HOWEVER</code></td><td>Connectors</td></tr>
+<tr><td><code>GAVE</code> <code>PUT</code> <code>GET</code> <code>CALLED</code> <code>TURNED</code> <code>LOOK</code></td><td>Phrasal verbs</td></tr>
+<tr><td><code>USE</code> <code>WORTH</code> <code>MIND</code> <code>WAIT</code> <code>SUCCEED</code></td><td>Fixed expressions</td></tr>
+</table>
+<div class="tip"><b>Tip:</b> Some key words belong to more than one area (e.g.&nbsp;<code>HAD</code> can signal conditionals, causative, or <i>had better</i>). Look at both sentences to decide.</div>
+
+<!-- A4 -->
+<h2 id="a4">4. Passive Voice</h2>
+<div class="rule"><b>Pattern:</b> Subject + <b>be</b> (match the tense) + <b>past participle</b> (+ <i>by</i> + agent)</div>
+<table class="ptable">
+<tr><th>Tense</th><th>Active</th><th>Passive</th></tr>
+<tr><td>Present simple</td><td>They <b>clean</b> it.</td><td>It <b>is cleaned</b>.</td></tr>
+<tr><td>Past simple</td><td>They <b>cleaned</b> it.</td><td>It <b>was cleaned</b>.</td></tr>
+<tr><td>Present perfect</td><td>They <b>have cleaned</b> it.</td><td>It <b>has been cleaned</b>.</td></tr>
+<tr><td>Future</td><td>They <b>will clean</b> it.</td><td>It <b>will be cleaned</b>.</td></tr>
+<tr><td>Present continuous</td><td>They <b>are cleaning</b> it.</td><td>It <b>is being cleaned</b>.</td></tr>
+</table>
+<div class="ex-pair"><span class="orig">People say she is brilliant.</span> <span class="arrow">&rarr;</span> <span class="kw">SAID</span> <span class="arrow">&rarr;</span> <span class="ans">She <u>is said to be</u> brilliant.</span></div>
+<div class="tip"><b>Tip:</b> With verbs like <i>say, believe, think, know, expect</i>, use: <b>Subject + is/are said to + infinitive</b> (or <b>It is said that&hellip;</b>).</div>
+
+<!-- A5 -->
+<h2 id="a5">5. Reported Speech</h2>
+<p>Part 4 usually tests <b>reporting verbs + their grammatical pattern</b>, not simple backshift. Learn these patterns:</p>
+<table class="ptable">
+<tr><th>Pattern</th><th>Verbs</th><th>Example</th></tr>
+<tr><td>verb + someone + <b>to do</b></td><td>advise, remind, warn, encourage, invite, persuade, tell, ask, order</td><td>She <b>reminded me to lock</b> the door.</td></tr>
+<tr><td>verb + <b>to do</b></td><td>offer, promise, agree, refuse, threaten</td><td>He <b>offered to help</b>.</td></tr>
+<tr><td>verb + <b>-ing</b></td><td>suggest, deny, admit, recommend</td><td>He <b>denied stealing</b> it.</td></tr>
+<tr><td>verb + <b>for + -ing</b></td><td>apologise, blame, criticise, praise, thank</td><td>She <b>apologised for being</b> late.</td></tr>
+<tr><td>verb + someone + <b>of + -ing</b></td><td>accuse, suspect, convince</td><td>They <b>accused him of cheating</b>.</td></tr>
+<tr><td>verb + <b>(that) + clause</b></td><td>suggest, insist, recommend, explain</td><td>She <b>suggested that I join</b> a gym.</td></tr>
+</table>
+<div class="tip"><b>Tip:</b> The key word is always the reporting verb. If you know its pattern, the answer almost writes itself.</div>
+
+<!-- A6 -->
+<h2 id="a6">6. Conditionals &amp; Wish</h2>
+<table class="ptable">
+<tr><th>Structure</th><th>Use</th><th>Formula</th></tr>
+<tr><td>2nd conditional</td><td>Imaginary present/future</td><td>If + past simple, would + infinitive</td></tr>
+<tr><td>3rd conditional</td><td>Imaginary past</td><td>If + past perfect, would have + past participle</td></tr>
+<tr><td>Wish + past simple</td><td>I want the present to be different</td><td>I wish I <b>had</b> more time.</td></tr>
+<tr><td>Wish + past perfect</td><td>I regret something in the past</td><td>I wish I <b>had studied</b> harder.</td></tr>
+<tr><td>If only</td><td>Same as <i>wish</i> but stronger</td><td>If only you <b>had come</b>!</td></tr>
+<tr><td>Had better</td><td>Strong advice (= should)</td><td>You <b>had better leave</b> now.</td></tr>
+</table>
+<div class="ex-pair"><span class="orig">I&rsquo;m sorry I didn&rsquo;t study harder.</span> <span class="arrow">&rarr;</span> <span class="kw">WISH</span> <span class="arrow">&rarr;</span> <span class="ans">I <u>wish I had studied</u> harder.</span></div>
+<div class="tip"><b>Tip:</b> <i>regret</i> in the original sentence almost always signals <b>wish + past perfect</b>.</div>
+
+<!-- A7 -->
+<h2 id="a7">7. Comparisons</h2>
+<div class="rule"><b>Core trick:</b> reverse the comparison and adjust the adjective.
+<br><b>X is taller than Y</b> &harr; <b>Y is not as tall as X</b>
+<br><b>X is the tallest</b> &harr; <b>Nobody is as tall as X</b> / <b>Nobody is taller than X</b></div>
+<table class="ptable">
+<tr><th>Transformation</th><th>Example</th></tr>
+<tr><td>comparative &rarr; <i>not as&hellip;as</i></td><td>She is <b>taller</b> than me &rarr; I am <b>not as tall as</b> her.</td></tr>
+<tr><td>superlative &rarr; comparative</td><td>It&rsquo;s <b>the best</b> &rarr; Nothing is <b>better than</b> it.</td></tr>
+<tr><td><i>too</i> &harr; <i>enough</i></td><td><b>Too</b> tired to go &rarr; <b>Not</b> energetic <b>enough</b> to go.</td></tr>
+<tr><td><i>so&hellip;that</i> &harr; <i>such&hellip;that</i></td><td>It was <b>so</b> cold <b>that</b>&hellip; &harr; It was <b>such</b> cold weather <b>that</b>&hellip;</td></tr>
+</table>
+
+<!-- A8 -->
+<h2 id="a8">8. Modal Verbs</h2>
+<table class="ptable">
+<tr><th>Meaning</th><th>Present / Future</th><th>Past</th></tr>
+<tr><td>Certainty (positive)</td><td>must be</td><td>must have + pp</td></tr>
+<tr><td>Certainty (negative)</td><td>can&rsquo;t / cannot be</td><td>can&rsquo;t / cannot have + pp</td></tr>
+<tr><td>Possibility</td><td>might / may / could be</td><td>might / may / could have + pp</td></tr>
+<tr><td>Advice / criticism</td><td>should + infinitive</td><td>should have + pp</td></tr>
+<tr><td>No obligation</td><td>don&rsquo;t have to / needn&rsquo;t</td><td>didn&rsquo;t need to / needn&rsquo;t have + pp</td></tr>
+<tr><td>Ability</td><td>be able to / manage to</td><td>was able to / managed to</td></tr>
+<tr><td>Permission</td><td>be allowed to</td><td>was/were allowed to</td></tr>
+<tr><td>Necessity</td><td>it is necessary to</td><td>it was necessary to</td></tr>
+</table>
+<div class="ex-pair"><span class="orig">I&rsquo;m sure he didn&rsquo;t do it on purpose.</span> <span class="arrow">&rarr;</span> <span class="kw">HAVE</span> <span class="arrow">&rarr;</span> <span class="ans">He <u>can&rsquo;t have done</u> it on purpose.</span></div>
+
+<!-- A9 -->
+<h2 id="a9">9. Causative (<i>have / get something done</i>)</h2>
+<div class="rule"><b>Pattern:</b> Subject + <b>have</b>/<b>get</b> + object + <b>past participle</b>
+<br>Meaning: someone else does it for you.</div>
+<div class="ex-pair"><span class="orig">A mechanic fixed my car.</span> <span class="arrow">&rarr;</span> <span class="kw">HAD</span> <span class="arrow">&rarr;</span> <span class="ans">I <u>had my car fixed</u>.</span></div>
+<div class="ex-pair"><span class="orig">A mechanic is repairing my car now.</span> <span class="arrow">&rarr;</span> <span class="kw">HAVING</span> <span class="arrow">&rarr;</span> <span class="ans">I <u>am having my car repaired</u> now.</span></div>
+<div class="tip"><b>Tip:</b> The subject changes from the <i>doer</i> to the <i>person who arranged it</i>.</div>
+
+<!-- A10 -->
+<h2 id="a10">10. Purpose &amp; Result</h2>
+<table class="ptable">
+<tr><th>Structure</th><th>Example</th></tr>
+<tr><td><b>in order to</b> / <b>so as to</b></td><td>She left early <b>in order to</b> catch the train.</td></tr>
+<tr><td><b>in order not to</b> / <b>so as not to</b></td><td>He whispered <b>so as not to</b> wake the baby.</td></tr>
+<tr><td><b>so that</b> + clause</td><td>She left early <b>so that</b> she could catch the train.</td></tr>
+</table>
+
+<!-- A11 -->
+<h2 id="a11">11. Connectors</h2>
+<div class="rule"><b>Key equivalence:</b>
+<br><b>although / even though / though</b> + clause &harr; <b>despite / in spite of</b> + noun / -ing
+<br><b>unless</b> = <b>if&hellip;not</b>
+<br><b>provided (that) / as long as</b> = only if</div>
+<div class="ex-pair"><span class="orig">Although it rained, we went out.</span> <span class="arrow">&rarr;</span> <span class="kw">DESPITE</span> <span class="arrow">&rarr;</span> <span class="ans"><u>Despite the rain</u>, we went out.</span></div>
+<div class="warn"><b>Common error:</b> <i>despite</i> and <i>in spite of</i> are followed by a <b>noun</b> or <b>-ing</b>, <u>never</u> by a clause. Write &ldquo;despite <b>being</b> tired&rdquo;, NOT &ldquo;despite she <b>was</b> tired&rdquo;.</div>
+
+<!-- A12 -->
+<h2 id="a12">12. Vocabulary Patterns</h2>
+<p><b>Phrasal verbs</b> &mdash; know the meaning and how to separate them:</p>
+<table class="ptable">
+<tr><th>Phrasal verb</th><th>Meaning</th><th>Example</th></tr>
+<tr><td>give up</td><td>stop doing</td><td>He <b>gave up</b> smoking.</td></tr>
+<tr><td>put off</td><td>postpone</td><td>We <b>put off</b> the meeting.</td></tr>
+<tr><td>call off</td><td>cancel</td><td>They <b>called off</b> the match.</td></tr>
+<tr><td>look forward to</td><td>anticipate with pleasure</td><td>I <b>look forward to</b> seeing you.</td></tr>
+<tr><td>get over</td><td>recover from</td><td>It took ages to <b>get over</b> the flu.</td></tr>
+<tr><td>turn down</td><td>reject</td><td>She <b>turned down</b> the offer.</td></tr>
+</table>
+<p><b>Fixed expressions:</b></p>
+<table class="ptable">
+<tr><th>Expression</th><th>Example</th></tr>
+<tr><td>it&rsquo;s no use + -ing</td><td>It&rsquo;s <b>no use complaining</b>.</td></tr>
+<tr><td>it&rsquo;s (not) worth + -ing</td><td>It <b>is worth learning</b> to play an instrument.</td></tr>
+<tr><td>can&rsquo;t wait (for)</td><td>I <b>can&rsquo;t wait for</b> the holidays.</td></tr>
+<tr><td>succeed in + -ing</td><td>She <b>succeeded in passing</b> the test.</td></tr>
+<tr><td>make up one&rsquo;s mind</td><td>I haven&rsquo;t <b>made up my mind</b>.</td></tr>
+<tr><td>have been + -ing + for/since</td><td>He <b>has been playing</b> guitar <b>since</b> he was ten.</td></tr>
+</table>
+
+<!-- A13 -->
+<h2 id="a13">13. Common Mistakes</h2>
+<table class="ptable">
+<tr><th style="width:2rem">#</th><th>Mistake</th><th>Example</th></tr>
+<tr><td>1</td><td><b>Changing the key word</b></td><td>Key word SUGGEST &rarr; writing &ldquo;suggest<b>ed</b>&rdquo; &mdash; WRONG. You must use the exact form given.</td></tr>
+<tr><td>2</td><td><b>Too many or too few words</b></td><td>Remember: 2&ndash;5 words. Contractions = 2 words.</td></tr>
+<tr><td>3</td><td><b>Changing the meaning</b></td><td>The two sentences must mean <i>exactly</i> the same thing.</td></tr>
+<tr><td>4</td><td><b>Spelling errors</b></td><td>Watch irregular past participles: <i>stolen</i>, <i>broken</i>, <i>chosen</i>, <i>written</i>.</td></tr>
+<tr><td>5</td><td><b>Writing the whole sentence</b></td><td>Only write the words that go in the gap, not the complete sentence.</td></tr>
+<tr><td>6</td><td><b>Not matching the tense</b></td><td>If the original is past, your passive/modal must be past too.</td></tr>
+</table>
+
+
+<!-- ═══════════════════════════════════
+     PART B — EXERCISES
+     ═══════════════════════════════════ -->
+<h2 class="part-label">Part B &mdash; Exercises</h2>
+<p class="part-sub">58 items from guided to exam-level. <b>Scoring:</b> 2&nbsp;marks = fully correct (green), 1&nbsp;mark = partially correct (amber), 0&nbsp;marks = incorrect (red). Write only the missing words, not the full sentence.</p>
+
+<!-- ─── Level 1: Passive ─── -->
+<h2 id="b1">Level 1: Passive Voice <span class="level-tag">Guided</span></h2>
+<p class="sec-intro">All six items test active &rarr; passive or passive &rarr; active transformations.</p>
+<div id="s1" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">Someone broke into our house last night.</p>
+  <p class="kwt-kw">BROKEN</p>
+  <p class="kwt-gap">Our house <input type="text" class="ki" data-a="was broken into" data-h="was broken" data-k="broken"> last night.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">They are building a new hospital in the city centre.</p>
+  <p class="kwt-kw">BEING</p>
+  <p class="kwt-gap">A new hospital <input type="text" class="ki" data-a="is being built" data-h="is being" data-k="being"> in the city centre.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">People say that this restaurant is the best in town.</p>
+  <p class="kwt-kw">SAID</p>
+  <p class="kwt-gap">This restaurant <input type="text" class="ki" data-a="is said to be" data-h="is said" data-k="said"> the best in town.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">Nobody has cleaned the office this week.</p>
+  <p class="kwt-kw">BEEN</p>
+  <p class="kwt-gap">The office <input type="text" class="ki" data-a="has not been cleaned|hasn't been cleaned" data-h="has not been|hasn't been" data-k="been"> this week.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">A famous architect designed this building in 1920.</p>
+  <p class="kwt-kw">WAS</p>
+  <p class="kwt-gap">This building <input type="text" class="ki" data-a="was designed by" data-h="was designed" data-k="was"> a famous architect in 1920.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">They will announce the results tomorrow.</p>
+  <p class="kwt-kw">BE</p>
+  <p class="kwt-gap">The results <input type="text" class="ki" data-a="will be announced" data-h="will be" data-k="be"> tomorrow.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s1')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s1')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 2: Reported Speech ─── -->
+<h2 id="b2">Level 2: Reported Speech <span class="level-tag">Guided</span></h2>
+<p class="sec-intro">The key word is always a reporting verb. Use its grammatical pattern.</p>
+<div id="s2" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;Don&rsquo;t forget to lock the door,&rdquo; she told me.</p>
+  <p class="kwt-kw">REMINDED</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="reminded me to lock" data-h="reminded me" data-k="reminded"> the door.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;I&rsquo;m sorry I broke your vase,&rdquo; he said to her.</p>
+  <p class="kwt-kw">APOLOGISED</p>
+  <p class="kwt-gap">He <input type="text" class="ki" data-a="apologised for breaking" data-h="apologised for" data-k="apologised"> her vase.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;You should see a doctor,&rdquo; my mum told me.</p>
+  <p class="kwt-kw">ADVISED</p>
+  <p class="kwt-gap">My mum <input type="text" class="ki" data-a="advised me to see" data-h="advised me" data-k="advised"> a doctor.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;I didn&rsquo;t steal the money!&rdquo; he said.</p>
+  <p class="kwt-kw">DENIED</p>
+  <p class="kwt-gap">He <input type="text" class="ki" data-a="denied stealing|denied having stolen" data-h="denied" data-k="denied"> the money.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;I&rsquo;ll drive you to the airport,&rdquo; she said to Tom.</p>
+  <p class="kwt-kw">OFFERED</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="offered to drive him" data-h="offered to" data-k="offered"> to the airport.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;Let&rsquo;s go to the beach,&rdquo; suggested Kate.</p>
+  <p class="kwt-kw">GOING</p>
+  <p class="kwt-gap">Kate <input type="text" class="ki" data-a="suggested going" data-h="" data-k="going"> to the beach.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s2')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s2')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 3: Conditionals & Wish ─── -->
+<h2 id="b3">Level 3: Conditionals &amp; Wish <span class="level-tag">Guided</span></h2>
+<p class="sec-intro">Unreal conditions, regrets and strong advice.</p>
+<div id="s3" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">I don&rsquo;t have enough money, so I can&rsquo;t buy a new laptop.</p>
+  <p class="kwt-kw">HAD</p>
+  <p class="kwt-gap">If I <input type="text" class="ki" data-a="had enough money" data-h="had enough" data-k="had">, I could buy a new laptop.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">I&rsquo;m sorry I didn&rsquo;t study harder for the exam.</p>
+  <p class="kwt-kw">WISH</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="wish I had studied" data-h="wish I had" data-k="wish"> harder for the exam.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">It&rsquo;s a pity you didn&rsquo;t come to the party.</p>
+  <p class="kwt-kw">ONLY</p>
+  <p class="kwt-gap">If <input type="text" class="ki" data-a="only you had come" data-h="only you had" data-k="only"> to the party!</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">I didn&rsquo;t know you were in hospital, so I didn&rsquo;t visit you.</p>
+  <p class="kwt-kw">KNOWN</p>
+  <p class="kwt-gap">If I <input type="text" class="ki" data-a="had known you were" data-h="had known" data-k="known"> in hospital, I would have visited you.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">She regrets not accepting the job offer.</p>
+  <p class="kwt-kw">WISHES</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="wishes she had accepted" data-h="wishes she had" data-k="wishes"> the job offer.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">It would be a good idea for you to leave now.</p>
+  <p class="kwt-kw">BETTER</p>
+  <p class="kwt-gap">You <input type="text" class="ki" data-a="had better leave" data-h="had better" data-k="better"> now.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s3')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s3')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 4: Comparisons & Modals ─── -->
+<h2 id="b4">Level 4: Comparisons &amp; Modals <span class="level-tag">Guided</span></h2>
+<p class="sec-intro">Degree structures and modal verb equivalences.</p>
+<div id="s4" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">Peter is not as tall as his brother.</p>
+  <p class="kwt-kw">TALLER</p>
+  <p class="kwt-gap">Peter&rsquo;s brother <input type="text" class="ki" data-a="is taller than" data-h="is taller" data-k="taller"> Peter.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">I&rsquo;ve never eaten such delicious food before.</p>
+  <p class="kwt-kw">MOST</p>
+  <p class="kwt-gap">This is <input type="text" class="ki" data-a="the most delicious food" data-h="the most delicious" data-k="most"> I have ever eaten.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">Perhaps she is at home.</p>
+  <p class="kwt-kw">MIGHT</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="might be at" data-h="might be" data-k="might"> home.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">I&rsquo;m sure he didn&rsquo;t do it on purpose.</p>
+  <p class="kwt-kw">HAVE</p>
+  <p class="kwt-gap">He <input type="text" class="ki" data-a="cannot have done|can't have done|can not have done" data-h="cannot have|can't have|can not have" data-k="have"> it on purpose.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">You didn&rsquo;t need to buy so much food.</p>
+  <p class="kwt-kw">NECESSARY</p>
+  <p class="kwt-gap">It <input type="text" class="ki" data-a="was not necessary to buy|wasn't necessary to buy" data-h="was not necessary|wasn't necessary" data-k="necessary"> so much food.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">Running is not as popular as swimming in this town.</p>
+  <p class="kwt-kw">MORE</p>
+  <p class="kwt-gap">Swimming <input type="text" class="ki" data-a="is more popular than" data-h="is more popular" data-k="more"> running in this town.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s4')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s4')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 5: Mixed Grammar ─── -->
+<h2 id="b5">Level 5: Mixed Grammar <span class="level-tag adv">No hints</span></h2>
+<p class="sec-intro">Eight items mixing all the grammar areas above. No labels &mdash; identify the transformation yourself.</p>
+<div id="s5" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;If I were you, I&rsquo;d take the earlier train,&rdquo; said Marta.</p>
+  <p class="kwt-kw">ADVISED</p>
+  <p class="kwt-gap">Marta <input type="text" class="ki" data-a="advised me to take" data-h="advised me" data-k="advised"> the earlier train.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">The last time I saw John was in June.</p>
+  <p class="kwt-kw">SEEN</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="have not seen John since|haven't seen John since" data-h="have not seen John|haven't seen John" data-k="seen"> June.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">It was such a boring film that we left the cinema early.</p>
+  <p class="kwt-kw">SO</p>
+  <p class="kwt-gap">The film <input type="text" class="ki" data-a="was so boring that" data-h="was so boring" data-k="so"> we left the cinema early.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">Although she was tired, she finished the report.</p>
+  <p class="kwt-kw">DESPITE</p>
+  <p class="kwt-gap">She finished the report <input type="text" class="ki" data-a="despite being" data-h="" data-k="despite"> tired.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">You can&rsquo;t use your phone during the exam.</p>
+  <p class="kwt-kw">ALLOWED</p>
+  <p class="kwt-gap">You <input type="text" class="ki" data-a="are not allowed to use|aren't allowed to use" data-h="are not allowed|aren't allowed" data-k="allowed"> your phone during the exam.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">Someone took our photos at the party.</p>
+  <p class="kwt-kw">HAD</p>
+  <p class="kwt-gap">We <input type="text" class="ki" data-a="had our photos taken" data-h="had our photos" data-k="had"> at the party.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">7</div><div class="kwt-body">
+  <p class="kwt-lead">It&rsquo;s possible that she missed the bus.</p>
+  <p class="kwt-kw">MAY</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="may have missed" data-h="may have" data-k="may"> the bus.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">8</div><div class="kwt-body">
+  <p class="kwt-lead">Learning to play a musical instrument is good for children.</p>
+  <p class="kwt-kw">WORTH</p>
+  <p class="kwt-gap">It <input type="text" class="ki" data-a="is worth learning to play" data-h="is worth learning" data-k="worth"> a musical instrument.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s5')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s5')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 6: Vocabulary Focus ─── -->
+<h2 id="b6">Level 6: Vocabulary Focus <span class="level-tag adv">No hints</span></h2>
+<p class="sec-intro">Phrasal verbs, fixed expressions and verb patterns.</p>
+<div id="s6" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">I&rsquo;m really looking forward to the holidays.</p>
+  <p class="kwt-kw">WAIT</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="cannot wait for|can't wait for|can not wait for" data-h="cannot wait|can't wait|can not wait" data-k="wait"> the holidays to start.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">He stopped smoking five years ago.</p>
+  <p class="kwt-kw">GAVE</p>
+  <p class="kwt-gap">He <input type="text" class="ki" data-a="gave up smoking" data-h="gave up" data-k="gave"> five years ago.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">She didn&rsquo;t manage to pass the driving test.</p>
+  <p class="kwt-kw">SUCCEED</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="did not succeed in passing|didn't succeed in passing" data-h="did not succeed in|didn't succeed in" data-k="succeed"> the driving test.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">There&rsquo;s no point in complaining about it.</p>
+  <p class="kwt-kw">USE</p>
+  <p class="kwt-gap">It <input type="text" class="ki" data-a="is no use complaining" data-h="is no use" data-k="use"> about it.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">My brother started playing guitar when he was ten.</p>
+  <p class="kwt-kw">BEEN</p>
+  <p class="kwt-gap">My brother <input type="text" class="ki" data-a="has been playing guitar since" data-h="has been playing" data-k="been"> he was ten.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">We had to postpone the meeting because of the snow.</p>
+  <p class="kwt-kw">PUT</p>
+  <p class="kwt-gap">We had to <input type="text" class="ki" data-a="put the meeting off|put off the meeting" data-h="put off|put the" data-k="put"> because of the snow.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">7</div><div class="kwt-body">
+  <p class="kwt-lead">She said sorry for arriving late.</p>
+  <p class="kwt-kw">APOLOGISED</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="apologised for arriving" data-h="apologised for" data-k="apologised"> late.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">8</div><div class="kwt-body">
+  <p class="kwt-lead">It took me a long time to recover from my illness.</p>
+  <p class="kwt-kw">GET</p>
+  <p class="kwt-gap">It took me a long time to <input type="text" class="ki" data-a="get over" data-h="" data-k="get"> my illness.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s6')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s6')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 7: Exam Practice Set A ─── -->
+<h2 id="b7">Level 7: Exam Practice &mdash; Set A <span class="level-tag exam">Exam level</span></h2>
+<p class="sec-intro">Six items, mixed grammar and vocabulary. No labels, no hints &mdash; just like the real exam.</p>
+<div id="s7" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">The teacher said we couldn&rsquo;t use dictionaries during the test.</p>
+  <p class="kwt-kw">ALLOWED</p>
+  <p class="kwt-gap">We <input type="text" class="ki" data-a="were not allowed to use|weren't allowed to use" data-h="were not allowed|weren't allowed" data-k="allowed"> dictionaries during the test.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">I haven&rsquo;t decided yet whether to accept the offer.</p>
+  <p class="kwt-kw">MIND</p>
+  <p class="kwt-gap">I haven&rsquo;t <input type="text" class="ki" data-a="made up my mind" data-h="made up my" data-k="mind"> whether to accept the offer.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">I started learning French six months ago.</p>
+  <p class="kwt-kw">BEEN</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="have been learning French for" data-h="have been learning" data-k="been"> six months.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">I&rsquo;m sure he is telling the truth.</p>
+  <p class="kwt-kw">MUST</p>
+  <p class="kwt-gap">He <input type="text" class="ki" data-a="must be telling" data-h="must be" data-k="must"> the truth.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">The match was cancelled because of the heavy rain.</p>
+  <p class="kwt-kw">CALLED</p>
+  <p class="kwt-gap">The match <input type="text" class="ki" data-a="was called off" data-h="was called" data-k="called"> because of the heavy rain.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">Tom&rsquo;s French is better than his German.</p>
+  <p class="kwt-kw">AS</p>
+  <p class="kwt-gap">Tom&rsquo;s German <input type="text" class="ki" data-a="is not as good as|isn't as good as" data-h="is not as good|isn't as good" data-k="as"> his French.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s7')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s7')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ─── Level 8: Exam Practice Set B ─── -->
+<h2 id="b8">Level 8: Exam Practice &mdash; Set B <span class="level-tag exam">Exam level</span></h2>
+<p class="sec-intro">Another six mixed items at full exam difficulty.</p>
+<div id="s8" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;Why don&rsquo;t you join a gym?&rdquo; she said to me.</p>
+  <p class="kwt-kw">SUGGESTED</p>
+  <p class="kwt-gap">She <input type="text" class="ki" data-a="suggested I join|suggested that I join|suggested joining|suggested i should join|suggested that i should join" data-h="suggested" data-k="suggested"> a gym.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">It was wrong of you not to tell me about the problem.</p>
+  <p class="kwt-kw">SHOULD</p>
+  <p class="kwt-gap">You <input type="text" class="ki" data-a="should have told me" data-h="should have" data-k="should"> about the problem.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">Unless you hurry, you&rsquo;ll miss the train.</p>
+  <p class="kwt-kw">IF</p>
+  <p class="kwt-gap"><input type="text" class="ki" data-a="if you do not|if you don't" data-h="if you" data-k="if"> hurry, you&rsquo;ll miss the train.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">Nobody in the class is taller than Marco.</p>
+  <p class="kwt-kw">TALLEST</p>
+  <p class="kwt-gap">Marco <input type="text" class="ki" data-a="is the tallest in|is the tallest student in" data-h="is the tallest" data-k="tallest"> the class.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">A mechanic is repairing my car at the moment.</p>
+  <p class="kwt-kw">HAVING</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="am having my car repaired" data-h="am having my car" data-k="having"> at the moment.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">Despite the heavy traffic, they arrived on time.</p>
+  <p class="kwt-kw">THOUGH</p>
+  <p class="kwt-gap"><input type="text" class="ki" data-a="even though the traffic was|though the traffic was" data-h="the traffic was" data-k="though"> heavy, they arrived on time.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s8')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s8')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     PART C — EXAM SIMULATION
+     ═══════════════════════════════════ -->
+<h2 class="part-label">Part C &mdash; Exam Simulation</h2>
+<p class="part-sub">A complete Part 4 set under exam conditions. Try to finish in 12 minutes.</p>
+
+<h2 id="c1">Full Exam Set <span class="level-tag exam">Exam simulation</span></h2>
+<div class="rule">
+  <b>Exam rules reminder:</b>
+  <br>&bull; Complete the second sentence so that it has a similar meaning to the first.
+  <br>&bull; Use the word given &mdash; do <b>not</b> change it.
+  <br>&bull; Write between <b>2 and 5 words</b>, including the word given.
+  <br>&bull; Contractions count as <b>two words</b>.
+</div>
+
+<div id="s9" class="ex-section">
+
+<div class="kwt-item"><div class="kwt-num">1</div><div class="kwt-body">
+  <p class="kwt-lead">&ldquo;I&rsquo;m sorry I forgot your birthday,&rdquo; Tom said to me.</p>
+  <p class="kwt-kw">APOLOGISED</p>
+  <p class="kwt-gap">Tom <input type="text" class="ki" data-a="apologised for forgetting my" data-h="apologised for forgetting|apologised for" data-k="apologised"> birthday.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">2</div><div class="kwt-body">
+  <p class="kwt-lead">The last time I saw Maria was two years ago.</p>
+  <p class="kwt-kw">FOR</p>
+  <p class="kwt-gap">I <input type="text" class="ki" data-a="have not seen Maria for|haven't seen Maria for" data-h="have not seen Maria|haven't seen Maria" data-k="for"> two years.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">3</div><div class="kwt-body">
+  <p class="kwt-lead">Nobody in the class speaks French as well as Maria.</p>
+  <p class="kwt-kw">BEST</p>
+  <p class="kwt-gap">Maria is <input type="text" class="ki" data-a="the best French speaker" data-h="the best" data-k="best"> in the class.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">4</div><div class="kwt-body">
+  <p class="kwt-lead">A local firm decorated our flat last month.</p>
+  <p class="kwt-kw">HAD</p>
+  <p class="kwt-gap">We <input type="text" class="ki" data-a="had our flat decorated" data-h="had our flat" data-k="had"> last month.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">5</div><div class="kwt-body">
+  <p class="kwt-lead">You don&rsquo;t have to wear a uniform at this school.</p>
+  <p class="kwt-kw">NECESSARY</p>
+  <p class="kwt-gap">It <input type="text" class="ki" data-a="is not necessary to wear|isn't necessary to wear" data-h="is not necessary|isn't necessary" data-k="necessary"> a uniform at this school.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="kwt-item"><div class="kwt-num">6</div><div class="kwt-body">
+  <p class="kwt-lead">Although the weather was bad, we enjoyed the trip.</p>
+  <p class="kwt-kw">SPITE</p>
+  <p class="kwt-gap">We enjoyed the trip <input type="text" class="ki" data-a="in spite of the" data-h="in spite of" data-k="spite"> bad weather.</p>
+  <p class="ca"></p>
+</div></div>
+
+<div class="btn-row">
+  <button class="btn btn-ck" onclick="checkSection('s9')">Check</button>
+  <button class="btn btn-rs" onclick="resetSection('s9')">Reset</button>
+  <span class="score-stamp"></span>
+</div>
+</div>
+
+<!-- ═══ Global buttons ═══ -->
+<div style="margin-top:2.5rem;text-align:center;">
+  <button class="btn btn-ck" onclick="checkAll()" style="font-size:.95rem;padding:.6rem 2rem;">Check All Exercises</button>
+  <button class="btn btn-rs" onclick="resetAll()" style="font-size:.95rem;padding:.6rem 2rem;">Reset All</button>
+</div>
+
+</div><!-- /wrap -->
+
+<footer>English Brush-Up &middot; Key Word Transformations &middot; Cambridge B2 First</footer>
+
+<script>
+/* ═══ Normalise ═══ */
+function norm(s){
+  return s.trim().toLowerCase()
+    .replace(/[‘’′`´]/g,"'")
+    .replace(/[“”]/g,'"')
+    .replace(/\s+/g,' ');
+}
+
+/* ═══ Check one section ═══ */
+function checkSection(id){
+  var sec=document.getElementById(id);
+  if(!sec) return;
+  var inputs=sec.querySelectorAll('.ki');
+  var marks=0, max=inputs.length*2;
+
+  inputs.forEach(function(inp){
+    var val=norm(inp.value);
+    var full=inp.getAttribute('data-a').split('|').map(norm);
+    var hRaw=inp.getAttribute('data-h')||'';
+    var half=hRaw?hRaw.split('|').filter(Boolean).map(norm):[];
+    var kw=norm(inp.getAttribute('data-k')||'');
+    var ca=inp.closest('.kwt-item').querySelector('.ca');
+
+    inp.classList.remove('right','half','wrong');
+    if(ca){ca.className='ca';ca.textContent='';}
+
+    if(!val){
+      /* empty */
+      inp.classList.add('wrong');
+      if(ca){ca.className='ca show c-miss';ca.textContent='→ '+full[0];}
+    } else if(full.indexOf(val)>=0){
+      /* fully correct */
+      inp.classList.add('right');
+      marks+=2;
+    } else if(half.length && half.some(function(h){return val.indexOf(h)>=0;})){
+      /* partial */
+      inp.classList.add('half');
+      marks+=1;
+      if(ca){ca.className='ca show c-part';ca.textContent='½ mark — Full answer: '+full[0];}
+    } else {
+      /* wrong */
+      inp.classList.add('wrong');
+      var msg='→ '+full[0];
+      if(kw && val.indexOf(kw)<0) msg='⚠ Include the key word! '+msg;
+      if(ca){ca.className='ca show c-miss';ca.textContent=msg;}
+    }
+  });
+
+  var pct=max?Math.round(marks/max*100):0;
+  var stamp=sec.querySelector('.score-stamp');
+  if(stamp){
+    stamp.textContent=marks+' / '+max+' marks ('+pct+'%)';
+    stamp.className='score-stamp '+(pct>=70?'good':pct>=50?'mid':'low');
+    stamp.style.display='inline-block';
+  }
+}
+
+/* ═══ Reset one section ═══ */
+function resetSection(id){
+  var sec=document.getElementById(id);
+  if(!sec) return;
+  sec.querySelectorAll('.ki').forEach(function(inp){
+    inp.value='';
+    inp.classList.remove('right','half','wrong');
+  });
+  sec.querySelectorAll('.ca').forEach(function(ca){
+    ca.className='ca';ca.textContent='';
+  });
+  var stamp=sec.querySelector('.score-stamp');
+  if(stamp) stamp.style.display='none';
+}
+
+/* ═══ Global ═══ */
+function checkAll(){
+  document.querySelectorAll('.ex-section').forEach(function(s){checkSection(s.id);});
+}
+function resetAll(){
+  document.querySelectorAll('.ex-section').forEach(function(s){resetSection(s.id);});
+}
+
+/* ═══ Enter key moves to next input ═══ */
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter' && e.target.classList.contains('ki')){
+    e.preventDefault();
+    var all=Array.from(document.querySelectorAll('.ki'));
+    var idx=all.indexOf(e.target);
+    if(idx>=0 && idx<all.length-1) all[idx+1].focus();
+  }
+});
+</script>
+</body>
+</html>
